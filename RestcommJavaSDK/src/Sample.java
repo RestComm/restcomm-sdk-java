@@ -7,8 +7,11 @@ public class Sample {
 	
 	public static void main(String args[]) throws ClientProtocolException, IOException, URISyntaxException
 	{
-		Credentials.setAuthID("ACee72087d9be1903b60fc31e8aad3a8d3");
-		Credentials.setAuthToken("3358dfd6439e39dd1d908f64a9fa1e21");
+		//Set your AuthId and AuthToken
+		Credentials.setAuthID("");
+		Credentials.setAuthToken("");
+		
+		//Im keeping it to the default cloud Url but you can change it to anything that you require
 		Constants.COMMON_URL = "https://cloud.restcomm.com/restcomm/2012-04-24";
 		
 		//Fetching the Default Account Associated with the login credentials specified
@@ -16,7 +19,7 @@ public class Sample {
 	
 		
 		//Modifying the details of the Default Account
-		account.modifyAccountDetails().newFriendlyName("Paul").newStatus("pool").newPassword("poland").modify();
+		account.modifyAccountDetails().newFriendlyName("Paul").newStatus("").newPassword("poland").modify();
 		
 		
 	}

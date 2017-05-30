@@ -17,8 +17,6 @@ public class Account extends SubAccount{
 		Request request = new Request(BASE_URL+Credentials.getAuthID().replaceAll("@", "%40"));
 		HttpMethod http = new HttpMethod("GET",request);
 		Response object = http.execute();
-		if(object.getHttpStatusCode()==200)return object.getAccount();
-		else if (object.getHttpStatusCode()==401) {System.out.println("Please Check your Credentials and Try again");return null;}
 		return object.getAccount();
 	}
 
