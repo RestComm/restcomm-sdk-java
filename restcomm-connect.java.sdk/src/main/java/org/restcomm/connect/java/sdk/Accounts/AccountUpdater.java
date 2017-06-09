@@ -12,13 +12,17 @@ import org.restcomm.connect.java.sdk.http.HttpClient;
 import org.restcomm.connect.java.sdk.http.HttpMethod;
 import org.restcomm.connect.java.sdk.http.Request;
 
-public class AccountUpdater{
+import Default.Restcomm;
+import Default.Accounts.Account;
+import Default.Accounts.AccountUpdater;
+import Default.test.Utilities;
 
-	private static String BASE_URL = Constants.COMMON_URL+"Accounts/";
+public class AccountUpdater {
+
 	private Request request;
-	AccountUpdater()
+	AccountUpdater(final String BASE_URL)
 	{
-		request = new Request(HttpMethod.GET,BASE_URL+Credentials.getAuthID().replaceAll("@", "%40"));
+		request = new Request(HttpMethod.PUT,BASE_URL+Restcomm.getAuthID().replaceAll("@", "%40"));
 	}
 	public AccountUpdater newPassword(String value)
 	{
@@ -36,10 +40,9 @@ public class AccountUpdater{
 		return this;
 	}
 	
-	public Account modify() throws ParseException, JAXBException, IOException
+	public Account modify() throws IOException, JAXBException
 	{
-		HttpClient client = new HttpClient(request);
-		client.execute();
-		return client.getObjectResponse().getAccount();
+		Restcomm.sendRequest(request);	
+		return Utilities.AccountObject(Restcomm.getJSONResponse());
 	}
 }

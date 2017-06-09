@@ -19,12 +19,13 @@ import org.restcomm.connect.java.sdk.Constants;
 public class AccountTest extends BasicTest{
 
 	
-	
+
 	@Test
 	public void testGetAccount() throws IOException, JAXBException {
 		Account a = Account.getAccount();
-		//assertNotNull("You did not receive a proper response for your request",a);
-		assertEquals("You have not fetched the right account"+" "+a.getSid(),Credentials.getAuthID(),a.getSid());
+		
+		assertNotNull("No Account Fetched received",a);
+		assertEquals("Correct Account Not Fetched",Restcomm.getAuthID(),a.getSid());
 	}
 	
 	

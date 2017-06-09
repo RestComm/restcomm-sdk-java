@@ -31,17 +31,25 @@ import org.restcomm.connect.java.sdk.EmailMessages.EmailMessage;
 
 import javax.xml.bind.annotation.XmlAccessType;
 
-@XmlRootElement(name="RestcommResponse")
-@XmlAccessorType(XmlAccessType.FIELD)
 
 public class Response {
 	
-	 private int HttpStatusCode;
+	 private int ResponseCode;
 	 
-	 @XmlElement(name="Account")
+	 public void setResponseCode(int x)
+	 {
+		 this.ResponseCode=x;
+	 }
+	 public int getResponseCode()
+	 {
+		 return this.ResponseCode;
+	 }
+	 
+	 
+	 @SerializedName("Account")
 	 private Account Account;
 	  
-	 @XmlElement(name="Accounts")
+	 @SerializedName("Accounts")
 	 private SubAccountList SubAccountList;
 	
 	 @XmlElement(name="Application")
@@ -65,7 +73,7 @@ public class Response {
 	 @XmlElement(name="Calls")
 	 private CallList CallList;
 	 
-	 /*@XmlElement(name="Gateway")
+	 @XmlElement(name="Gateway")
 	 private Gateway Gateway;
 	 
 	 @XmlElement(name="Gateways")
@@ -82,7 +90,7 @@ public class Response {
 	 
 	 @XmlElement(name="Recording")
 	 private Recording Recording;
-	 */
+	 
 	 @XmlElement(name="EmailMessage")
 	 private EmailMessage EmailMessage;
 	 
@@ -152,7 +160,7 @@ public class Response {
 		public void setGatewayList (GatewayList GatewayList)
 		{
 		   this.GatewayList = GatewayList;
-		}*/
+		}
 	    public ClientList getClientList ()
 	    {
 	        return Clients;
@@ -221,7 +229,7 @@ public class Response {
 	}
 	public void setApplicationList(ApplicationList applicationList) {
 		ApplicationList = applicationList;
-	}/*
+	}
 	public SMSMessage getSMSMessage() {
 		return SMSMessage;
 	}
@@ -268,7 +276,7 @@ public class Response {
 	public void setHttpStatusCode(int httpStatusCode) {
 		HttpStatusCode = httpStatusCode;
 	}
-	*/
+	
 	public SubAccountList getSubAccountList() {
 		return SubAccountList;
 	}

@@ -11,8 +11,13 @@ import org.restcomm.connect.java.sdk.http.HttpClient;
 import org.restcomm.connect.java.sdk.http.HttpMethod;
 import org.restcomm.connect.java.sdk.http.Request;
 
+import Default.Restcomm;
+import Default.Accounts.SubAccount;
+import Default.Accounts.SubAccountUpdater;
+import Default.test.Utilities;
+
 public class SubAccountUpdater {
-	private static String BASE_URL = Constants.COMMON_URL+"Accounts/";
+	private String BASE_URL;
 	private Request request;
 	SubAccountUpdater()
 	{
@@ -47,9 +52,8 @@ public class SubAccountUpdater {
 	}
 	public SubAccount create() throws IOException, ParseException, JAXBException
 	{
-		HttpClient client = new HttpClient(request);
-		client.execute();
-		return client.getObjectResponse().getAccount();
+		Restcomm.sendRequest(request);
+		return (SubAccount)Utilities.AccountObject(Restcomm.getJSONResponse());
 	}
 
 }

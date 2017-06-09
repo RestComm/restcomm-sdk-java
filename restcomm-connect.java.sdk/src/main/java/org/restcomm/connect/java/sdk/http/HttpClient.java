@@ -26,18 +26,17 @@ import org.apache.http.util.EntityUtils;
 
 import org.restcomm.connect.java.sdk.Credentials;
 
+import http.Request;
+
 public class HttpClient{
 	
-		private Request request;
+		
 		private CloseableHttpClient httpclient;
 		private static CloseableHttpResponse response;
 		private HttpGet httpget;
 		private HttpPut httpput;
 		private HttpPost httppost;
-		private HttpDelete httpdelete;
-		private Response Object;
-		private StringReader sr;
-		
+		private HttpDelete httpdelete;		
 		public HttpClient(final Request request)
 		{
 			this.request= request;
@@ -49,24 +48,25 @@ public class HttpClient{
 			CredentialsProvider credsProvider = new BasicCredentialsProvider();
 	        credsProvider.setCredentials(
 	                new AuthScope("cloud.restcomm.com", -1),
-	                new UsernamePasswordCredentials(Credentials.getAuthID(),Credentials.getAuthToken()));
+	                new UsernamePasswordCredentials(Restcomm.getAuthID(),Restcomm.getPassword()));
 	        httpclient = HttpClients.custom()
 	                .setDefaultCredentialsProvider(credsProvider)
 	                .build();
 		}
 		
-		
-		public void connect()
+		public String connect(final Request request)
 		{
+			String responseString=null;
 			try {
 				
 			
-				
-				if(request.getMethod().toString()=="GET") {
+				switch(request.getMethod().toString())
+				{
+				case "GET" :
 							httpget = new HttpGet(request.getUrl());
 							response = httpclient.execute(httpget);
-				}
-				else if(request.getMethod().toString()=="POST"){
+							break;
+				case "POST":
 							httppost = new HttpPost(request.getUrl());
 							httppost.setEntity(new UrlEncodedFormEntity(request.PostParameters));
 							response = httpclient.execute(httppost);
@@ -83,8 +83,8 @@ public class HttpClient{
 				                }
 
 				            }*/
-				}		
-				else if(request.getMethod().toString()=="PUT"){
+							break;
+				case "PUT": 
 							httpput = new HttpPut(request.getUrl());
 							httpput.setEntity(new UrlEncodedFormEntity(request.PostParameters));
 							response = httpclient.execute(httpput);
@@ -100,13 +100,15 @@ public class HttpClient{
 		                }
 
 		            }*/
-				}
-				else if(request.getMethod().toString()=="DELETE"){
+							break;
+				case "DELETE":
 							httpdelete = new HttpDelete(request.getUrl());
 							response = httpclient.execute(httpdelete);
+							break;
 							
 				}
-				sr = new StringReader(EntityUtils.toString(response.getEntity()));
+				
+				responseString = EntityUtils.toString(response.getEntity());
 				response.close();
 				httpclient.close();
 			}
@@ -114,13 +116,24 @@ public class HttpClient{
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+			return responseString;
 		}
-		public void toObjectResponse() throws ParseException, IOException, JAXBException
+		/*public String toObjectResponse() throws ParseException, IOException
 		{
+			
+			Gson gson = new Gson();
+			
+			System.out.println(responseString);
+			Response Object = gson.fromJson(responseString,Response.class);
+			
+			
+			
+			
+			
 			Object = new Response();
 			
             JAXBContext jaxbContext;
-			
+			try {
 				jaxbContext = JAXBContext.newInstance(Response.class);
 			
             
@@ -128,18 +141,26 @@ public class HttpClient{
             
             Object = (Response) jaxbUnmarshaller.unmarshal(sr);
             
+            
+			}
+			 catch (JAXBException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 		}
-		
-		public void execute() throws JAXBException, ParseException, IOException
+		*/
+		public String execute(Request request)
 		{
 			this.authenticate();
-			this.connect();
-			this.toObjectResponse();	
+			return this.connect(request);
 		}
-		public Response getObjectResponse()
+		/*public Resource toObject()
 		{
+			Gson gson = new Gson();
+			Resource Object = gson.fromJson(responseString,Resource.class);
 			return Object;
-		}
+		}*/		
 		
+}
 		
 }
