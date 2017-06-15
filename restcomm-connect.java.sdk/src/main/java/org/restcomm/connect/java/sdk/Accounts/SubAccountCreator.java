@@ -52,22 +52,22 @@ public class SubAccountCreator {
 	}
 	public SubAccount create() throws IOException, ParseException, JAXBException
 	{
-		//try
-		//{
-			//if(email && password && role)
-			//{
+		try
+		{
+			if(email && password && role)
+			{
 				Restcomm.sendRequest(request);
 				//System.out.println(Restcomm.getJSONResponse());
 				return (SubAccount)Utilities.AccountObject(Restcomm.getJSONResponse());
-			//}
-			//else throw new InsufficientResourcesException("You need to specify Email,Password and Role for this request");
-		//}
-		//catch(InsufficientResourcesException e)
-		//{
-			//System.out.println(e);
-			//e.printStackTrace();
-		//}
-		//return null;
+			}
+			else throw new InsufficientResourcesException("You need to specify Email,Password and Role for this request");
+		}
+		catch(InsufficientResourcesException e)
+		{
+			System.out.println(e);
+			e.printStackTrace();
+		}
+		return null;
 
 	}
 }
