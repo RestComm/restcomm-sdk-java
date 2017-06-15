@@ -1,14 +1,16 @@
 package org.restcomm.connect.java.sdk.http;
-
+import org.restcomm.connect.java.sdk.Restcomm;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.StringReader;
+import java.nio.charset.StandardCharsets;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Unmarshaller;
 
+import org.apache.commons.codec.binary.Base64;
 import org.apache.http.ParseException;
 import org.apache.http.auth.AuthScope;
 import org.apache.http.auth.UsernamePasswordCredentials;
@@ -21,12 +23,11 @@ import org.apache.http.client.methods.HttpPost;
 import org.apache.http.client.methods.HttpPut;
 import org.apache.http.impl.client.BasicCredentialsProvider;
 import org.apache.http.impl.client.CloseableHttpClient;
+import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.util.EntityUtils;
 
-import org.restcomm.connect.java.sdk.Credentials;
 
-import http.Request;
 
 public class HttpClient{
 	
@@ -36,22 +37,14 @@ public class HttpClient{
 		private HttpGet httpget;
 		private HttpPut httpput;
 		private HttpPost httppost;
-		private HttpDelete httpdelete;		
-		public HttpClient(final Request request)
-		{
-			this.request= request;
-		}
-		
+		private HttpDelete httpdelete;	
+		private byte[] credentials;
+		private int StatusCode;
 		
 		public void authenticate()
 		{
-			CredentialsProvider credsProvider = new BasicCredentialsProvider();
-	        credsProvider.setCredentials(
-	                new AuthScope("cloud.restcomm.com", -1),
-	                new UsernamePasswordCredentials(Restcomm.getAuthID(),Restcomm.getPassword()));
-	        httpclient = HttpClients.custom()
-	                .setDefaultCredentialsProvider(credsProvider)
-	                .build();
+			this.credentials = Base64.encodeBase64((Restcomm.getAuthID() + ":" + Restcomm.getPassword()).getBytes(StandardCharsets.UTF_8));
+			this.httpclient =  HttpClientBuilder.create().build();
 		}
 		
 		public String connect(final Request request)
@@ -60,14 +53,15 @@ public class HttpClient{
 			try {
 				
 			
-				switch(request.getMethod().toString())
-				{
-				case "GET" :
+				
+					if(request.getMethod().toString()=="GET"){ 
 							httpget = new HttpGet(request.getUrl());
+							httpget.setHeader("Authorization", "Basic " + new String( this.credentials, StandardCharsets.UTF_8));
 							response = httpclient.execute(httpget);
-							break;
-				case "POST":
+					}
+					else if(request.getMethod().toString()=="POST"){
 							httppost = new HttpPost(request.getUrl());
+							httppost.setHeader("Authorization", "Basic " + new String( credentials, StandardCharsets.UTF_8));
 							httppost.setEntity(new UrlEncodedFormEntity(request.PostParameters));
 							response = httpclient.execute(httppost);
 							
@@ -83,9 +77,10 @@ public class HttpClient{
 				                }
 
 				            }*/
-							break;
-				case "PUT": 
+					}
+					else if(request.getMethod().toString()=="PUT"){ 
 							httpput = new HttpPut(request.getUrl());
+							httpput.setHeader("Authorization", "Basic " + new String( credentials, StandardCharsets.UTF_8));
 							httpput.setEntity(new UrlEncodedFormEntity(request.PostParameters));
 							response = httpclient.execute(httpput);
 							/*BufferedReader rd = new BufferedReader(new InputStreamReader(
@@ -100,14 +95,14 @@ public class HttpClient{
 		                }
 
 		            }*/
-							break;
-				case "DELETE":
+					}
+					else if(request.getMethod().toString()=="DELETE"){
 							httpdelete = new HttpDelete(request.getUrl());
-							response = httpclient.execute(httpdelete);
-							break;
-							
-				}
+							httpdelete.setHeader("Authorization", "Basic " + new String( credentials, StandardCharsets.UTF_8));
+							response = httpclient.execute(httpdelete);		
+					}	
 				
+				this.StatusCode=response.getStatusLine().getStatusCode();
 				responseString = EntityUtils.toString(response.getEntity());
 				response.close();
 				httpclient.close();
@@ -160,7 +155,11 @@ public class HttpClient{
 			Resource Object = gson.fromJson(responseString,Resource.class);
 			return Object;
 		}*/		
-		
+		public int getStatusCode()
+		{
+			return this.StatusCode;
+		}
 }
 		
-}
+
+

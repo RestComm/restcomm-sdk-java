@@ -6,15 +6,12 @@ import javax.xml.bind.JAXBException;
 
 import org.apache.http.ParseException;
 
-import org.restcomm.connect.java.sdk.Constants;
-import org.restcomm.connect.java.sdk.http.HttpClient;
-import org.restcomm.connect.java.sdk.http.HttpMethod;
-import org.restcomm.connect.java.sdk.http.Request;
+import org.restcomm.connect.java.sdk.http.*;
 
-import Default.Restcomm;
-import Default.Accounts.SubAccount;
-import Default.Accounts.SubAccountUpdater;
-import Default.test.Utilities;
+import org.restcomm.connect.java.sdk.Restcomm;
+import org.restcomm.connect.java.sdk.Accounts.SubAccount;
+import org.restcomm.connect.java.sdk.Accounts.SubAccountUpdater;
+import org.restcomm.connect.java.sdk.Utilities;
 
 public class SubAccountUpdater {
 	private String BASE_URL;
@@ -22,8 +19,8 @@ public class SubAccountUpdater {
 	SubAccountUpdater()
 	{
 	}
-	public SubAccountUpdater(String sid) {
-		request = new Request(HttpMethod.PUT,BASE_URL+sid.replaceAll("@", "%40"));
+	public SubAccountUpdater(final String BASE_URL) {
+		request = new Request(HttpMethod.PUT,BASE_URL);
 	}
 	public SubAccountUpdater newRole(String value)
 	{
@@ -50,7 +47,7 @@ public class SubAccountUpdater {
 		request.addPostParameters("FriendlyName", value);
 		return this;
 	}
-	public SubAccount create() throws IOException, ParseException, JAXBException
+	public SubAccount update() throws IOException, ParseException, JAXBException
 	{
 		Restcomm.sendRequest(request);
 		return (SubAccount)Utilities.AccountObject(Restcomm.getJSONResponse());

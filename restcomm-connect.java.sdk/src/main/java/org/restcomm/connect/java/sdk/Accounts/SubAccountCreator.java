@@ -2,26 +2,25 @@ package org.restcomm.connect.java.sdk.Accounts;
 
 import java.io.IOException;
 
+import javax.naming.InsufficientResourcesException;
 import javax.xml.bind.JAXBException;
 
 import org.apache.http.ParseException;
 
-import org.restcomm.connect.java.sdk.Constants;
-import org.restcomm.connect.java.sdk.Credentials;
-import org.restcomm.connect.java.sdk.http.HttpClient;
-import org.restcomm.connect.java.sdk.http.HttpMethod;
-import org.restcomm.connect.java.sdk.http.Request;
+import org.restcomm.connect.java.sdk.Utilities;
+import org.restcomm.connect.java.sdk.http.*;
 
+import org.restcomm.connect.java.sdk.Restcomm;
 public class SubAccountCreator {
 
-	private String BASE_URL;
+
 	private Request request;
 	private Boolean role= false;
 	private Boolean password= false;
 	private Boolean email= false;
-	SubAccountCreator()
+	SubAccountCreator(final String BASE_URL)
 	{
-		request = new Request(HttpMethod.POST,BASE_URL+Restcomm.getAuthID().replaceAll("@", "%40"));
+		request = new Request(HttpMethod.POST,BASE_URL);
 	}
 	public SubAccountCreator Role(String value)
 	{
@@ -53,12 +52,22 @@ public class SubAccountCreator {
 	}
 	public SubAccount create() throws IOException, ParseException, JAXBException
 	{
-		if(email && password && role)
-		{
-			Restcomm.sendRequest(request);	
-			return (SubAccount)Utilities.AccountObject(Restcomm.getJSONResponse());
-		}
-		return null;
+		//try
+		//{
+			//if(email && password && role)
+			//{
+				Restcomm.sendRequest(request);
+				//System.out.println(Restcomm.getJSONResponse());
+				return (SubAccount)Utilities.AccountObject(Restcomm.getJSONResponse());
+			//}
+			//else throw new InsufficientResourcesException("You need to specify Email,Password and Role for this request");
+		//}
+		//catch(InsufficientResourcesException e)
+		//{
+			//System.out.println(e);
+			//e.printStackTrace();
+		//}
+		//return null;
 
 	}
 }

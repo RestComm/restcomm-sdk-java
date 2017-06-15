@@ -6,16 +6,11 @@ import javax.xml.bind.JAXBException;
 
 import org.apache.http.ParseException;
 
-import org.restcomm.connect.java.sdk.Constants;
-import org.restcomm.connect.java.sdk.Credentials;
-import org.restcomm.connect.java.sdk.http.HttpClient;
-import org.restcomm.connect.java.sdk.http.HttpMethod;
-import org.restcomm.connect.java.sdk.http.Request;
-
-import Default.Restcomm;
-import Default.Accounts.Account;
-import Default.Accounts.AccountUpdater;
-import Default.test.Utilities;
+import org.restcomm.connect.java.sdk.http.*;
+import org.restcomm.connect.java.sdk.Restcomm;
+import org.restcomm.connect.java.sdk.Accounts.Account;
+import org.restcomm.connect.java.sdk.Accounts.AccountUpdater;
+import org.restcomm.connect.java.sdk.Utilities;
 
 public class AccountUpdater {
 

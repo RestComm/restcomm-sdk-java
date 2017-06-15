@@ -19,29 +19,26 @@ import org.restcomm.connect.java.sdk.Restcomm;
 import org.restcomm.connect.java.sdk.Accounts.Account;
 
 
-public class AccountTest extends BasicTest{
+public class SubAccountListTest extends BasicTest{
 	
 	@Rule 
     public WireMockRule wireMockRule = new WireMockRule(8080);
 	
 	@Test
-	public void testHttpResponse() throws Exception { 
-		WireMock.stubFor(WireMock.get(WireMock.urlPathMatching("/Accounts.json/"+Restcomm.getAuthID()))
+	public void testGetSubAccountList() throws Exception { 
+		WireMock.stubFor(WireMock.get(WireMock.urlPathMatching("/Accounts.json/"))
 				  .withBasicAuth(Restcomm.getAuthID(),Restcomm.getPassword())
 				  .willReturn(WireMock.aResponse()
 				  .withStatus(200)
 				  .withHeader("Content-Type", "application/json")
-				  .withBody(readFile("GetResponse.txt"))));
+				  .withBody(readFile("GetLResponse.txt"))));
 		
-		Account a = Account.getAccount();
+		SubAccountList a = Account.SubAccountList();
 		
-		WireMock.verify(WireMock.getRequestedFor(WireMock.urlEqualTo("/Accounts.json/"+Restcomm.getAuthID())));
+		WireMock.verify(WireMock.getRequestedFor(WireMock.urlEqualTo("/Accounts.json/")));
 		assertEquals(200, Restcomm.getStatusCode());
-		
-
+		assertNotNull(a);
     }
-	
-	
 
 	
 

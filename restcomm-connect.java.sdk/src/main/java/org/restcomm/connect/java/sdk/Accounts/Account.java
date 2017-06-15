@@ -4,33 +4,27 @@ import org.restcomm.connect.java.sdk.http.*;
 
 import com.google.gson.Gson;
 
-import Default.Restcomm;
-import Default.Accounts.Account;
-import Default.Accounts.AccountUpdater;
-import http.HttpMethod;
-import http.Request;
-
+import org.restcomm.connect.java.sdk.Restcomm;
+import org.restcomm.connect.java.sdk.Accounts.Account;
+import org.restcomm.connect.java.sdk.Accounts.AccountUpdater;
 import java.io.IOException;
-
+import org.restcomm.connect.java.sdk.Utilities;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.annotation.XmlRootElement;
 
 import org.apache.http.ParseException;
 
-import org.restcomm.connect.java.sdk.Constants;
-import org.restcomm.connect.java.sdk.Credentials;
-
 
 public class Account extends SubAccount{
 	
-	private static String BASE_URL = Constants.COMMON_URL+"Accounts.json/";
+	private static String BASE_URL = Restcomm.COMMON_URL+"Accounts.json/";
 	
-	public static Account getAccount()
+	public static Account getAccount() 
 	{
 		Restcomm.sendRequest((new Request(HttpMethod.GET,BASE_URL+Restcomm.getAuthID().replaceAll("@", "%40"))));	
 		return 	Utilities.AccountObject(Restcomm.getJSONResponse());
 	}
-
+	
 	public AccountUpdater modifyAccountDetails()
 	{
 		return new AccountUpdater(BASE_URL);
@@ -43,26 +37,14 @@ public class Account extends SubAccount{
 	{
 		return new SubAccountList(BASE_URL);
 	}
-	
-	private String sid;
-
-    private String status;
-
-    private String date_updated;
-
-    private String role;
-
-    private String auth_token;
-
-    private String date_created;
-
-    private String friendly_name;
-
-    private String type;
-
-    private String uri;
-
-    private String email_address;
+	public static SubAccountList SubAccountList()
+	{
+		return new SubAccountList(BASE_URL);
+	}
+	public static SubAccountCreator createSubAccount()
+	{
+		return new SubAccountCreator(BASE_URL);
+	}
 
     public String getSid ()
     {
@@ -89,7 +71,7 @@ public class Account extends SubAccount{
         return date_updated;
     }
 
-    privatevoid setDate_updated (String date_updated)
+    private void setDate_updated (String date_updated)
     {
         this.date_updated = date_updated;
     }

@@ -3,7 +3,7 @@ package org.restcomm.connect.java.sdk;
 
 import com.google.gson.Gson;
 
-import Default.Accounts.Account;
+import org.restcomm.connect.java.sdk.Accounts.Account;
 
 public class Utilities {
 

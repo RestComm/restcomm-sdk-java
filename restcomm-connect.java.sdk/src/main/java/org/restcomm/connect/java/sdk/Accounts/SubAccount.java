@@ -23,16 +23,13 @@ public class SubAccount{
 	
 	public static SubAccount getSubAccount(final String sid) throws IOException, JAXBException
 	{
-		Restcomm.sendRequest((new Request(HttpMethod.GET,BASE_URL+sid);	
+		Restcomm.sendRequest(new Request(HttpMethod.GET,BASE_URL+sid));	
 		return Utilities.AccountObject(Restcomm.getJSONResponse());
 	}
-	public static SubAccountCreator createSubAccount()
-	{
-		return new SubAccountCreator(BASE_URL);
-	}
+	
 	public SubAccountUpdater modifySubAccountDetails()
 	{
-		return new SubAccountUpdater(this.BASE_URL);
+		return new SubAccountUpdater(this.BASE_URL+this.getSid());
 	}
 	public static SubAccountUpdater modifySubAccount(final String sid)
 	{
@@ -45,7 +42,7 @@ public class SubAccount{
 	}
 	public static void deleteSubAccount(final String sid)
 	{
-		Restcomm.sendRequest(new Request(HttpMethod.DELETE,BASE_URL+sid);
+		Restcomm.sendRequest(new Request(HttpMethod.DELETE,BASE_URL+sid));
 	}
 	
 	public String getSid ()
@@ -137,7 +134,7 @@ public class SubAccount{
         this.uri = uri;
     }
 
-    public String getEmail_address ()
+    public String getEmail_address()
     {
         return email_address;
     }
@@ -147,16 +144,16 @@ public class SubAccount{
         this.email_address = email_address;
     }
 
-    private String sid;
-	private String status;
-	private String date_updated;
-	private String role;
-	private String auth_token;
-	private String date_created;
-	private String friendly_name;
-	private String type;
-	private String uri;
-	private String email_address;
+    protected String sid;
+	protected String status;
+	protected String date_updated;
+	protected String role;
+	protected String auth_token;
+	protected String date_created;
+	protected String friendly_name;
+	protected String type;
+	protected String uri;
+	protected String email_address;
 	
 	@Override
 	public String toString()

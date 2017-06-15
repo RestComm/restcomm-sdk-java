@@ -18,9 +18,10 @@ import org.restcomm.connect.java.sdk.Accounts.*;
 
 
 
-public class AccountUpdaterTest extends BasicTest{
+public class SubAccountUpdaterTest extends BasicTest{
 	
-	private Account b;
+	private SubAccount b;
+	private String SubAccountSid = "AC53444f91e698c0c7caa2dbc3bdbf93fc";
 	
 	@Rule
 	public WireMockRule wireMockRule = new WireMockRule(8080);
@@ -28,48 +29,48 @@ public class AccountUpdaterTest extends BasicTest{
 	@Before
 	public void beforeTest() throws IOException, JAXBException
 	{
-		WireMock.stubFor(WireMock.get(WireMock.urlPathMatching("/Accounts.json/"+Restcomm.getAuthID()))
+		WireMock.stubFor(WireMock.get(WireMock.urlPathMatching("/Accounts.json/"+SubAccountSid))
 				  .withBasicAuth(Restcomm.getAuthID(),Restcomm.getPassword())
 				  .willReturn(WireMock.aResponse()
 				  .withStatus(200)
 				  .withHeader("Content-Type", "application/json")
-				  .withBody(readFile("GetResponse.txt"))));
+				  .withBody(readFile("GetSResponse.txt"))));
 		
-		b = Account.getAccount();
+		b = SubAccount.getSubAccount(SubAccountSid);
 		
 	}
 	@Test
 	public void testFriendlyNameUpdate() throws IOException, JAXBException {
-		WireMock.stubFor(WireMock.put(WireMock.urlPathMatching("/Accounts.json/"+Restcomm.getAuthID()))
+		WireMock.stubFor(WireMock.put(WireMock.urlPathMatching("/Accounts.json/"+SubAccountSid))
 				  .withBasicAuth(Restcomm.getAuthID(),Restcomm.getPassword())
-				  .withRequestBody(WireMock.containing("FriendlyName=Paul"))
+				  .withRequestBody(WireMock.containing("FriendlyName=Lion"))
 				  .willReturn(WireMock.aResponse()
 				  .withStatus(200)
 				  .withHeader("Content-Type", "application/json")
-				  .withBody(readFile("Fupdate.txt"))));
+				  .withBody(readFile("SFupdate.txt"))));
 		
 		
 		
-		b=b.modifyAccountDetails().newFriendlyName("Paul").modify();
+		b=b.modifySubAccountDetails().newFriendlyName("Lion").update();
 		
-		WireMock.verify(WireMock.putRequestedFor(WireMock.urlEqualTo("/Accounts.json/"+Restcomm.getAuthID())));
-		assertEquals(b.getFriendly_name(),"Paul");
+		WireMock.verify(WireMock.putRequestedFor(WireMock.urlEqualTo("/Accounts.json/"+SubAccountSid)));
+		assertEquals(b.getFriendly_name(),"Lion");
 		
 	}
 	public void testStatusUpdate() throws IOException, JAXBException {
-		WireMock.stubFor(WireMock.put(WireMock.urlPathMatching("/Accounts.json/"+Restcomm.getAuthID()))
+		WireMock.stubFor(WireMock.put(WireMock.urlPathMatching("/Accounts.json/"+SubAccountSid))
 				  .withBasicAuth(Restcomm.getAuthID(),Restcomm.getPassword())
 				  .withRequestBody(WireMock.containing("Status=suspended"))
 				  .willReturn(WireMock.aResponse()
 				  .withStatus(200)
 				  .withHeader("Content-Type", "application/json")
-				  .withBody(readFile("Supdate.txt"))));
+				  .withBody(readFile("SSupdate.txt"))));
 		
 		
 		
-		b=b.modifyAccountDetails().newStatus("suspended").modify();
+		b=b.modifySubAccountDetails().newStatus("suspended").update();
 		
-		WireMock.verify(WireMock.putRequestedFor(WireMock.urlEqualTo("/Accounts.json/"+Restcomm.getAuthID())));
+		WireMock.verify(WireMock.putRequestedFor(WireMock.urlEqualTo("/Accounts.json/"+SubAccountSid)));
 		assertEquals(b.getStatus(),"suspended");
 		
 	}

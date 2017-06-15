@@ -1,0 +1,24 @@
+ {
+    "sid": "ACea9861f0487ef69262977f286d7ca8c6",
+    "friendly_name": "DemoAccount",
+    "email_address": "demoaccount@restcomm.com",
+    "type": "Full",
+    "status": "closed",
+    "role": "Administrator",
+    "date_created": "Wed, 7 Jun 2017 10:03:38 +0000",
+    "date_updated": "Wed, 7 Jun 2017 10:03:41 +0000",
+    "auth_token": "cb0936cfee986d3e3ec6d1d77cc57888",
+    "uri": "/2012-04-24/Accounts.json/ACea9861f0487ef69262977f286d7ca8c6",
+    "subresource_uris": {
+      "available_phone_numbers": "/2012-04-24/Accounts/ACea9861f0487ef69262977f286d7ca8c6/AvailablePhoneNumbers.json",
+      "calls": "/2012-04-24/Accounts/ACea9861f0487ef69262977f286d7ca8c6/Calls.json",
+      "conferences": "/2012-04-24/Accounts/ACea9861f0487ef69262977f286d7ca8c6/Conferences.json",
+      "incoming_phone_numbers": "/2012-04-24/Accounts/ACea9861f0487ef69262977f286d7ca8c6/IncomingPhoneNumbers.json",
+      "notifications": "/2012-04-24/Accounts/ACea9861f0487ef69262977f286d7ca8c6/Notifications.json",
+      "outgoing_caller_ids": "/2012-04-24/Accounts/ACea9861f0487ef69262977f286d7ca8c6/OutgoingCallerIds.json",
+      "recordings": "/2012-04-24/Accounts/ACea9861f0487ef69262977f286d7ca8c6/Recordings.json",
+      "sandbox": "/2012-04-24/Accounts/ACea9861f0487ef69262977f286d7ca8c6/Sandbox.json",
+      "sms_messages": "/2012-04-24/Accounts/ACea9861f0487ef69262977f286d7ca8c6/SMS/Messages.json",
+      "transcriptions": "/2012-04-24/Accounts/ACea9861f0487ef69262977f286d7ca8c6/Transcriptions.json"
+    }
+  }

@@ -7,9 +7,8 @@ import javax.xml.bind.JAXBException;
 import org.apache.http.ParseException;
 import org.restcomm.connect.java.sdk.http.HttpClient;
 import org.restcomm.connect.java.sdk.http.Request;
-import org.restcomm.connect.java.sdk.http.Response;
 
-import Default.Restcomm;
+
 public class Restcomm {
 
 	private static String username;
@@ -18,6 +17,7 @@ public class Restcomm {
 	public static String COMMON_URL="https://cloud.restcomm.com/restcomm/2012-04-24/";
 	private static HttpClient httpclient;
 	private static String JSONResponse;
+	private static int StatusCode;
 	
 	public static void setCommonUrl(final String COMMON_URL)
 	{
@@ -27,14 +27,17 @@ public class Restcomm {
     	Restcomm.setUsername(username);
     	Restcomm.setPassword(password);
     }
-    public static void sendRequest(final Request request) throws ParseException, IOException,JAXBException
+    public static void sendRequest(final Request request) 
     {
     	Restcomm.refresh();
+    	
     	JSONResponse = httpclient.execute(request);
+    	StatusCode = httpclient.getStatusCode();
     }
     private static void refresh() {
 		httpclient = new HttpClient();
 		JSONResponse = null;
+		
 	}
 	public static String getJSONResponse()
     {
@@ -55,11 +58,16 @@ public class Restcomm {
 	public static String getPassword() {
 		return password;
 	}
-	public invalidate()
+	
+	public static void invalidate()
 	{
 		username = null;password=null;
 		COMMON_URL=null;authID=null;
 		httpclient=null;JSONResponse=null;
+	}
+	public static int getStatusCode()
+	{
+		return StatusCode;
 	}
 
 }
