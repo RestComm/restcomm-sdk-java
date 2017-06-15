@@ -1,0 +1,24 @@
+ {
+    "sid": "AC53444f91e698c0c7caa2dbc3bdbf93fc",
+    "friendly_name": "Lion",
+    "email_address": "demo@demo.com",
+    "type": "Full",
+    "status": "closed",
+    "role": "Administrator",
+    "date_created": "Tue, 6 Jun 2017 06:40:06 +0000",
+    "date_updated": "Tue, 6 Jun 2017 06:40:08 +0000",
+    "auth_token": "d109ad8c1a64f009a86d58fb7064dae7",
+    "uri": "/2012-04-24/Accounts.json/AC53444f91e698c0c7caa2dbc3bdbf93fc",
+    "subresource_uris": {
+      "available_phone_numbers": "/2012-04-24/Accounts/AC53444f91e698c0c7caa2dbc3bdbf93fc/AvailablePhoneNumbers.json",
+      "calls": "/2012-04-24/Accounts/AC53444f91e698c0c7caa2dbc3bdbf93fc/Calls.json",
+      "conferences": "/2012-04-24/Accounts/AC53444f91e698c0c7caa2dbc3bdbf93fc/Conferences.json",
+      "incoming_phone_numbers": "/2012-04-24/Accounts/AC53444f91e698c0c7caa2dbc3bdbf93fc/IncomingPhoneNumbers.json",
+      "notifications": "/2012-04-24/Accounts/AC53444f91e698c0c7caa2dbc3bdbf93fc/Notifications.json",
+      "outgoing_caller_ids": "/2012-04-24/Accounts/AC53444f91e698c0c7caa2dbc3bdbf93fc/OutgoingCallerIds.json",
+      "recordings": "/2012-04-24/Accounts/AC53444f91e698c0c7caa2dbc3bdbf93fc/Recordings.json",
+      "sandbox": "/2012-04-24/Accounts/AC53444f91e698c0c7caa2dbc3bdbf93fc/Sandbox.json",
+      "sms_messages": "/2012-04-24/Accounts/AC53444f91e698c0c7caa2dbc3bdbf93fc/SMS/Messages.json",
+      "transcriptions": "/2012-04-24/Accounts/AC53444f91e698c0c7caa2dbc3bdbf93fc/Transcriptions.json"
+    }
+ }
