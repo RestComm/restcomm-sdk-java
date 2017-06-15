@@ -50,7 +50,7 @@ public class SubAccount{
         return sid;
     }
 
-    private void setSid (String sid)
+	protected void setSid (String sid)
     {
         this.sid = sid;
     }
@@ -60,7 +60,7 @@ public class SubAccount{
         return status;
     }
 
-    private void setStatus (String status)
+    protected void setStatus (String status)
     {
         this.status = status;
     }
@@ -70,7 +70,7 @@ public class SubAccount{
         return date_updated;
     }
 
-    private void setDate_updated (String date_updated)
+    protected void setDate_updated (String date_updated)
     {
         this.date_updated = date_updated;
     }
@@ -80,7 +80,7 @@ public class SubAccount{
         return role;
     }
 
-    private void setRole (String role)
+    protected void setRole (String role)
     {
         this.role = role;
     }
@@ -90,7 +90,7 @@ public class SubAccount{
         return auth_token;
     }
 
-    private void setAuth_token (String auth_token)
+    protected void setAuth_token (String auth_token)
     {
         this.auth_token = auth_token;
     }
@@ -100,7 +100,7 @@ public class SubAccount{
         return date_created;
     }
 
-    private void setDate_created (String date_created)
+    protected void setDate_created (String date_created)
     {
         this.date_created = date_created;
     }
@@ -110,7 +110,7 @@ public class SubAccount{
         return friendly_name;
     }
 
-    private void setFriendly_name (String friendly_name)
+    protected void setFriendly_name (String friendly_name)
     {
         this.friendly_name = friendly_name;
     }
@@ -120,7 +120,7 @@ public class SubAccount{
         return type;
     }
 
-    private void setType (String type)
+    protected void setType (String type)
     {
         this.type = type;
     }
@@ -129,7 +129,7 @@ public class SubAccount{
         return uri;
     }
 
-    private void setUri (String uri)
+    protected void setUri (String uri)
     {
         this.uri = uri;
     }
@@ -139,7 +139,7 @@ public class SubAccount{
         return email_address;
     }
 
-    private void setEmail_address (String email_address)
+    protected void setEmail_address (String email_address)
     {
         this.email_address = email_address;
     }

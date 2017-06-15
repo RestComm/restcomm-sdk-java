@@ -1,5 +1,8 @@
 package org.restcomm.connect.java.sdk.http;
 import org.restcomm.connect.java.sdk.Restcomm;
+
+import org.restcomm.connect.java.sdk.ExceptionHandler;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -33,7 +36,7 @@ public class HttpClient{
 	
 		
 		private CloseableHttpClient httpclient;
-		private static CloseableHttpResponse response;
+		private CloseableHttpResponse response;
 		private HttpGet httpget;
 		private HttpPut httpput;
 		private HttpPost httppost;
@@ -102,7 +105,10 @@ public class HttpClient{
 							response = httpclient.execute(httpdelete);		
 					}	
 				
+					
+				ExceptionHandler Handle = new ExceptionHandler(response);
 				this.StatusCode=response.getStatusLine().getStatusCode();
+				
 				responseString = EntityUtils.toString(response.getEntity());
 				response.close();
 				httpclient.close();

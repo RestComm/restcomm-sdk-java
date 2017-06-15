@@ -25,6 +25,16 @@ public class Request {
 		this.method = method;
 		this.QueryParameters= new ArrayList<NameValuePair>();
 		this.PostParameters= new ArrayList<NameValuePair>();
+		
+		try {
+			this.Url = new URL(new URIBuilder(Url).build().toString()).toString();
+		} catch (URISyntaxException e) {
+			
+			e.printStackTrace();
+		} catch (MalformedURLException e) {
+			
+			e.printStackTrace();
+		}
 	}
 	public HttpMethod getMethod()
 	{
