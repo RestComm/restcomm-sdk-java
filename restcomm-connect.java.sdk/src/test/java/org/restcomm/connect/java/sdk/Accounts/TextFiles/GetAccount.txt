@@ -3,7 +3,7 @@
     "friendly_name": "DemoAccount",
     "email_address": "demoaccount@restcomm.com",
     "type": "Full",
-    "status": "closed",
+    "status": "open",
     "role": "Administrator",
     "date_created": "Wed, 7 Jun 2017 10:03:38 +0000",
     "date_updated": "Wed, 7 Jun 2017 10:03:41 +0000",

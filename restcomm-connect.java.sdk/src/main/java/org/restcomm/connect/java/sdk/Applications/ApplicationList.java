@@ -1,4 +1,3 @@
-
 /*
  * TeleStax, Open Source Cloud Communications
  * Copyright 2011-2016, Telestax Inc and individual contributors
@@ -19,30 +18,27 @@
  * Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
  * 02110-1301 USA, or see the FSF site: http://www.fsf.org.
  */
-package org.restcomm.connect.java.sdk.Accounts;
-import org.apache.http.ProtocolException;
-
+package org.restcomm.connect.java.sdk.Applications;
+import org.restcomm.connect.java.sdk.http.*;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import javax.xml.bind.JAXBException;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
+
 import org.restcomm.connect.java.sdk.Restcomm;
+import org.apache.http.ProtocolException;
 import org.restcomm.connect.java.sdk.Exceptions.*;
 import org.apache.http.ParseException;
 import java.lang.reflect.Type;
-import java.util.ArrayList;
 import com.google.gson.reflect.TypeToken;
 import com.google.gson.Gson;
-import org.restcomm.connect.java.sdk.http.*;
 
-public class SubAccountList {
+public class ApplicationList {
 	
 	private String BASE_URL;
 
-	private List<SubAccount> List;
+	private List<Application> List;
 	
-	public SubAccount get(int index)
+	public Application get(int index)
 	{
 		return List.get(index);
 	}
@@ -50,19 +46,17 @@ public class SubAccountList {
 	{
 		return List.size();
 	}
-	public void setList(List<SubAccount> list) {
+	public void setList(List<Application> list) {
 		List = list;
 	}
-	public SubAccountList(final String BASE_URL)
+	public ApplicationList(final String BASE_URL) 
 	{
 		this.BASE_URL = BASE_URL;
 		Restcomm.sendRequest(new Request(HttpMethod.GET,BASE_URL));
-		Type ListType = new TypeToken< ArrayList<SubAccount> >(){}.getType();
+		Type ListType = new TypeToken< ArrayList<Application> >(){}.getType();
 		Gson gson = new Gson();
 		
-		/*List<Resource> founderList = gson.fromJson(a, founderListType);*/
 		List = gson.fromJson(Restcomm.getJSONResponse(),ListType);
-		//Resource Object = gson.fromJson(a,Resource.class);
+		
 	}
-	
-}
+}	

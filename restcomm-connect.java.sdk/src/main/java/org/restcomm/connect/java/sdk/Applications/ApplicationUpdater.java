@@ -18,59 +18,45 @@
  * Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
  * 02110-1301 USA, or see the FSF site: http://www.fsf.org.
  */
-package org.restcomm.connect.java.sdk.Accounts;
-
+package org.restcomm.connect.java.sdk.Applications;
 import org.apache.http.ProtocolException;
-
-import javax.xml.bind.JAXBException;
-
-import org.apache.http.ParseException;
-
-import org.restcomm.connect.java.sdk.http.*;
-
 import org.restcomm.connect.java.sdk.Restcomm;
-import org.restcomm.connect.java.sdk.Accounts.SubAccount;
-import org.restcomm.connect.java.sdk.Accounts.SubAccountUpdater;
 import org.restcomm.connect.java.sdk.Utilities;
 
-public class SubAccountUpdater {
-	private String BASE_URL;
-	private Request request;
-	SubAccountUpdater()
-	{
-	}
-	public SubAccountUpdater(final String BASE_URL) {
+import org.restcomm.connect.java.sdk.Applications.ApplicationUpdater;
+import org.restcomm.connect.java.sdk.http.*;
+
+public class ApplicationUpdater {
+	
+	static String BASE_URL;
+	public Request request;
+	public ApplicationUpdater(String BASE_URL) {
 		request = new Request(HttpMethod.PUT,BASE_URL);
 	}
-	public SubAccountUpdater newRole(String value)
-	{
-		request.addPostParameters("Role", value);
-		return this;
-	}
-	public SubAccountUpdater newEmail(String value)
-	{
-		request.addPostParameters("EmailAddress", value);
-		return this;
-	}
-	public SubAccountUpdater newPassword(String value)
-	{
-		request.addPostParameters("Password", value);
-		return this;
-	}
-	public SubAccountUpdater newStatus(String value)
-	{
-		request.addPostParameters("Status", value);
-		return this;
-	}
-	public SubAccountUpdater newFriendlyName(String value)
+	public ApplicationUpdater newFriendlyName(String value)
 	{
 		request.addPostParameters("FriendlyName", value);
 		return this;
 	}
-	public SubAccount update()
+	public ApplicationUpdater newRcmlUrl(String rcmlurl)
 	{
-		Restcomm.sendRequest(request);
-		return (SubAccount)Utilities.AccountObject(Restcomm.getJSONResponse());
+		request.addPostParameters("RcmlUrl", rcmlurl);
+		return this;
+	}
+	public ApplicationUpdater newKind(String kind)
+	{
+		request.addPostParameters("Kind", kind);
+		return this;
+	}
+	public ApplicationUpdater HasVoiceCallerIdLookup(String a)
+	{
+		request.addPostParameters("HasVoiceCallerIdLookup", a);
+		return this;
+	}
+	public Application update()
+	{
+		Restcomm.sendRequest(request);	
+		return Utilities.ApplicationObject(Restcomm.getJSONResponse());
 	}
 
 }

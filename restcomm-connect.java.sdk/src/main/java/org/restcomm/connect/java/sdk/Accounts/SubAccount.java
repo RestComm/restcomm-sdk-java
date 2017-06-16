@@ -1,7 +1,27 @@
+
+/*
+ * TeleStax, Open Source Cloud Communications
+ * Copyright 2011-2016, Telestax Inc and individual contributors
+ * by the @authors tag.
+ *
+ * This is free software; you can redistribute it and/or modify it
+ * under the terms of the GNU Lesser General Public License as
+ * published by the Free Software Foundation; either version 2.1 of
+ * the License, or (at your option) any later version.
+ *
+ * This software is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this software; if not, write to the Free
+ * Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
+ * 02110-1301 USA, or see the FSF site: http://www.fsf.org.
+ */
 package org.restcomm.connect.java.sdk.Accounts;
+import org.restcomm.connect.java.sdk.Exceptions.*;
 
-
-import java.io.IOException;
 
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -16,31 +36,31 @@ import org.restcomm.connect.java.sdk.Accounts.SubAccount;
 import org.restcomm.connect.java.sdk.Accounts.SubAccountCreator;
 import org.restcomm.connect.java.sdk.Accounts.SubAccountUpdater;
 import org.restcomm.connect.java.sdk.Utilities;
-
+import org.apache.http.ProtocolException;
 public class SubAccount{
 
 	private static String BASE_URL = Restcomm.COMMON_URL+"Accounts.json/";
 	
-	public static SubAccount getSubAccount(final String sid) throws IOException, JAXBException
+	public static SubAccount getSubAccount(final String sid)
 	{
 		Restcomm.sendRequest(new Request(HttpMethod.GET,BASE_URL+sid));	
 		return Utilities.AccountObject(Restcomm.getJSONResponse());
 	}
 	
-	public SubAccountUpdater modifySubAccountDetails()
+	public SubAccountUpdater modifySubAccountDetails() 
 	{
 		return new SubAccountUpdater(this.BASE_URL+this.getSid());
 	}
-	public static SubAccountUpdater modifySubAccount(final String sid)
+	public static SubAccountUpdater modifySubAccount(final String sid) 
 	{
 		return new SubAccountUpdater(BASE_URL+sid);
 	}
-	public void deleteSubAccount() throws ParseException, IOException, JAXBException
+	public void deleteSubAccount() 
 	{
 		Restcomm.sendRequest(new Request(HttpMethod.DELETE,BASE_URL+this.getSid()));
 		return;
 	}
-	public static void deleteSubAccount(final String sid)
+	public static void deleteSubAccount(final String sid) 
 	{
 		Restcomm.sendRequest(new Request(HttpMethod.DELETE,BASE_URL+sid));
 	}
@@ -155,9 +175,4 @@ public class SubAccount{
 	protected String uri;
 	protected String email_address;
 	
-	@Override
-	public String toString()
-	{
-	return "SubAccount [sid = "+sid+", status = "+status+", date_updated = "+date_updated+", role = "+role+", auth_token = "+auth_token+", date_created = "+date_created+", friendly_name = "+friendly_name+", type = "+type+", subresource_uris = \", uri = "+uri+", email_address = "+email_address+"]";
-	}
 }
