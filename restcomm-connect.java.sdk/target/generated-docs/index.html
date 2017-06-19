@@ -40,35 +40,39 @@
 <div class="paragraph">
 <p>Initializing the Restcomm Client with the Authentication  and URL required</p>
 </div>
-<div class="listingblock">
+<div class="literalblock">
 <div class="content">
-<pre>   Restcomm.COMMON_URL = "http://localhost:8080/";
-   Restcomm.init("username", "password");
-----------------------------------------------------------------------------------
-Incase you need to reset it,just use the '_invalidate()_' method available and initialize it again.
-
-----------------------------------------------------------------------------------
-   Restcomm.invalidate();
-   Restcomm.COMMON_URL = "http://localhost:8080/";
-   Restcomm.init("username", "password");
-----------------------------------------------------------------------------------
-
-===== Accounts
-
-===== MainAccount
-
-Fetching the default Account with which we authenticated the Restcomm Client</pre>
+<pre>Restcomm.COMMON_URL = "http://localhost:8080/";
+Restcomm.init("username", "password");</pre>
 </div>
+</div>
+<div class="paragraph">
+<p>Incase you need to reset it,just use the '<em>invalidate()</em>' method available and initialize it again.</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>Restcomm.invalidate();
+Restcomm.COMMON_URL = "http://localhost:8080/";
+Restcomm.init("username", "password");</pre>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_accounts">Accounts</h5>
+
+</div>
+<div class="sect4">
+<h5 id="_mainaccount">MainAccount</h5>
+<div class="paragraph">
+<p>Fetching the default Account with which we authenticated the Restcomm Client</p>
 </div>
 <div class="literalblock">
 <div class="content">
 <pre>Account mainAccount = Account.getAccount();</pre>
 </div>
 </div>
-<div class="listingblock">
-<div class="content">
-<pre>The fields of the Account object can be obtained by invoking the respective '_get()_' method of that field</pre>
-</div>
+<div class="paragraph">
+<p>The fields of the Account object can be obtained by invoking the respective '<em>get()</em>' method of that field</p>
 </div>
 <div class="literalblock">
 <div class="content">
@@ -78,59 +82,79 @@ FriendlyName = mainAccount.getFriendly_name();
 EmailAddress = mainAccount.getEmail_address();</pre>
 </div>
 </div>
-<div class="listingblock">
-<div class="content">
-<pre>For Modifying any field(s) of the Account, use the '_modifyAccountDetails()_' method</pre>
-</div>
+<div class="paragraph">
+<p>For Modifying any field(s) of the Account, use the '<em>modifyAccountDetails()</em>' method</p>
 </div>
 <div class="literalblock">
 <div class="content">
 <pre>mainAccount.modifyAccountDetails().newEmail("xyz@restcomm.com").modify();</pre>
 </div>
 </div>
-<div class="listingblock">
-<div class="content">
-<pre>In a similar way you can even modify multiple fields as shown below</pre>
-</div>
+<div class="paragraph">
+<p>In a similar way you can even modify multiple fields as shown below</p>
 </div>
 <div class="literalblock">
 <div class="content">
 <pre>mainAccount.modifyAccountDetails().newEmail("xyz@restcomm.com").newPassword("12345abcd").newStatus("suspended").modify();</pre>
 </div>
 </div>
-<div class="listingblock">
-<div class="content">
-<pre>===== *Note:*
-* After modifying an Account,if we require the Account Object for further operations, we need to update the Object representing that Account too,
-
--------------------------------------------------------------------------------------------------------------------------------------------
-   mainAccount = mainAccount.modifyAccountDetails().newEmail("xyz@restcomm.com").newPassword("12345abcd").newStatus("suspended").modify();
--------------------------------------------------------------------------------------------------------------------------------------------
-Creating a SubAccount under our MainAccount
-----
-   Account.createSubAccount().FriendlyName("Paul").Password("restcomm1007").Role("Administrator").create();
-----
-To Capture the SubAccount created,
-----
-   SubAccount SpareAccount = Account.createSubAccount().FriendlyName("Paul").Password("restcomm1007").Role("Administrator").create();
-----
-Fetching the List of SubAccounts under our Main Account
-----
-	SubAccountList List = Account.getSubAccountList();
-	SubAccount a = List.get(0);
-	SubAccount b = List.get(1);
-	......
-	....
-----
-===== SubAccount
-
-
-Fetching a SubAccount with a given 'Sid', available under our MainAccount
-----
-   SubAccount spareAccount = SubAccount.getSubAccount(Sid);				//Sid is the actual Sid of the SubAccount we wish to fetch
-----
-The fields of the SubAccount object can be obtained by invoking the respective '_get()_' method of that field similar to that Of Accounts</pre>
 </div>
+<div class="sect4">
+<h5 id="__strong_note_strong"><strong>Note:</strong></h5>
+<div class="ulist">
+<ul>
+<li>
+<p>After modifying an Account,if we require the Account Object for further operations, we need to update the Object representing that Account too,</p>
+<div class="literalblock">
+<div class="content">
+<pre>mainAccount = mainAccount.modifyAccountDetails().newEmail("xyz@restcomm.com").newPassword("12345abcd").newStatus("suspended").modify();</pre>
+</div>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Creating a SubAccount under our MainAccount</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>Account.createSubAccount().FriendlyName("Paul").Password("restcomm1007").Role("Administrator").create();</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>To Capture the SubAccount created,</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>SubAccount SpareAccount = Account.createSubAccount().FriendlyName("Paul").Password("restcomm1007").Role("Administrator").create();</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Fetching the List of SubAccounts under our Main Account</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>SubAccountList List = Account.getSubAccountList();
+SubAccount a = List.get(0);
+SubAccount b = List.get(1);
+......
+....</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_subaccount">SubAccount</h4>
+<div class="paragraph">
+<p>Fetching a SubAccount with a given 'Sid', available under our MainAccount</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>SubAccount spareAccount = SubAccount.getSubAccount(Sid);				//Sid is the actual Sid of the SubAccount we wish to fetch</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The fields of the SubAccount object can be obtained by invoking the respective '<em>get()</em>' method of that field similar to that Of Accounts</p>
 </div>
 <div class="literalblock">
 <div class="content">
@@ -138,28 +162,31 @@ The fields of the SubAccount object can be obtained by invoking the respective '
 FriendlyName = spareAccount.getFriendly_name();</pre>
 </div>
 </div>
-<div class="listingblock">
-<div class="content">
-<pre>Modifying the SubAccount in a similar way as mentioned above
-----
-   spareAccount = spareAccount.modifySubAccount().........modify();
-                              (Or)
-   spareAccount = SubAccount.modifySubAccount(Sid).........modify();   //Sid is the actual Sid of the SubAccount we wish to modify
-----
-Deleting a SubAccount
-----
-	spareAccount.delete();
-           (Or)
-   SubAccount.deleteSubAccount(Sid);										//Sid is the Sid of the SubAccoun to be deleted
-----</pre>
+<div class="paragraph">
+<p>Modifying the SubAccount in a similar way as mentioned above</p>
 </div>
+<div class="literalblock">
+<div class="content">
+<pre>spareAccount = spareAccount.modifySubAccount().........modify();
+                           (Or)
+spareAccount = SubAccount.modifySubAccount(Sid).........modify();   //Sid is the actual Sid of the SubAccount we wish to modify</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Deleting a SubAccount</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>spareAccount.delete();
+          (Or)
+  SubAccount.deleteSubAccount(Sid);										//Sid is the Sid of the SubAccoun to be deleted</pre>
 </div>
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-06-19 18:28:19 +05:30
+Last updated 2017-06-19 18:38:41 +05:30
 </div>
 </div>
 </body>
