@@ -67,7 +67,7 @@ public class SubAccountUpdater {
 		request.addPostParameters("FriendlyName", value);
 		return this;
 	}
-	public SubAccount update()
+	public SubAccount modify()
 	{
 		Restcomm.sendRequest(request);
 		return (SubAccount)Utilities.AccountObject(Restcomm.getJSONResponse());

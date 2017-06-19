@@ -10,16 +10,18 @@
 </head>
 <body class="article">
 <div id="header">
+<h1>Restcomm Java Sdk</h1>
 </div>
 <div id="content">
-<div class="sect1">
-<h2 id="__strong_restcomm_java_sdk_strong"><strong>Restcomm Java Sdk</strong></h2>
+<div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
 <p>This Documentation provides the basic information on the usage of this SDK in performing various operations offered by the <strong>Restcomm-Rest APIs</strong>.</p>
 </div>
-<div class="sect4">
-<h5 id="__strong_table_of_contents_strong"><strong>Table Of Contents</strong></h5>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_table_of_contents">Table Of Contents</h4>
 <div class="ulist">
 <ul>
 <li>
@@ -33,13 +35,131 @@
 </li>
 </ul>
 </div>
+<div class="sect4">
+<h5 id="_getting_started">Getting Started</h5>
+<div class="paragraph">
+<p>Initializing the Restcomm Client with the Authentication  and URL required</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>   Restcomm.COMMON_URL = "http://localhost:8080/";
+   Restcomm.init("username", "password");
+----------------------------------------------------------------------------------
+Incase you need to reset it,just use the '_invalidate()_' method available and initialize it again.
+
+----------------------------------------------------------------------------------
+   Restcomm.invalidate();
+   Restcomm.COMMON_URL = "http://localhost:8080/";
+   Restcomm.init("username", "password");
+----------------------------------------------------------------------------------
+
+===== Accounts
+
+===== MainAccount
+
+Fetching the default Account with which we authenticated the Restcomm Client</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>Account mainAccount = Account.getAccount();</pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>The fields of the Account object can be obtained by invoking the respective '_get()_' method of that field</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>String Sid,FriendlyName,EmailAddress;
+Sid = mainAccount.getSid();
+FriendlyName = mainAccount.getFriendly_name();
+EmailAddress = mainAccount.getEmail_address();</pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>For Modifying any field(s) of the Account, use the '_modifyAccountDetails()_' method</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>mainAccount.modifyAccountDetails().newEmail("xyz@restcomm.com").modify();</pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>In a similar way you can even modify multiple fields as shown below</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>mainAccount.modifyAccountDetails().newEmail("xyz@restcomm.com").newPassword("12345abcd").newStatus("suspended").modify();</pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>===== *Note:*
+* After modifying an Account,if we require the Account Object for further operations, we need to update the Object representing that Account too,
+
+-------------------------------------------------------------------------------------------------------------------------------------------
+   mainAccount = mainAccount.modifyAccountDetails().newEmail("xyz@restcomm.com").newPassword("12345abcd").newStatus("suspended").modify();
+-------------------------------------------------------------------------------------------------------------------------------------------
+Creating a SubAccount under our MainAccount
+----
+   Account.createSubAccount().FriendlyName("Paul").Password("restcomm1007").Role("Administrator").create();
+----
+To Capture the SubAccount created,
+----
+   SubAccount SpareAccount = Account.createSubAccount().FriendlyName("Paul").Password("restcomm1007").Role("Administrator").create();
+----
+Fetching the List of SubAccounts under our Main Account
+----
+	SubAccountList List = Account.getSubAccountList();
+	SubAccount a = List.get(0);
+	SubAccount b = List.get(1);
+	......
+	....
+----
+===== SubAccount
+
+
+Fetching a SubAccount with a given 'Sid', available under our MainAccount
+----
+   SubAccount spareAccount = SubAccount.getSubAccount(Sid);				//Sid is the actual Sid of the SubAccount we wish to fetch
+----
+The fields of the SubAccount object can be obtained by invoking the respective '_get()_' method of that field similar to that Of Accounts</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>String FriendlyName;
+FriendlyName = spareAccount.getFriendly_name();</pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>Modifying the SubAccount in a similar way as mentioned above
+----
+   spareAccount = spareAccount.modifySubAccount().........modify();
+                              (Or)
+   spareAccount = SubAccount.modifySubAccount(Sid).........modify();   //Sid is the actual Sid of the SubAccount we wish to modify
+----
+Deleting a SubAccount
+----
+	spareAccount.delete();
+           (Or)
+   SubAccount.deleteSubAccount(Sid);										//Sid is the Sid of the SubAccoun to be deleted
+----</pre>
+</div>
 </div>
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-06-19 16:06:14 +05:30
+Last updated 2017-06-19 18:28:19 +05:30
 </div>
 </div>
 </body>

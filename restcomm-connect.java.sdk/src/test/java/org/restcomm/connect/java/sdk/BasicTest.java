@@ -35,7 +35,7 @@ public class BasicTest {
 	@BeforeClass
     public static void runOnceBeforeClass() {
 		
-		Restcomm.COMMON_URL = "http://localhost:8080/";
+		Restcomm.setCommonUrl("http://localhost:8080/");
 		Restcomm.init("AC13b4372c92ed5c07d951cf842e2664ff", "cb0936cfee986d3e3ec6d1d77cc57888");
 		//System.out.println("@BeforeClass - runOnceBeforeClass");
     }

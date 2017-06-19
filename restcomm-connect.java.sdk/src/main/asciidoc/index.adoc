@@ -6,6 +6,95 @@ This Documentation provides the basic information on the usage of this SDK in pe
 
 ==== Table Of Contents
 
+
 * Getting Started
 * Accounts
 * Applications
+
+===== Getting Started
+
+Initializing the Restcomm Client with the Authentication  and URL required
+
+---------------------------------------------------------------------------------   
+   Restcomm.COMMON_URL = "http://localhost:8080/";
+   Restcomm.init("username", "password");
+----------------------------------------------------------------------------------
+Incase you need to reset it,just use the '_invalidate()_' method available and initialize it again.
+
+----------------------------------------------------------------------------------
+   Restcomm.invalidate();
+   Restcomm.COMMON_URL = "http://localhost:8080/";
+   Restcomm.init("username", "password");
+----------------------------------------------------------------------------------
+
+===== Accounts
+
+===== MainAccount 
+
+Fetching the default Account with which we authenticated the Restcomm Client
+
+---------------------------------------------------------------------------------   
+   Account mainAccount = Account.getAccount();
+----------------------------------------------------------------------------------
+The fields of the Account object can be obtained by invoking the respective '_get()_' method of that field
+----------------------------------------------------------------------------------
+   String Sid,FriendlyName,EmailAddress;
+   Sid = mainAccount.getSid();
+   FriendlyName = mainAccount.getFriendly_name();
+   EmailAddress = mainAccount.getEmail_address();
+----------------------------------------------------------------------------------
+For Modifying any field(s) of the Account, use the '_modifyAccountDetails()_' method
+----------------------------------------------------------------------------------
+   mainAccount.modifyAccountDetails().newEmail("xyz@restcomm.com").modify();
+----------------------------------------------------------------------------------	
+In a similar way you can even modify multiple fields as shown below
+----------------------------------------------------------------------------------
+   mainAccount.modifyAccountDetails().newEmail("xyz@restcomm.com").newPassword("12345abcd").newStatus("suspended").modify();
+----------------------------------------------------------------------------------	
+===== *Note:*
+* After modifying an Account,if we require the Account Object for further operations, we need to update the Object representing that Account too, 
+
+-------------------------------------------------------------------------------------------------------------------------------------------
+   mainAccount = mainAccount.modifyAccountDetails().newEmail("xyz@restcomm.com").newPassword("12345abcd").newStatus("suspended").modify();
+-------------------------------------------------------------------------------------------------------------------------------------------
+Creating a SubAccount under our MainAccount
+----
+   Account.createSubAccount().FriendlyName("Paul").Password("restcomm1007").Role("Administrator").create();
+----
+To Capture the SubAccount created,
+----
+   SubAccount SpareAccount = Account.createSubAccount().FriendlyName("Paul").Password("restcomm1007").Role("Administrator").create();
+----
+Fetching the List of SubAccounts under our Main Account
+----
+	SubAccountList List = Account.getSubAccountList();
+	SubAccount a = List.get(0);
+	SubAccount b = List.get(1);
+	......
+	....
+----
+===== SubAccount
+
+
+Fetching a SubAccount with a given 'Sid', available under our MainAccount
+----
+   SubAccount spareAccount = SubAccount.getSubAccount(Sid);				//Sid is the actual Sid of the SubAccount we wish to fetch
+----
+The fields of the SubAccount object can be obtained by invoking the respective '_get()_' method of that field similar to that Of Accounts
+----------------------------------------------------------------------------------
+   String FriendlyName;
+   FriendlyName = spareAccount.getFriendly_name();
+----------------------------------------------------------------------------------
+
+Modifying the SubAccount in a similar way as mentioned above
+----
+   spareAccount = spareAccount.modifySubAccount().........modify();
+                              (Or)
+   spareAccount = SubAccount.modifySubAccount(Sid).........modify();   //Sid is the actual Sid of the SubAccount we wish to modify
+----
+Deleting a SubAccount
+----
+	spareAccount.delete();
+           (Or)
+   SubAccount.deleteSubAccount(Sid);										//Sid is the Sid of the SubAccoun to be deleted		
+----

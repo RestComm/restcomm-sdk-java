@@ -81,7 +81,7 @@ public class SubAccountTest extends BasicTest{
 				  .withHeader("Content-Type", "application/json")
 				  .withBody(readFile(Path+"UpdateSubAccount.txt"))));
 		
-		b=b.modifySubAccountDetails().newFriendlyName("Lion").update();
+		b=b.modifySubAccountDetails().newFriendlyName("Lion").modify();
 		
 		WireMock.verify(WireMock.putRequestedFor(WireMock.urlEqualTo("/Accounts.json/"+SubAccountSid)));
 		assertEquals("Lion",b.getFriendly_name());
@@ -116,7 +116,7 @@ public class SubAccountTest extends BasicTest{
 				  .withHeader("Content-Type", "application/json")
 				  .withBody(readFile(Path+"GetList.txt"))));
 		
-		SubAccountList a = Account.SubAccountList();
+		SubAccountList a = Account.getSubAccountList();
 		
 		WireMock.verify(WireMock.getRequestedFor(WireMock.urlEqualTo("/Accounts.json/")));
 		assertEquals(200, Restcomm.getStatusCode());

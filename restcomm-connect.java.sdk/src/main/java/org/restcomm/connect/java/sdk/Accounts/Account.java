@@ -54,11 +54,11 @@ public class Account extends SubAccount{
 	{
 		return new AccountUpdater(BASE_URL);
 	}
-	public SubAccountList getSubAccountList() 
+	/*public SubAccountList getSubAccountList() 
 	{
 		return new SubAccountList(BASE_URL);
-	}
-	public static SubAccountList SubAccountList()
+	}*/
+	public static SubAccountList getSubAccountList()
 	{
 		return new SubAccountList(BASE_URL);
 	}
