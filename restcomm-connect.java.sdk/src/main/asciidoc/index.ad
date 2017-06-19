@@ -1,11 +1,10 @@
-*Restcomm Java Sdk*
--------------------
+= Restcomm Java Sdk
+
 
 This Documentation provides the basic information on the usage of this SDK in performing various operations offered by the *Restcomm-Rest APIs*.
 
 
-*Table Of Contents*
-++++++++++++++++++
+==== Table Of Contents
 
 * Getting Started
 * Accounts
