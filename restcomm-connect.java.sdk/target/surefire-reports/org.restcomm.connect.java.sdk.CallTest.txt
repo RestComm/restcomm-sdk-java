@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
-Test set: org.restcomm.connect.java.sdk.AccountTest
+Test set: org.restcomm.connect.java.sdk.CallTest
 -------------------------------------------------------------------------------
-Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.208 sec
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.835 sec

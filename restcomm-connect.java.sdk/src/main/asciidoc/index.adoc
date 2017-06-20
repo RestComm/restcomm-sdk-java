@@ -84,10 +84,10 @@ Fetching a SubAccount with a given 'Sid', available under our MainAccount
    SubAccount spareAccount = SubAccount.getSubAccount(Sid);				//Sid is the actual Sid of the SubAccount we wish to fetch
 
 The fields of the SubAccount object can be obtained by invoking the respective '_get()_' method of that field similar to that Of Accounts
-
+----
    String FriendlyName;
    FriendlyName = spareAccount.getFriendly_name();
-
+----
 
 Modifying the SubAccount in a similar way as mentioned above
 

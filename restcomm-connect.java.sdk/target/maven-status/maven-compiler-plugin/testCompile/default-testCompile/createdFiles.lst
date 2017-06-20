@@ -1,4 +1,5 @@
 org/restcomm/connect/java/sdk/BasicTest.class
+org/restcomm/connect/java/sdk/CallTest.class
 org/restcomm/connect/java/sdk/AccountTest.class
-org/restcomm/connect/java/sdk/ApplicationTest.class
 org/restcomm/connect/java/sdk/SubAccountTest.class
+org/restcomm/connect/java/sdk/ApplicationTest.class

@@ -22,6 +22,8 @@ package org.restcomm.connect.java.sdk;
 
 import com.google.gson.Gson;
 
+import org.restcomm.connect.java.sdk.Calls.Call;
+
 import org.restcomm.connect.java.sdk.Applications.Application;
 
 import org.restcomm.connect.java.sdk.Accounts.Account;
@@ -37,5 +39,10 @@ public class Utilities {
 		
 		Gson gson = new Gson();
 		return gson.fromJson(jsonResponse,Application.class);
+	}
+	public static Call CallObject(String jsonResponse) {
+		
+		Gson gson = new Gson();
+		return gson.fromJson(jsonResponse,Call.class);
 	}
 }
