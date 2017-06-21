@@ -54,11 +54,6 @@ public class Call {
 		return new CallModifier(BASE_URL+this.getSid());
 	}
 	
-	public static CallsList getCallsList()
-	{
-		return new CallsList(BASE_URL);
-	}
-	
 
 	 	private String to;
 

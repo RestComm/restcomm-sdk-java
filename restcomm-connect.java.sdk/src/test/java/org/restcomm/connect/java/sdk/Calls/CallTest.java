@@ -110,5 +110,23 @@ public class CallTest extends BasicTest{
 		assertEquals("COMPLETED",a.getStatus());
 	}
 	/* Need to add test for CallsList*/
+	@Test
+	public void testGetCallList() throws Exception{
+		WireMock.stubFor(WireMock.get(WireMock.urlPathMatching("/Accounts/"+Restcomm.getAuthID()+"/Calls.json/"))
+				  .withBasicAuth(Restcomm.getAuthID(),Restcomm.getPassword())
+				  .willReturn(WireMock.aResponse()
+				  .withStatus(200)
+				  .withHeader("Content-Type", "application/json")
+				  .withBody(readFile(path+"getCallList.txt"))));
+		
+		CallsList a = CallsList.getCallsList();
+		
+		Call b = a.get(0);
 
+		
+		WireMock.verify(WireMock.getRequestedFor(WireMock.urlEqualTo("/Accounts/"+Restcomm.getAuthID()+"/Calls.json/")));
+		assertEquals(200,Restcomm.getStatusCode());
+		assertNotNull(a);
+		assertEquals("mithileshkarnati",b.getTo());
+	}
 }
