@@ -19,6 +19,7 @@
  * 02110-1301 USA, or see the FSF site: http://www.fsf.org.
  */
 package org.restcomm.connect.java.sdk.Accounts;
+import org.restcomm.connect.java.sdk.BasicTest;
 import org.apache.http.ProtocolException;
 
 import static org.junit.Assert.*;

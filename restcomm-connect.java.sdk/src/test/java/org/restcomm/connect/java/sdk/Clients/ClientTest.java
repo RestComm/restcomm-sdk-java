@@ -1,4 +1,5 @@
 package org.restcomm.connect.java.sdk.Clients;
+import org.restcomm.connect.java.sdk.BasicTest;
 
 import static org.junit.Assert.*;
 import org.apache.http.ProtocolException;
