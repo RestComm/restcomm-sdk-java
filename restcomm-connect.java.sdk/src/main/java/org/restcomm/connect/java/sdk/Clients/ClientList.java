@@ -18,37 +18,45 @@
  * Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
  * 02110-1301 USA, or see the FSF site: http://www.fsf.org.
  */
-package org.restcomm.connect.java.sdk;
+package org.restcomm.connect.java.sdk.Clients;
+import org.restcomm.connect.java.sdk.http.*;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
+import org.restcomm.connect.java.sdk.Restcomm;
+import org.apache.http.ProtocolException;
+import org.restcomm.connect.java.sdk.Exceptions.*;
+import org.apache.http.ParseException;
+import java.lang.reflect.Type;
+import com.google.gson.reflect.TypeToken;
 import com.google.gson.Gson;
 
-import org.restcomm.connect.java.sdk.Calls.Call;
+public class ClientList {
+	
+	private String BASE_URL;
 
-import org.restcomm.connect.java.sdk.Applications.Application;
-
-import org.restcomm.connect.java.sdk.Accounts.Account;
-import org.restcomm.connect.java.sdk.Clients.Client;
-
-public class Utilities {
-
-	public static Account AccountObject(String jsonResponse) {
-		
-				Gson gson = new Gson();
-				return gson.fromJson(jsonResponse,Account.class);
+	private List<Client> List;
+	
+	public Client get(int index)
+	{
+		return List.get(index);
 	}
-	public static Application ApplicationObject(String jsonResponse) {
-		
+	public int size()
+	{
+		return List.size();
+	}
+	public void setList(List<Client> list) {
+		List = list;
+	}
+	public ClientList(final String BASE_URL) 
+	{
+		this.BASE_URL = BASE_URL;
+		Restcomm.sendRequest(new Request(HttpMethod.GET,BASE_URL));
+		Type ListType = new TypeToken< ArrayList<Client> >(){}.getType();
 		Gson gson = new Gson();
-		return gson.fromJson(jsonResponse,Application.class);
-	}
-	public static Call CallObject(String jsonResponse) {
 		
-		Gson gson = new Gson();
-		return gson.fromJson(jsonResponse,Call.class);
-	}
-	public static Client ClientObject(String jsonResponse) {
+		List = gson.fromJson(Restcomm.getJSONResponse(),ListType);
 		
-		Gson gson = new Gson();
-		return gson.fromJson(jsonResponse,Client.class);
 	}
-}
+}	

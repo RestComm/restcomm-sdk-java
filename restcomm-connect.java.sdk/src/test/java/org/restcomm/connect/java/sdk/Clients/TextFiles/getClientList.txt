@@ -1,0 +1,30 @@
+[
+  {
+    "sid": "CL3cbc8c390403489c821d86b3dc47cbd4",
+    "date_created": "Fri, 2 Jun 2017 18:41:08 +0000",
+    "date_updated": "Fri, 2 Jun 2017 18:41:08 +0000",
+    "account_sid": "AC13b4372c92ed5c07d951cf842e2664ff",
+    "api_version": "2012-04-24",
+    "friendly_name": "democlients",
+    "login": "democlients",
+    "password": "Paras@123",
+    "status": "1",
+    "voice_method": "POST",
+    "voice_fallback_method": "POST",
+    "uri": "/2012-04-24/Accounts/AC13b4372c92ed5c07d951cf842e2664ff/Clients/CL3cbc8c390403489c821d86b3dc47cbd4.json"
+  },
+  {
+    "sid": "CL5ab96258ddf24c8e8e229467606ebda4",
+    "date_created": "Fri, 16 Jun 2017 11:07:45 +0000",
+    "date_updated": "Fri, 16 Jun 2017 11:07:45 +0000",
+    "account_sid": "AC13b4372c92ed5c07d951cf842e2664ff",
+    "api_version": "2012-04-24",
+    "friendly_name": "paras",
+    "login": "paras",
+    "password": "Paras@123",
+    "status": "1",
+    "voice_method": "POST",
+    "voice_fallback_method": "POST",
+    "uri": "/2012-04-24/Accounts/AC13b4372c92ed5c07d951cf842e2664ff/Clients/CL5ab96258ddf24c8e8e229467606ebda4.json"
+  }
+]
