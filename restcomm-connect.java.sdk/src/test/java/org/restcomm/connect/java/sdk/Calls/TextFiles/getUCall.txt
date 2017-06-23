@@ -1,0 +1,16 @@
+{
+      "sid": "CA55b51d74d3b749628e2e1fc650852992",
+      "InstanceId": "ID8deb35fc5121429fa96635aebe3976d2",
+      "date_created": "Thu, 18 May 2017 10:52:00 +0000",
+      "date_updated": "Thu, 18 May 2017 10:52:01 +0000",
+      "account_sid": "AC13b4372c92ed5c07d951cf842e2664ff",
+      "to": "nukles1.07",
+      "from": "AmitBhayani",
+      "status": "COMPLETED",
+      "start_time": "2017-05-18T10:52:00.000Z",
+      "price_unit": "USD",
+      "direction": "outbound-api",
+      "api_version": "2012-04-24",
+      "caller_name": "AmitBhayani",
+      "uri": "/2012-04-24/Accounts/AC13b4372c92ed5c07d951cf842e2664ff/Calls/CA55b51d74d3b749628e2e1fc650852992.json"  
+}

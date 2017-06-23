@@ -1,0 +1,24 @@
+[
+  {
+    "sid": "AP2be33f16f94b4cba945293930a9b3f2d",
+    "date_created": "Fri, 16 Jun 2017 06:58:14 +0000",
+    "date_updated": "Fri, 16 Jun 2017 06:58:14 +0000",
+    "friendly_name": "Application",
+    "account_sid": "AC13b4372c92ed5c07d951cf842e2664ff",
+    "api_version": "2012-04-24",
+    "voice_caller_id_lookup": false,
+    "uri": "/2012-04-24/Accounts/AC13b4372c92ed5c07d951cf842e2664ff/Applications/AP2be33f16f94b4cba945293930a9b3f2d.json",
+    "rcml_url": "https://cloud.restcomm.com/restcomm-rvd/services/apps/foobar/controller",
+    "kind": "voice"
+  },
+  {
+    "sid": "APf74f032ab5d14a8bba4849cb2e2e0db4",
+    "date_created": "Wed, 7 Jun 2017 05:51:36 +0000",
+    "date_updated": "Wed, 7 Jun 2017 05:51:36 +0000",
+    "friendly_name": "DemoApp",
+    "account_sid": "AC13b4372c92ed5c07d951cf842e2664ff",
+    "api_version": "2012-04-24",
+    "voice_caller_id_lookup": false,
+    "uri": "/2012-04-24/Accounts/AC13b4372c92ed5c07d951cf842e2664ff/Applications/APf74f032ab5d14a8bba4849cb2e2e0db4.json"
+  }
+]
