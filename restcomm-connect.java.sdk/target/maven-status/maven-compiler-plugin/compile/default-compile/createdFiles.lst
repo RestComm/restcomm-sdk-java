@@ -21,9 +21,12 @@ org/restcomm/connect/java/sdk/Accounts/SubAccountList$1.class
 org/restcomm/connect/java/sdk/Utilities.class
 org/restcomm/connect/java/sdk/http/Request.class
 org/restcomm/connect/java/sdk/Accounts/SubAccountUpdater.class
+org/restcomm/connect/java/sdk/Notifications/NotificationList.class
 org/restcomm/connect/java/sdk/Clients/ClientList.class
+org/restcomm/connect/java/sdk/Notifications/Notification.class
 org/restcomm/connect/java/sdk/Clients/ClientUpdater.class
-org/restcomm/connect/java/sdk/Calls/CallsList.class
 org/restcomm/connect/java/sdk/ListUtil.class
+org/restcomm/connect/java/sdk/Calls/CallsList.class
+org/restcomm/connect/java/sdk/Notifications/FilteredNotificationList.class
 org/restcomm/connect/java/sdk/Clients/Client.class
 org/restcomm/connect/java/sdk/Accounts/Account.class
