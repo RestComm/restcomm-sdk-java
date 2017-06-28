@@ -1,0 +1,15 @@
+{
+  "sid": "SMade2570e7f554578ac590311085f53e2",
+  "date_created": "Wed, 28 Jun 2017 06:30:32 +0000",
+  "date_updated": "Wed, 28 Jun 2017 06:30:32 +0000",
+  "account_sid": "AC13b4372c92ed5c07d951cf842e2664ff",
+  "from": "+1654123987",
+  "to": "+1321654879",
+  "body": "This is a test from RestComm",
+  "status": "sending",
+  "direction": "outbound-api",
+  "price": "0",
+  "price_unit": "USD",
+  "api_version": "2012-04-24",
+  "uri": "/2012-04-24/Accounts/AC13b4372c92ed5c07d951cf842e2664ff/SMS/Messages/SMade2570e7f554578ac590311085f53e2.json"
+}
