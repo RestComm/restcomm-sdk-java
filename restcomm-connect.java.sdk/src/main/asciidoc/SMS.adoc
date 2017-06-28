@@ -1,0 +1,154 @@
+= Restcomm JAVA Sdk - SMSMessages
+
+[[SMSMessages]]
+== SMSMessages
+
+A *SMS Message* resource represents an inbound or outbound SMS message.
+
+=== Fetching an SMS 
+
+A SMS with a given Sid can be fetched by implementing the following code snippet
+....
+  String Sid;
+  .
+  .
+  .
+  SMS newSMS = SMS.getSMS(Sid);
+....
+
+=== Accessing the Fetched SMS
+
+A Field of a SMS Object can be accessed by using the corresponding getMethod for that Field
+....
+  String MessageBody;
+  MessageBody = CallNotification.getBody().
+....
+
+==== List of Fields
+[cols=",",options="header",]
+|========================================================================================================
+|Field |Method
+|Sid |getSid().
+|DateCreated |getDate_created().
+|DateUpdated |getDate_updated().
+|DateSent |getDate_sent().
+|AccountSid |getAccount_sid().
+|From |getFrom().
+|To |getTo().
+|Body |getBody().
+|Status |getStatus().
+|Direction |getDirection().
+|ApiVersion |getApi_version().
+|Uri |getUri().
+|========================================================================================================
+
+=== Sending a New SMS
+
+A new SMS Message can be sent by using the newSMS() method of the SMS class.
+....
+  String FromUser;
+  String ToUser;
+  String MessageBody;
+  .
+  .
+  .
+  SMS.newSMS().From(FromUser).To(ToUser).Body(MessageBody).sendSMS();
+....
+
+In order to capture the new SMS sent,
+....
+  SMS message = SMS.newSMS().From(FromUser).To(ToUser).Body(MessageBody).sendSMS();
+....
+
+== Fetching List of SMSMessages
+
+=== Fetching the Default List
+
+The Default SMSMessage List can be fetched by using the following code
+
+....
+  SMSList List = SMSList.getList();
+....
+
+=== Fetching a Filtered List
+
+A Filtered SMS List can be fetched by using the getFilteredList() method of the class SMSList
+
+....
+  SMSList List = SMSList.getFilteredList().From("+1234").Filter();
+....
+
+The above mentioned code snippet fetches all the SMSMessages sent from = +1234 
+
+==== List of FilterParameters
+[cols=",",options="header",]
+|===========================================================================================================================================================================================================================================================================
+|Parameter |Methods
+|To |To().
+|From |From().
+|StartTime |Start_time().
+|EndTime |End_time().
+|Body |Body().
+|===========================================================================================================================================================================================================================================================================
+In addition to these, the regular Paging paramters can also be used similar to the FilterParameters
+....
+ NotificationList List = NotificationList.getFilteredList().From("+1234").PageSize("1").Filter().
+....
+The above mentioned code snippet fetches all the SMSMessages sent from = +1234 in pages of size 1
+
+==== List of PagingParameters
+[cols=",",options="header",]
+|===============================================================================================================================================================================================================================
+|Paramter |Method 
+|Page |Page().
+|NumPages |NumPages().
+|PageSize |PageSize().
+|Total |Total().
+|Start |Start().
+|End |End().
+|===============================================================================================================================================================================================================================
+
+== Accessing the Fetched SMSList
+
+The size of the Fetched List can be known by
+....
+  SMSList MessageList;
+  .
+  .
+  .
+  int size = MessageList.size();
+....
+
+The a SMS from the fetched SMSList Object can be obtained by
+....
+  SMS a =MessageList.get(1);
+....
+
+== Additional Paging Information
+We can also access the Additional Paging Information 
+....
+  String Uri;
+  Uri = MessageList.getpreviouspageuri();
+....
+
+The API returns URIs to the next, previous, first and last pages of the returned list as shown in the table below:
+
+=== Request Parameters
+
+[cols=",",options="header",]
+|============================================================
+|Parameter |Method
+|Uri |geturi().
+|Firstpageuri |getfirstpageuri().
+|Nextpageuri |getnextpageuri().
+|Previouspageuri |getpreviouspageuri().
+|Lastpageuri |getlastpageuri().
+|============================================================
+
+NOTE: The Default Account from which we fetch the SMSList is the Main Account.
+      
+If we want to change the Default Account to any specific SubAccount , use the following method before Fetching the Notification(s)
+....
+  SMSList.SubAccountAccess(SubAccountSid);
+  SMSList List = SMSList.getList();
+....
