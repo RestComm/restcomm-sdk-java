@@ -108,7 +108,6 @@ public class FilteredNotificationList extends NotificationList {
 	
 	public NotificationList Filter() 
 	{
-		System.out.println(request.getUrl());
 		Restcomm.sendRequest(request);
 		Gson gson = new Gson();
 		return gson.fromJson(Restcomm.getJSONResponse(),NotificationList.class);
