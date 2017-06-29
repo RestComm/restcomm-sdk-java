@@ -1,5 +1,6 @@
 org/restcomm/connect/java/sdk/ExceptionHandler.class
 org/restcomm/connect/java/sdk/Applications/ApplicationUpdater.class
+org/restcomm/connect/java/sdk/Recordings/FilteredRecordingList.class
 org/restcomm/connect/java/sdk/http/HttpMethod.class
 org/restcomm/connect/java/sdk/Calls/Call.class
 org/restcomm/connect/java/sdk/Clients/ClientCreator.class
@@ -28,6 +29,7 @@ org/restcomm/connect/java/sdk/Clients/ClientList.class
 org/restcomm/connect/java/sdk/Notifications/NotificationList.class
 org/restcomm/connect/java/sdk/Notifications/Notification.class
 org/restcomm/connect/java/sdk/SMS/FilteredSMSList.class
+org/restcomm/connect/java/sdk/Recordings/Recording.class
 org/restcomm/connect/java/sdk/Clients/ClientUpdater.class
 org/restcomm/connect/java/sdk/ListUtil.class
 org/restcomm/connect/java/sdk/Calls/CallsList.class
@@ -36,3 +38,4 @@ org/restcomm/connect/java/sdk/Notifications/FilteredNotificationList.class
 org/restcomm/connect/java/sdk/Clients/Client.class
 org/restcomm/connect/java/sdk/Emails/EmailCreator.class
 org/restcomm/connect/java/sdk/Accounts/Account.class
+org/restcomm/connect/java/sdk/Recordings/RecordingList.class
