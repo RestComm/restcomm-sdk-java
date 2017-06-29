@@ -60,13 +60,23 @@ public class Request {
 	{
 		return method;
 	}
-	public void addGetParameters(String a,String b) throws MalformedURLException, URISyntaxException
+	public void addGetParameters(String a,String b)
 	{
 		
+		try{
 			URIBuilder urib = new URIBuilder(Url);
 			urib.addParameter(a,b);
 			urib.build();
 			Url = new URL(urib.toString()).toString();
+		   }
+		catch (MalformedURLException e)
+		{
+			e.printStackTrace();
+		}
+		catch (URISyntaxException e)
+		{
+			e.printStackTrace();
+		}
 	}
 	public void addPostParameters(String a,String b)
 	{

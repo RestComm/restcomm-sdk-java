@@ -28,6 +28,7 @@ import org.restcomm.connect.java.sdk.Applications.Application;
 
 import org.restcomm.connect.java.sdk.Accounts.Account;
 import org.restcomm.connect.java.sdk.Clients.Client;
+import org.restcomm.connect.java.sdk.Notifications.Notification;
 
 public class Utilities {
 
@@ -50,5 +51,10 @@ public class Utilities {
 		
 		Gson gson = new Gson();
 		return gson.fromJson(jsonResponse,Client.class);
+	}
+	public static Notification NotificationObject(String jsonResponse) {
+		
+		Gson gson = new Gson();
+		return gson.fromJson(jsonResponse,Notification.class);
 	}
 }
