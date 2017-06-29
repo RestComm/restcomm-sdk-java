@@ -12,6 +12,7 @@
 /home/mithilesh/workspace/restcomm-connect.java.sdk/src/main/java/org/restcomm/connect/java/sdk/SMS/FilteredSMSList.java
 /home/mithilesh/workspace/restcomm-connect.java.sdk/src/main/java/org/restcomm/connect/java/sdk/Restcomm.java
 /home/mithilesh/workspace/restcomm-connect.java.sdk/src/main/java/org/restcomm/connect/java/sdk/Notifications/FilteredNotificationList.java
+/home/mithilesh/workspace/restcomm-connect.java.sdk/src/main/java/org/restcomm/connect/java/sdk/Transcriptions/FilteredTranscriptionList.java
 /home/mithilesh/workspace/restcomm-connect.java.sdk/src/main/java/org/restcomm/connect/java/sdk/Accounts/SubAccountCreator.java
 /home/mithilesh/workspace/restcomm-connect.java.sdk/src/main/java/org/restcomm/connect/java/sdk/Applications/ApplicationUpdater.java
 /home/mithilesh/workspace/restcomm-connect.java.sdk/src/main/java/org/restcomm/connect/java/sdk/Notifications/Notification.java
@@ -27,6 +28,7 @@
 /home/mithilesh/workspace/restcomm-connect.java.sdk/src/main/java/org/restcomm/connect/java/sdk/Recordings/Recording.java
 /home/mithilesh/workspace/restcomm-connect.java.sdk/src/main/java/org/restcomm/connect/java/sdk/Emails/EmailCreator.java
 /home/mithilesh/workspace/restcomm-connect.java.sdk/src/main/java/org/restcomm/connect/java/sdk/http/Request.java
+/home/mithilesh/workspace/restcomm-connect.java.sdk/src/main/java/org/restcomm/connect/java/sdk/Transcriptions/TranscriptionList.java
 /home/mithilesh/workspace/restcomm-connect.java.sdk/src/main/java/org/restcomm/connect/java/sdk/Calls/CallsList.java
 /home/mithilesh/workspace/restcomm-connect.java.sdk/src/main/java/org/restcomm/connect/java/sdk/Accounts/SubAccountUpdater.java
 /home/mithilesh/workspace/restcomm-connect.java.sdk/src/main/java/org/restcomm/connect/java/sdk/Calls/CallCreator.java
@@ -35,4 +37,5 @@
 /home/mithilesh/workspace/restcomm-connect.java.sdk/src/main/java/org/restcomm/connect/java/sdk/SMS/SMSList.java
 /home/mithilesh/workspace/restcomm-connect.java.sdk/src/main/java/org/restcomm/connect/java/sdk/Clients/Client.java
 /home/mithilesh/workspace/restcomm-connect.java.sdk/src/main/java/org/restcomm/connect/java/sdk/ListUtil.java
+/home/mithilesh/workspace/restcomm-connect.java.sdk/src/main/java/org/restcomm/connect/java/sdk/Transcriptions/Transcription.java
 /home/mithilesh/workspace/restcomm-connect.java.sdk/src/main/java/org/restcomm/connect/java/sdk/http/HttpClient.java

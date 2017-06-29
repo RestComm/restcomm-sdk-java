@@ -1,4 +1,5 @@
 org/restcomm/connect/java/sdk/SMS/SMSTest.class
+org/restcomm/connect/java/sdk/Transcriptions/TranscriptionTest.class
 org/restcomm/connect/java/sdk/Clients/ClientTest.class
 org/restcomm/connect/java/sdk/Notifications/NotificationTest.class
 org/restcomm/connect/java/sdk/Accounts/SubAccountTest.class

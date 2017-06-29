@@ -7,9 +7,11 @@ org/restcomm/connect/java/sdk/Clients/ClientCreator.class
 org/restcomm/connect/java/sdk/Applications/Application.class
 org/restcomm/connect/java/sdk/Accounts/SubAccount.class
 org/restcomm/connect/java/sdk/SMS/SMSList.class
+org/restcomm/connect/java/sdk/Transcriptions/FilteredTranscriptionList.class
 org/restcomm/connect/java/sdk/Calls/CallModifier.class
 org/restcomm/connect/java/sdk/Clients/ClientList$1.class
 org/restcomm/connect/java/sdk/Applications/ApplicationCreator.class
+org/restcomm/connect/java/sdk/Transcriptions/Transcription.class
 org/restcomm/connect/java/sdk/Accounts/SubAccountList.class
 org/restcomm/connect/java/sdk/Accounts/SubAccountCreator.class
 org/restcomm/connect/java/sdk/Restcomm.class
@@ -35,6 +37,7 @@ org/restcomm/connect/java/sdk/ListUtil.class
 org/restcomm/connect/java/sdk/Calls/CallsList.class
 org/restcomm/connect/java/sdk/SMS/SMSCreator.class
 org/restcomm/connect/java/sdk/Notifications/FilteredNotificationList.class
+org/restcomm/connect/java/sdk/Transcriptions/TranscriptionList.class
 org/restcomm/connect/java/sdk/Clients/Client.class
 org/restcomm/connect/java/sdk/Emails/EmailCreator.class
 org/restcomm/connect/java/sdk/Accounts/Account.class

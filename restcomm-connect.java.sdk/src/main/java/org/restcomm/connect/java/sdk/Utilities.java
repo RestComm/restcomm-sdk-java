@@ -30,6 +30,7 @@ import org.restcomm.connect.java.sdk.Accounts.Account;
 import org.restcomm.connect.java.sdk.Clients.Client;
 import org.restcomm.connect.java.sdk.Recordings.Recording;
 import org.restcomm.connect.java.sdk.SMS.SMS;
+import org.restcomm.connect.java.sdk.Transcriptions.Transcription;
 import org.restcomm.connect.java.sdk.Emails.Email;
 import org.restcomm.connect.java.sdk.Notifications.Notification;
 
@@ -74,5 +75,10 @@ public class Utilities {
 		
 		Gson gson = new Gson();
 		return gson.fromJson(jsonResponse,Recording.class);
+	}
+	public static Transcription TranscriptionObject(String jsonResponse) {
+		
+		Gson gson = new Gson();
+		return gson.fromJson(jsonResponse,Transcription.class);
 	}
 }
