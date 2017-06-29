@@ -1,0 +1,127 @@
+= Restcomm JAVA Sdk - Recordings
+
+[[Recordings]]
+== Recordings
+
+Recordings are generated when you use the *<Record>* verb. Those recordings are hosted with RestComm for you to retrieve. The Recordings list resource represents the set of an account's recordings.
+
+=== Fetching a Recording
+
+A Recording with a given Sid can be fetched by the following code snippet
+....
+  String Sid;
+  .
+  .
+  .
+  Recording CallRecording = Recording.getRecording(Sid);
+....
+
+=== Accessing the Fetched Recording
+
+A Field of a Recording Object can be accessed by using the corresponding getMethod for that Field
+....
+  String CallSid;
+  CallSid = CallRecording.getCall_sid().
+....
+
+==== List of Fields
+[cols=",",options="header",]
+|==========================================================================
+|Property |Method
+|Sid |getSid().
+|DateCreated |getDate_created().
+|DateUpdated |getDate_updated().
+|AccountSid |getAccount_sid().
+|CallSid |getCall_sid().
+|Duration |getDuration().
+|ApiVersion |getApi_version().
+|Uri |getUri().
+|FileUri |getFile_uri().
+|==========================================================================
+
+== Fetching List of Recordings
+
+=== Fetching the Default List
+
+The Default Recordings List can be fetched by using the following code
+
+....
+  RecordingList List = RecordingList.getList();
+....
+
+=== Fetching a Filtered List
+
+A Filtered Recordings List can be fetched by using the getFilteredList() method of the class RecordingList
+
+....
+  RecordingList List = RecordingList.getFilteredList().CallSid("CAfe9ce46f104f5beeb10c83a5dad2be66").Filter();
+....
+
+The above mentioned code snippet fetches the Notifications with CallSid=CAfe9ce46f104f5beeb10c83a5dad2be66
+
+==== List of FilterParameters
+[cols=",",options="header",]
+|===============================================================================================================================================================================================================================
+|Parameter |Method 
+|StartTime |StartTime().
+|EndTime |EndTime().
+|CallSid |CallSid().
+|===============================================================================================================================================================================================================================
+
+In addition to these, the regular Paging paramters can also be used similar to the FilterParameters
+....
+ RecordingList List = RecordingList.getFilteredList().PageSize("1").Filter().
+....
+
+==== List of PagingParameters
+[cols=",",options="header",]
+|===============================================================================================================================================================================================================================
+|Paramter |Method 
+|Page |Page().
+|NumPages |NumPages().
+|PageSize |PageSize().
+|Total |Total().
+|Start |Start().
+|End |End().
+|===============================================================================================================================================================================================================================
+
+== Accessing the Fetched RecordingList
+
+The size of the Fetched List can be known by
+....
+  int size = CallRecording.size();
+....
+
+The a Recording from the fetched RecordingList Object can be obtained by
+....
+  Recording a = CallRecording.get(1);
+....
+
+== Additional Paging Information
+We can also access the Additional Paging Information
+....
+  String Uri;
+  Uri = CallRecording.getpreviouspageuri();
+....
+
+The API returns URIs to the next, previous, first and last pages of the returned list as shown in the table below:
+
+=== Request Parameters
+
+[cols=",",options="header",]
+|============================================================
+|Parameter |Method
+|Uri |geturi().
+|Firstpageuri |getfirstpageuri().
+|Nextpageuri |getnextpageuri().
+|Previouspageuri |getpreviouspageuri().
+|Lastpageuri |getlastpageuri().
+|============================================================
+
+NOTE: The Default Account from which we fetch the Recordings is the Main Account.
+      
+If we want to change the Default Account to any specific SubAccount , use the following method before Fetching the Recording(s)
+....
+  RecordingList.SubAccountAccess(SubAccountSid);
+  RecordingList List = RecordingList.getList();
+....
