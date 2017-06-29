@@ -3,6 +3,7 @@
 /home/mithilesh/workspace/restcomm-connect.java.sdk/src/main/java/org/restcomm/connect/java/sdk/Accounts/AccountUpdater.java
 /home/mithilesh/workspace/restcomm-connect.java.sdk/src/main/java/org/restcomm/connect/java/sdk/Accounts/SubAccount.java
 /home/mithilesh/workspace/restcomm-connect.java.sdk/src/main/java/org/restcomm/connect/java/sdk/Clients/ClientCreator.java
+/home/mithilesh/workspace/restcomm-connect.java.sdk/src/main/java/org/restcomm/connect/java/sdk/Emails/Email.java
 /home/mithilesh/workspace/restcomm-connect.java.sdk/src/main/java/org/restcomm/connect/java/sdk/Accounts/Account.java
 /home/mithilesh/workspace/restcomm-connect.java.sdk/src/main/java/org/restcomm/connect/java/sdk/Clients/ClientList.java
 /home/mithilesh/workspace/restcomm-connect.java.sdk/src/main/java/org/restcomm/connect/java/sdk/Applications/ApplicationList.java
@@ -21,6 +22,7 @@
 /home/mithilesh/workspace/restcomm-connect.java.sdk/src/main/java/org/restcomm/connect/java/sdk/Utilities.java
 /home/mithilesh/workspace/restcomm-connect.java.sdk/src/main/java/org/restcomm/connect/java/sdk/Applications/Application.java
 /home/mithilesh/workspace/restcomm-connect.java.sdk/src/main/java/org/restcomm/connect/java/sdk/http/HttpMethod.java
+/home/mithilesh/workspace/restcomm-connect.java.sdk/src/main/java/org/restcomm/connect/java/sdk/Emails/EmailCreator.java
 /home/mithilesh/workspace/restcomm-connect.java.sdk/src/main/java/org/restcomm/connect/java/sdk/http/Request.java
 /home/mithilesh/workspace/restcomm-connect.java.sdk/src/main/java/org/restcomm/connect/java/sdk/Calls/CallsList.java
 /home/mithilesh/workspace/restcomm-connect.java.sdk/src/main/java/org/restcomm/connect/java/sdk/Accounts/SubAccountUpdater.java

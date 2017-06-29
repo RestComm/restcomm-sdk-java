@@ -19,6 +19,7 @@ org/restcomm/connect/java/sdk/Applications/ApplicationList.class
 org/restcomm/connect/java/sdk/Accounts/AccountUpdater.class
 org/restcomm/connect/java/sdk/Applications/ApplicationList$1.class
 org/restcomm/connect/java/sdk/Exceptions/ResourceNotFoundException.class
+org/restcomm/connect/java/sdk/Emails/Email.class
 org/restcomm/connect/java/sdk/http/Request.class
 org/restcomm/connect/java/sdk/Utilities.class
 org/restcomm/connect/java/sdk/Accounts/SubAccountList$1.class
@@ -33,4 +34,5 @@ org/restcomm/connect/java/sdk/Calls/CallsList.class
 org/restcomm/connect/java/sdk/SMS/SMSCreator.class
 org/restcomm/connect/java/sdk/Notifications/FilteredNotificationList.class
 org/restcomm/connect/java/sdk/Clients/Client.class
+org/restcomm/connect/java/sdk/Emails/EmailCreator.class
 org/restcomm/connect/java/sdk/Accounts/Account.class
