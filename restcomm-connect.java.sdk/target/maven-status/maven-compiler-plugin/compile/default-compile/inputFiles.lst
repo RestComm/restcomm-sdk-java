@@ -1,4 +1,5 @@
 /home/mithilesh/workspace/restcomm-connect.java.sdk/src/main/java/org/restcomm/connect/java/sdk/Notifications/NotificationList.java
+/home/mithilesh/workspace/restcomm-connect.java.sdk/src/main/java/org/restcomm/connect/java/sdk/Conferences/ConferenceList.java
 /home/mithilesh/workspace/restcomm-connect.java.sdk/src/main/java/org/restcomm/connect/java/sdk/Applications/ApplicationCreator.java
 /home/mithilesh/workspace/restcomm-connect.java.sdk/src/main/java/org/restcomm/connect/java/sdk/Accounts/AccountUpdater.java
 /home/mithilesh/workspace/restcomm-connect.java.sdk/src/main/java/org/restcomm/connect/java/sdk/Accounts/SubAccount.java
@@ -8,8 +9,8 @@
 /home/mithilesh/workspace/restcomm-connect.java.sdk/src/main/java/org/restcomm/connect/java/sdk/Recordings/FilteredRecordingList.java
 /home/mithilesh/workspace/restcomm-connect.java.sdk/src/main/java/org/restcomm/connect/java/sdk/Accounts/Account.java
 /home/mithilesh/workspace/restcomm-connect.java.sdk/src/main/java/org/restcomm/connect/java/sdk/Clients/ClientList.java
-/home/mithilesh/workspace/restcomm-connect.java.sdk/src/main/java/org/restcomm/connect/java/sdk/Applications/ApplicationList.java
 /home/mithilesh/workspace/restcomm-connect.java.sdk/src/main/java/org/restcomm/connect/java/sdk/SMS/FilteredSMSList.java
+/home/mithilesh/workspace/restcomm-connect.java.sdk/src/main/java/org/restcomm/connect/java/sdk/Applications/ApplicationList.java
 /home/mithilesh/workspace/restcomm-connect.java.sdk/src/main/java/org/restcomm/connect/java/sdk/Restcomm.java
 /home/mithilesh/workspace/restcomm-connect.java.sdk/src/main/java/org/restcomm/connect/java/sdk/Notifications/FilteredNotificationList.java
 /home/mithilesh/workspace/restcomm-connect.java.sdk/src/main/java/org/restcomm/connect/java/sdk/Transcriptions/FilteredTranscriptionList.java
@@ -20,6 +21,7 @@
 /home/mithilesh/workspace/restcomm-connect.java.sdk/src/main/java/org/restcomm/connect/java/sdk/Calls/Call.java
 /home/mithilesh/workspace/restcomm-connect.java.sdk/src/main/java/org/restcomm/connect/java/sdk/SMS/SMSCreator.java
 /home/mithilesh/workspace/restcomm-connect.java.sdk/src/main/java/org/restcomm/connect/java/sdk/Accounts/SubAccountList.java
+/home/mithilesh/workspace/restcomm-connect.java.sdk/src/main/java/org/restcomm/connect/java/sdk/Conferences/Conference.java
 /home/mithilesh/workspace/restcomm-connect.java.sdk/src/main/java/org/restcomm/connect/java/sdk/ExceptionHandler.java
 /home/mithilesh/workspace/restcomm-connect.java.sdk/src/main/java/org/restcomm/connect/java/sdk/Exceptions/ResourceNotFoundException.java
 /home/mithilesh/workspace/restcomm-connect.java.sdk/src/main/java/org/restcomm/connect/java/sdk/Utilities.java
@@ -27,6 +29,7 @@
 /home/mithilesh/workspace/restcomm-connect.java.sdk/src/main/java/org/restcomm/connect/java/sdk/Applications/Application.java
 /home/mithilesh/workspace/restcomm-connect.java.sdk/src/main/java/org/restcomm/connect/java/sdk/Recordings/Recording.java
 /home/mithilesh/workspace/restcomm-connect.java.sdk/src/main/java/org/restcomm/connect/java/sdk/Emails/EmailCreator.java
+/home/mithilesh/workspace/restcomm-connect.java.sdk/src/main/java/org/restcomm/connect/java/sdk/Capabilities.java
 /home/mithilesh/workspace/restcomm-connect.java.sdk/src/main/java/org/restcomm/connect/java/sdk/http/Request.java
 /home/mithilesh/workspace/restcomm-connect.java.sdk/src/main/java/org/restcomm/connect/java/sdk/Transcriptions/TranscriptionList.java
 /home/mithilesh/workspace/restcomm-connect.java.sdk/src/main/java/org/restcomm/connect/java/sdk/Calls/CallsList.java

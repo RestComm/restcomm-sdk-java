@@ -33,6 +33,8 @@ import org.restcomm.connect.java.sdk.SMS.SMS;
 import org.restcomm.connect.java.sdk.Transcriptions.Transcription;
 import org.restcomm.connect.java.sdk.Emails.Email;
 import org.restcomm.connect.java.sdk.Notifications.Notification;
+import org.restcomm.connect.java.sdk.Conferences.Conference;
+//import org.restcomm.connect.java.sdk.IncomingPhoneNumbers.IncomingPhoneNumber;
 
 public class Utilities {
 
@@ -81,4 +83,14 @@ public class Utilities {
 		Gson gson = new Gson();
 		return gson.fromJson(jsonResponse,Transcription.class);
 	}
+	public static Conference ConferenceObject(String jsonResponse) {
+		
+		Gson gson = new Gson();
+		return gson.fromJson(jsonResponse,Conference.class);
+	}
+	/*public static IncomingPhoneNumber IncomingPhoneNumberObject(String jsonResponse) {
+		
+		Gson gson = new Gson();
+		return gson.fromJson(jsonResponse,IncomingPhoneNumber.class);
+	}*/
 }
