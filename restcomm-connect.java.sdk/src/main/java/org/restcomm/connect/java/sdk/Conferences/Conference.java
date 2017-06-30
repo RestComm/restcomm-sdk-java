@@ -20,13 +20,18 @@
  */
 package org.restcomm.connect.java.sdk.Conferences;
 
+import java.lang.reflect.Type;
+import com.google.gson.reflect.TypeToken;
 import org.apache.http.ParseException;
 import org.apache.http.ProtocolException;
 import org.restcomm.connect.java.sdk.Restcomm;
 import org.restcomm.connect.java.sdk.Utilities;
 import org.restcomm.connect.java.sdk.http.*;
-
+import org.restcomm.connect.java.sdk.Conferences.*;
 import org.restcomm.connect.java.sdk.Exceptions.*;
+import java.util.List;
+import java.util.ArrayList;
+import com.google.gson.Gson;
 
 public class Conference{
 	
@@ -41,6 +46,19 @@ public class Conference{
 	{
 		Restcomm.sendRequest((new Request(HttpMethod.GET,BASE_URL+sid)));	
 		return Utilities.ConferenceObject(Restcomm.getJSONResponse());
+	}
+	public Participant getParticipant(String sid)
+	{
+		String BASE = BASE_URL;
+		Restcomm.sendRequest((new Request(HttpMethod.GET,BASE.replaceAll(".json/","/"+this.getSid()+"/Participants/")+sid+".json")));	
+		return Utilities.ParticipantObject(Restcomm.getJSONResponse());
+	}
+	public ParticipantList getParticipantList()
+	{
+		String BASE = BASE_URL;
+		ParticipantList a = new ParticipantList(BASE.replaceAll(".json/","/"+this.getSid()+"/Participants")+".json");
+		a = ParticipantList.getList();
+		return a;
 	}
 	/*public static ConferenceList getConferenceList()
 	{

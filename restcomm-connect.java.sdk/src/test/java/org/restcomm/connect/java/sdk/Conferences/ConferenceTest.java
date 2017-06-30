@@ -42,12 +42,13 @@ import java.io.IOException;
 public class ConferenceTest extends BasicTest{
 	
 	private String path = "src/test/java/org/restcomm/connect/java/sdk/Conferences/TextFiles/";
-	private String ConferenceSid = "NO70eddcd2f3424aea94c5d7a638298a6a";
+	private String ConferenceSid = "CF00a13f9e9ed741e99ff460e86ff5c67a";
+	private String ParticipantSid = "CA1d9cc1b36ab4408db8a9b7f7a5a54bdb";
 	
 	@Rule 
     public WireMockRule wireMockRule = new WireMockRule(8080);
 	
-	/*@Test
+	@Test
 	public void testGetConference() throws Exception{ 
 		WireMock.stubFor(WireMock.get(WireMock.urlPathMatching("/Accounts/"+Restcomm.getAuthID()+"/Conferences.json/"+ConferenceSid))
 				  .withBasicAuth(Restcomm.getAuthID(),Restcomm.getPassword())
@@ -61,13 +62,11 @@ public class ConferenceTest extends BasicTest{
 		WireMock.verify(WireMock.getRequestedFor(WireMock.urlEqualTo("/Accounts/"+Restcomm.getAuthID()+"/Conferences.json/"+ConferenceSid)));
 		assertEquals(200, Restcomm.getStatusCode());
 		assertEquals(ConferenceSid,a.getSid());
-	}*/
-
-/*	@Test
+	}
+	@Test
 	public void testConferenceList() throws Exception{
 		WireMock.stubFor(WireMock.get(WireMock.urlPathMatching("/Accounts/"+Restcomm.getAuthID()+"/Conferences.json"))
 				  .withBasicAuth(Restcomm.getAuthID(),Restcomm.getPassword())
-				  .withQueryParam("PageSize", WireMock.equalTo("1"))
 				  .willReturn(WireMock.aResponse()
 				  .withStatus(200)
 				  .withHeader("Content-Type", "Conference/json")
@@ -80,7 +79,61 @@ public class ConferenceTest extends BasicTest{
 		WireMock.verify(WireMock.getRequestedFor(WireMock.urlEqualTo("/Accounts/"+Restcomm.getAuthID()+"/Conferences.json")));
 		assertEquals(200,Restcomm.getStatusCode());
 		assertNotNull(a);
-		assertEquals("NOa6b821987c1e47b4b91d26783abc205b",b.getSid());
+		assertEquals("CF00a13f9e9ed741e99ff460e86ff5c67a",b.getSid());
 
-	}*/
+	}
+	@Test
+	public void testParticipant() throws Exception{
+		WireMock.stubFor(WireMock.get(WireMock.urlPathMatching("/Accounts/"+Restcomm.getAuthID()+"/Conferences.json/"+ConferenceSid))
+				  .withBasicAuth(Restcomm.getAuthID(),Restcomm.getPassword())
+				  .willReturn(WireMock.aResponse()
+				  .withStatus(200)
+				  .withHeader("Content-Type", "Conference/json")
+				  .withBody(readFile(path+"getConference.txt"))));
+		
+		Conference a = Conference.getConference(ConferenceSid);
+		
+		assertEquals(200, Restcomm.getStatusCode());
+		
+		WireMock.stubFor(WireMock.get(WireMock.urlPathMatching("/Accounts/"+Restcomm.getAuthID()+"/Conferences/"+ConferenceSid+"/Participants/"+ParticipantSid+".json"))
+				  .withBasicAuth(Restcomm.getAuthID(),Restcomm.getPassword())
+				  .willReturn(WireMock.aResponse()
+				  .withStatus(200)
+				  .withHeader("Content-Type", "Conference/json")
+				  .withBody(readFile(path+"getParticipant.txt"))));
+		
+		
+		Participant p = a.getParticipant(ParticipantSid);	
+		
+		WireMock.verify(WireMock.getRequestedFor(WireMock.urlEqualTo("/Accounts/"+Restcomm.getAuthID()+"/Conferences/"+ConferenceSid+"/Participants/"+ParticipantSid+".json")));
+		assertEquals(200,Restcomm.getStatusCode());
+		assertEquals("CA1d9cc1b36ab4408db8a9b7f7a5a54bdb",p.getSid());
+	}
+	@Test
+	public void testParticipantList() throws Exception{
+		WireMock.stubFor(WireMock.get(WireMock.urlPathMatching("/Accounts/"+Restcomm.getAuthID()+"/Conferences.json/"+ConferenceSid))
+				  .withBasicAuth(Restcomm.getAuthID(),Restcomm.getPassword())
+				  .willReturn(WireMock.aResponse()
+				  .withStatus(200)
+				  .withHeader("Content-Type", "Conference/json")
+				  .withBody(readFile(path+"getConference.txt"))));
+		
+		Conference a = Conference.getConference(ConferenceSid);
+		
+		assertEquals(200, Restcomm.getStatusCode());
+		
+		WireMock.stubFor(WireMock.get(WireMock.urlPathMatching("/Accounts/"+Restcomm.getAuthID()+"/Conferences/"+ConferenceSid+"/Participants.json"))
+				  .withBasicAuth(Restcomm.getAuthID(),Restcomm.getPassword())
+				  .willReturn(WireMock.aResponse()
+				  .withStatus(200)
+				  .withHeader("Content-Type", "Conference/json")
+				  .withBody(readFile(path+"getParticipantList.txt"))));
+		
+		
+		ParticipantList p = a.getParticipantList();	
+		
+		WireMock.verify(WireMock.getRequestedFor(WireMock.urlEqualTo("/Accounts/"+Restcomm.getAuthID()+"/Conferences/"+ConferenceSid+"/Participants.json")));
+		assertEquals(200,Restcomm.getStatusCode());
+		assertEquals("CA1d9cc1b36ab4408db8a9b7f7a5a54bdb",p.get(0).getSid());
+	}
 }

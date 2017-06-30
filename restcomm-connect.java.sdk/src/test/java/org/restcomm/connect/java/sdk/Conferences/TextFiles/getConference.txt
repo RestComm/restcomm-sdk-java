@@ -1,0 +1,13 @@
+{
+      "sid": "CF00a13f9e9ed741e99ff460e86ff5c67a",
+      "date_created": "Thu, 21 Jul 2016 13:02:45 +0000",
+      "date_updated": "Thu, 21 Jul 2016 13:02:52 +0000",
+      "account_sid": "AC23f1b11bbb99a46436c365cb7bec246e",
+      "status": "FORCED_COMPLETED",
+      "api_version": "2012-04-24",
+      "friendly_name": "amits-conf",
+      "uri": "/2012-04-24/Accounts/AC23f1b11bbb99a46436c365cb7bec246e/Conferences/CF00a13f9e9ed741e99ff460e86ff5c67a.json",
+      "subresource_uris": {
+        "participants": "/2012-04-24/Accounts/AC23f1b11bbb99a46436c365cb7bec246e/Conferences/CF00a13f9e9ed741e99ff460e86ff5c67a/Participants.json"
+		}
+}
