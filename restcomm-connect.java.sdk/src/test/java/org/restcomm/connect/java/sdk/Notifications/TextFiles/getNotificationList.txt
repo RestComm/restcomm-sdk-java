@@ -1,0 +1,31 @@
+{
+  "page": 0,
+  "num_pages": 19,
+  "page_size": 1,
+  "total": 19,
+  "start": "0",
+  "end": "0",
+  "uri": "/restcomm/2012-04-24/Accounts/AC13b4372c92ed5c07d951cf842e2664ff/Notifications.json",
+  "first_page_uri": "/restcomm/2012-04-24/Accounts/AC13b4372c92ed5c07d951cf842e2664ff/Notifications.json?Page\u003d0\u0026PageSize\u003d1",
+  "previous_page_uri": "null",
+  "next_page_uri": "/restcomm/2012-04-24/Accounts/AC13b4372c92ed5c07d951cf842e2664ff/Notifications.json?Page\u003d1\u0026PageSize\u003d1\u0026AfterSid\u003dNOa6b821987c1e47b4b91d26783abc205b",
+  "last_page_uri": "/restcomm/2012-04-24/Accounts/AC13b4372c92ed5c07d951cf842e2664ff/Notifications.json?Page\u003d19\u0026PageSize\u003d1",
+  "notifications": [
+    {
+      "sid": "NOa6b821987c1e47b4b91d26783abc205b",
+      "date_created": "Wed, 17 May 2017 11:09:40 +0000",
+      "date_updated": "Wed, 17 May 2017 11:09:40 +0000",
+      "account_sid": "AC13b4372c92ed5c07d951cf842e2664ff",
+      "api_version": "2012-04-24",
+      "log": 0,
+      "error_code": 11001,
+      "more_info": "/restcomm/errors/11001.html",
+      "message_text": "Cannot Connect to Client: bob : Make sure the Client exist or is registered with Restcomm",
+      "message_date": "2017-05-17T11:09:40.000Z",
+      "request_url": "",
+      "request_method": "",
+      "request_variables": "",
+      "uri": "/2012-04-24/Accounts/AC13b4372c92ed5c07d951cf842e2664ff/Notifications/NOa6b821987c1e47b4b91d26783abc205b.json"
+    }
+  ]
+}

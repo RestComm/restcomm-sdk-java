@@ -1,6 +1,12 @@
+org/restcomm/connect/java/sdk/SMS/SMSTest.class
+org/restcomm/connect/java/sdk/Transcriptions/TranscriptionTest.class
+org/restcomm/connect/java/sdk/Clients/ClientTest.class
+org/restcomm/connect/java/sdk/Notifications/NotificationTest.class
+org/restcomm/connect/java/sdk/Conferences/ConferenceTest.class
 org/restcomm/connect/java/sdk/Accounts/SubAccountTest.class
+org/restcomm/connect/java/sdk/Recordings/RecordingTest.class
 org/restcomm/connect/java/sdk/BasicTest.class
 org/restcomm/connect/java/sdk/Applications/ApplicationTest.class
 org/restcomm/connect/java/sdk/Accounts/AccountTest.class
-org/restcomm/connect/java/sdk/Clients/ClientTest.class
+org/restcomm/connect/java/sdk/Emails/EmailTest.class
 org/restcomm/connect/java/sdk/Calls/CallTest.class

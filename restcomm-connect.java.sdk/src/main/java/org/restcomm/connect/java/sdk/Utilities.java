@@ -28,6 +28,14 @@ import org.restcomm.connect.java.sdk.Applications.Application;
 
 import org.restcomm.connect.java.sdk.Accounts.Account;
 import org.restcomm.connect.java.sdk.Clients.Client;
+import org.restcomm.connect.java.sdk.Recordings.Recording;
+import org.restcomm.connect.java.sdk.SMS.SMS;
+import org.restcomm.connect.java.sdk.Transcriptions.Transcription;
+import org.restcomm.connect.java.sdk.Emails.Email;
+import org.restcomm.connect.java.sdk.Notifications.Notification;
+import org.restcomm.connect.java.sdk.Conferences.Conference;
+import org.restcomm.connect.java.sdk.Conferences.Participant;
+//import org.restcomm.connect.java.sdk.IncomingPhoneNumbers.IncomingPhoneNumber;
 
 public class Utilities {
 
@@ -51,4 +59,44 @@ public class Utilities {
 		Gson gson = new Gson();
 		return gson.fromJson(jsonResponse,Client.class);
 	}
+	public static Notification NotificationObject(String jsonResponse) {
+		
+		Gson gson = new Gson();
+		return gson.fromJson(jsonResponse,Notification.class);
+	}
+	public static SMS SMSObject(String jsonResponse) {
+		
+		Gson gson = new Gson();
+		return gson.fromJson(jsonResponse,SMS.class);
+	}
+	public static Email EmailObject(String jsonResponse) {
+		
+		Gson gson = new Gson();
+		return gson.fromJson(jsonResponse,Email.class);
+	}
+	public static Recording RecordingObject(String jsonResponse) {
+		
+		Gson gson = new Gson();
+		return gson.fromJson(jsonResponse,Recording.class);
+	}
+	public static Transcription TranscriptionObject(String jsonResponse) {
+		
+		Gson gson = new Gson();
+		return gson.fromJson(jsonResponse,Transcription.class);
+	}
+	public static Conference ConferenceObject(String jsonResponse) {
+		
+		Gson gson = new Gson();
+		return gson.fromJson(jsonResponse,Conference.class);
+	}
+	public static Participant ParticipantObject(String jsonResponse) {
+		
+		Gson gson = new Gson();
+		return gson.fromJson(jsonResponse,Participant.class);
+	}
+	/*public static IncomingPhoneNumber IncomingPhoneNumberObject(String jsonResponse) {
+		
+		Gson gson = new Gson();
+		return gson.fromJson(jsonResponse,IncomingPhoneNumber.class);
+	}*/
 }

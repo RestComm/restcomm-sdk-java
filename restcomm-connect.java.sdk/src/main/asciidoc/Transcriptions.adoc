@@ -1,0 +1,127 @@
+= Restcomm JAVA Sdk - Transcriptions
+
+[[Transcriptions]]
+== Transcriptions
+
+A Transcription resource represents a transcription of a recording. A transcription is a text version of a recording produced using automatic speech recognition.
+
+=== Fetching a Transcription 
+
+A Transcription with a given Sid can be fetched by the following code snippet
+....
+  String Sid;
+  .
+  .
+  .
+  Transcription NewTranscription = Transcription.getTranscription(Sid);
+....
+
+=== Accessing the Fetched Transcription
+
+A Field of a Transcription Object can be accessed by using the corresponding getMethod for that Field
+....
+  String TranscriptionText;
+  TranscriptionText = NewTranscription.getMessage_text().
+....
+
+==== List of Fields
+[cols=",",options="header",]
+|======================================================================================================================
+|Fields |Method
+|Sid |getSid().
+|DateCreated |getDate_created().
+|DateUpdated |getDate_updated().
+|AccountSid |getAccount_sid().
+|Status |getStatus().
+|RecordingSid |getRecording_sid().
+|Duration |getDuration().
+|TranscriptionText |getTranscription_text().
+|Uri |getUri().
+|======================================================================================================================
+
+== Fetching List of Transcriptions
+
+=== Fetching the Default List
+
+The Default Transcriptions List can be fetched by using the following code
+
+....
+  TranscriptionList List = TranscriptionList.getList();
+....
+
+=== Fetching a Filtered List
+
+A Filtered Transcriptions List can be fetched by using the getFilteredList() method of the class TranscriptionList
+
+....
+  TranscriptionList List = TranscriptionList.getFilteredList().TranscriptionText("Hello World").Filter();
+....
+
+The above mentioned code snippet fetches the Transcriptions with  TranscriptionText = Hello World
+
+==== List of FilterParameters
+[cols=",",options="header",]
+|===========================================================================================================================================================================================================================================================================
+|Parameter |Method
+|StartTime |StartTime().
+|EndTime |EndTime().
+|TranscriptionText |TranscriptionText().
+|===========================================================================================================================================================================================================================================================================
+
+In addition to these, the regular Paging paramters can also be used similar to the FilterParameters
+....
+ TranscriptionList List = TranscriptionList.getFilteredList().PageSize("1").Filter().
+....
+
+==== List of PagingParameters
+[cols=",",options="header",]
+|===============================================================================================================================================================================================================================
+|Paramter |Method 
+|Page |Page().
+|NumPages |NumPages().
+|PageSize |PageSize().
+|Total |Total().
+|Start |Start().
+|End |End().
+|===============================================================================================================================================================================================================================
+
+== Accessing the Fetched TranscriptionList
+
+The size of the Fetched List can be known by
+....
+  int size = NewTranscription.size();
+....
+
+The a Transcription from the fetched TranscriptionList Object can be obtained by
+....
+  Transcription a = NewTranscription.get(1);
+....
+
+== Additional Paging Information
+We can also access the Additional Paging Information by using the Methods of TranscriptionList
+....
+  String Uri;
+  Uri = NewTranscription.getpreviouspageuri();
+....
+
+The API returns URIs to the next, previous, first and last pages of the returned list as shown in the table below:
+
+=== Request Parameters
+
+[cols=",",options="header",]
+|============================================================
+|Parameter |Method
+|Uri |geturi().
+|Firstpageuri |getfirstpageuri().
+|Nextpageuri |getnextpageuri().
+|Previouspageuri |getpreviouspageuri().
+|Lastpageuri |getlastpageuri().
+|============================================================
+
+NOTE: The Default Account from which we fetch the Transcriptions is the Main Account.
+      
+If we want to change the Default Account to any specific SubAccount , use the following method before Fetching the Transcription(s)
+....
+  NotifactionList.SubAccountAccess(SubAccountSid);
+  TranscriptionList List = TranscriptionList.getList();
+....
