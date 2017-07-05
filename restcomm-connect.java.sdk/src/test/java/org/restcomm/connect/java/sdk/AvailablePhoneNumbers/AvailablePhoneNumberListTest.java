@@ -55,7 +55,7 @@ public class AvailablePhoneNumberListTest extends BasicTest{
 				  .withHeader("Content-Type", "Application/json")
 				  .withBody(readFile(path+"getLocalList.txt"))));
 		
-		AvailablePhoneNumberList List = AvailablePhoneNumberList.getNumbers("US","Local");
+		AvailablePhoneNumberList List = AvailablePhoneNumberList.getList("US","Local");
 		
 		PhoneNumber a = List.get(0);
 		WireMock.verify(WireMock.getRequestedFor(WireMock.urlEqualTo("/Accounts/"+Restcomm.getAuthID()+"/AvailablePhoneNumbers/US/Local.json")));
