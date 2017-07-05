@@ -3,6 +3,7 @@
 /home/mithilesh/workspace/restcomm-connect.java.sdk/src/test/java/org/restcomm/connect/java/sdk/Accounts/SubAccountTest.java
 /home/mithilesh/workspace/restcomm-connect.java.sdk/src/test/java/org/restcomm/connect/java/sdk/Transcriptions/TranscriptionTest.java
 /home/mithilesh/workspace/restcomm-connect.java.sdk/src/test/java/org/restcomm/connect/java/sdk/Accounts/AccountTest.java
+/home/mithilesh/workspace/restcomm-connect.java.sdk/src/test/java/org/restcomm/connect/java/sdk/AvailablePhoneNumbers/AvailablePhoneNumberListTest.java
 /home/mithilesh/workspace/restcomm-connect.java.sdk/src/test/java/org/restcomm/connect/java/sdk/Conferences/ConferenceTest.java
 /home/mithilesh/workspace/restcomm-connect.java.sdk/src/test/java/org/restcomm/connect/java/sdk/Clients/ClientTest.java
 /home/mithilesh/workspace/restcomm-connect.java.sdk/src/test/java/org/restcomm/connect/java/sdk/SMS/SMSTest.java

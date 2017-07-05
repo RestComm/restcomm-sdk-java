@@ -1,0 +1,18 @@
+[
+  {
+    "friendlyName": "+12034869059",
+    "phoneNumber": "12034869059",
+    "isoCountry": "US",
+    "cost": "0.67",
+    "voiceCapable": true,
+    "smsCapable": true
+  },
+  {
+    "friendlyName": "+12034869060",
+    "phoneNumber": "12034869060",
+    "isoCountry": "US",
+    "cost": "0.67",
+    "voiceCapable": true,
+    "smsCapable": true
+  }
+]

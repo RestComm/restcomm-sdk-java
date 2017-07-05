@@ -35,7 +35,8 @@ import org.restcomm.connect.java.sdk.Emails.Email;
 import org.restcomm.connect.java.sdk.Notifications.Notification;
 import org.restcomm.connect.java.sdk.Conferences.Conference;
 import org.restcomm.connect.java.sdk.Conferences.Participant;
-//import org.restcomm.connect.java.sdk.IncomingPhoneNumbers.IncomingPhoneNumber;
+import org.restcomm.connect.java.sdk.OutboundProxy.OutboundProxy;
+import org.restcomm.connect.java.sdk.AvailablePhoneNumbers.PhoneNumber;
 
 public class Utilities {
 
@@ -94,9 +95,14 @@ public class Utilities {
 		Gson gson = new Gson();
 		return gson.fromJson(jsonResponse,Participant.class);
 	}
-	/*public static IncomingPhoneNumber IncomingPhoneNumberObject(String jsonResponse) {
+	public static OutboundProxy OutboundProxyObject(String jsonResponse) {
 		
 		Gson gson = new Gson();
-		return gson.fromJson(jsonResponse,IncomingPhoneNumber.class);
-	}*/
+		return gson.fromJson(jsonResponse,OutboundProxy.class);
+	}
+	public static PhoneNumber PhoneNumberObject(String jsonResponse) {
+		
+		Gson gson = new Gson();
+		return gson.fromJson(jsonResponse,PhoneNumber.class);
+	}
 }
