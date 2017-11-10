@@ -1,6 +1,6 @@
 package org.restcomm.connect.java.sdk.rcml.builders;
 
-import org.restcomm.rcml.verbs.Play;
+import org.restcomm.connect.java.sdk.rcml.verbs.Play;
 
 public class PlayBuilder extends Play implements GenericBuilder<Play> {
 	

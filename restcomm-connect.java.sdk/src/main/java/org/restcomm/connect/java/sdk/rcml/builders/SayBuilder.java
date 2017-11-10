@@ -1,6 +1,6 @@
 package org.restcomm.connect.java.sdk.rcml.builders;
 
-import org.restcomm.rcml.verbs.Say;
+import org.restcomm.connect.java.sdk.rcml.verbs.Say;
 
 public class SayBuilder extends Say implements GenericBuilder<Say> {
 	

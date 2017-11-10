@@ -2,10 +2,10 @@ package org.restcomm.connect.java.sdk.rcml.builders;
 
 import java.util.ArrayList;
 
-import org.restcomm.rcml.verbs.Gather;
-import org.restcomm.rcml.verbs.Pause;
-import org.restcomm.rcml.verbs.Play;
-import org.restcomm.rcml.verbs.Say;
+import org.restcomm.connect.java.sdk.rcml.verbs.Gather;
+import org.restcomm.connect.java.sdk.rcml.verbs.Pause;
+import org.restcomm.connect.java.sdk.rcml.verbs.Play;
+import org.restcomm.connect.java.sdk.rcml.verbs.Say;
 
 public class GatherBuilder extends Gather implements GenericBuilder<Gather> {
 	

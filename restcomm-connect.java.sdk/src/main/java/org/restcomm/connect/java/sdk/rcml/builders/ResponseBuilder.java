@@ -1,7 +1,7 @@
 package org.restcomm.connect.java.sdk.rcml.builders;
 
-import org.restcomm.rcml.verbs.Hangup;
-import org.restcomm.rcml.verbs.Response;
+import org.restcomm.connect.java.sdk.rcml.verbs.Hangup;
+import org.restcomm.connect.java.sdk.rcml.verbs.Response;
 
 @SuppressWarnings("all")
 public class ResponseBuilder {

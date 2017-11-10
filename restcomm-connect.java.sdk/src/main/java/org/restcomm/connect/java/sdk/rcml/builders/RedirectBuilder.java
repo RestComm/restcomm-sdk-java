@@ -1,6 +1,6 @@
 package org.restcomm.connect.java.sdk.rcml.builders;
 
-import org.restcomm.rcml.verbs.Redirect;
+import org.restcomm.connect.java.sdk.rcml.verbs.Redirect;
 
 public class RedirectBuilder extends Redirect implements GenericBuilder<Redirect> {
 
@@ -9,7 +9,6 @@ public class RedirectBuilder extends Redirect implements GenericBuilder<Redirect
 		return this;
 	}
 	
-	@Override
 	public Redirect build() {
 		return this;
 	}

@@ -1,6 +1,6 @@
 package org.restcomm.connect.java.sdk.rcml.builders;
 
-import org.restcomm.rcml.verbs.Sms;
+import org.restcomm.connect.java.sdk.rcml.verbs.Sms;
 
 public class SmsBuilder extends Sms implements GenericBuilder<Sms> {
 	

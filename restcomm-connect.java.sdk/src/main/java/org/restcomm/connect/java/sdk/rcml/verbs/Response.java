@@ -31,7 +31,7 @@ public class Response {
 	}
 	
 	public Response() {
-		commands = new ArrayList<>(0);
+		commands = new ArrayList<Object>(0);
 	}
 
 	public void addCommand(Object command) {

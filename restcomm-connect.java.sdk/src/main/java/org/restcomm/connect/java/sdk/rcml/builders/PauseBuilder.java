@@ -1,6 +1,6 @@
 package org.restcomm.connect.java.sdk.rcml.builders;
 
-import org.restcomm.rcml.verbs.Pause;
+import org.restcomm.connect.java.sdk.rcml.verbs.Pause;
 
 public class PauseBuilder extends Pause implements GenericBuilder<Pause>{
 	

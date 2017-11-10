@@ -1,6 +1,6 @@
 package org.restcomm.connect.java.sdk.rcml.builders;
 
-import org.restcomm.rcml.verbs.Email;
+import org.restcomm.connect.java.sdk.rcml.verbs.Email;
 
 public class EmailBuilder extends Email implements GenericBuilder<Email> {
 	
