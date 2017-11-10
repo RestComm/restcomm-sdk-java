@@ -1,5 +1,10 @@
 package org.restcomm.connect.java.sdk.rcml.builders;
 
+import java.io.StringWriter;
+
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.Marshaller;
+
 import org.restcomm.connect.java.sdk.rcml.verbs.Hangup;
 import org.restcomm.connect.java.sdk.rcml.verbs.Response;
 
@@ -15,6 +20,21 @@ public class ResponseBuilder {
 	public Response build() {
 		return response;
 	}
+
+	public String toXML(){
+		try {
+			StringWriter sw = new StringWriter();
+			JAXBContext jaxbContext = JAXBContext.newInstance(Response.class);
+			Marshaller marshaller = jaxbContext.createMarshaller();
+			marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
+			marshaller.marshal(response, sw);
+			return sw.toString();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+
 
 	public ResponseBuilder say(GenericBuilder builder) {
 		return addCommand(builder);
@@ -41,7 +61,7 @@ public class ResponseBuilder {
 		response.addCommand(new Hangup());
 		return this;
 	}
-	
+
 	private ResponseBuilder addCommand(GenericBuilder builder) {
 		response.addCommand(builder.build());
 		return this;
