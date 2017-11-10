@@ -1,5 +1,6 @@
-package org.restcomm.connect.java.sdk.rcml.verbs;
+package org.restcomm.connect.java.sdk.rcml;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -8,7 +9,7 @@ import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 
 @XmlAccessorType(XmlAccessType.FIELD)
-public abstract class Gather {
+public class Gather implements GenericBuilder<Gather>{
 	
 	@XmlAttribute
 	protected String action;
@@ -111,5 +112,70 @@ public abstract class Gather {
 				+ partialResultCallback + ", partialResultCallbackMethod=" + partialResultCallbackMethod + ", language="
 				+ language + ", hints=" + hints + ", says=" + says + ", play=" + play + ", pause=" + pause + "]";
 	}
+	
+	public Gather action(String action) {
+		this.action = action;
+		return this;
+	}
+	public Gather method(String method) {
+		this.method = method;
+		return this;
+	}
+	public Gather timeout(Integer timeout) {
+		this.timeout = timeout;
+		return this;
+	}
+	public Gather finishOnKey(String finishOnKey) {
+		this.finishOnKey = finishOnKey;
+		return this;
+	}
+	public Gather numDigits(Integer numDigits) {
+		this.numDigits = numDigits;
+		return this;
+	}
+	public Gather input(String input) {
+		this.input = input;
+		return this;
+	}
+	public Gather partialResultCallback(String partialResultCallback) {
+		this.partialResultCallback = partialResultCallback;
+		return this;
+	}
+	public Gather partialResultCallbackMethod(String partialResultCallbackMethod) {
+		this.partialResultCallbackMethod = partialResultCallbackMethod;
+		return this;
+	}
+	public Gather language(String language) {
+		this.language = language;
+		return this;
+	}
+	public Gather hints(String hints) {
+		this.hints = hints;
+		return this;
+	}
+	public Gather say(Say say) {
+		if(this.says == null) new ArrayList<Say>(0);
+		this.says.add(say);
+		return this;
+	}
+	public Gather say(String sayText) {
+		if(this.says == null) says = new ArrayList<Say>(0);
+		this.says.add(new Say().text(sayText).build());
+		return this;
+	}
+	public Gather play(Play play) {
+		this.play = play;
+		return this;
+	}
+	public Gather pause(Pause pause) {
+		this.pause = pause;
+		return this;
+	}
+	
+	public Gather build() {
+		return this;
+	}
+	
+	
 
 }

@@ -1,4 +1,4 @@
-package org.restcomm.connect.java.sdk.rcml.verbs;
+package org.restcomm.connect.java.sdk.rcml;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -6,7 +6,7 @@ import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlValue;
 
 @XmlAccessorType(XmlAccessType.FIELD)
-public abstract class Email {
+public class Email implements GenericBuilder<Email>{
 
 	@XmlAttribute(required = true)
 	protected String to;
@@ -51,6 +51,41 @@ public abstract class Email {
 
 	public String getText() {
 		return text;
+	}
+	
+	
+	public Email to(String to) {
+		this.to = to;
+		return this;
+	}
+	
+	public Email cc(String cc) {
+		this.cc = cc;
+		return this;
+	}
+	
+	public Email bcc(String bcc) {
+		this.bcc = bcc;
+		return this;
+	}
+
+	public Email from(String from) {
+		this.from = from;
+		return this;
+	}
+
+	public Email subject(String subject) {
+		this.subject = subject;
+		return this;
+	}
+	
+	public Email text(String text) {
+		this.text = text;
+		return this;
+	}
+	
+	public Email build() {
+		return this;
 	}
 
 	@Override
