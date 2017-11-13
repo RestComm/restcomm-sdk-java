@@ -20,13 +20,11 @@
  */
 package org.restcomm.connect.java.sdk.rcml;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-
 /**
  * @author Kleber Damasco kleber.damasco@hashtech.com.br
  */
-@XmlAccessorType(XmlAccessType.FIELD)
-public class Hangup {
+public enum VoiceType {
+	
+	man, woman
 
 }

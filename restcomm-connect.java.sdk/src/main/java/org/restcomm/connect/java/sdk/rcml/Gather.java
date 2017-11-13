@@ -1,3 +1,23 @@
+/*
+ * TeleStax, Open Source Cloud Communications
+ * Copyright 2011-2016, Telestax Inc and individual contributors
+ * by the @authors tag.
+ *
+ * This is free software; you can redistribute it and/or modify it
+ * under the terms of the GNU Lesser General Public License as
+ * published by the Free Software Foundation; either version 2.1 of
+ * the License, or (at your option) any later version.
+ *
+ * This software is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this software; if not, write to the Free
+ * Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
+ * 02110-1301 USA, or see the FSF site: http://www.fsf.org.
+ */
 package org.restcomm.connect.java.sdk.rcml;
 
 import java.util.ArrayList;
@@ -8,47 +28,50 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 
+/**
+ * @author Kleber Damasco kleber.damasco@hashtech.com.br
+ */
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Gather implements GenericBuilder<Gather>{
 	
 	@XmlAttribute
-	protected String action;
+	private String action;
 	
 	@XmlAttribute
-	protected String method;
+	private String method;
 	
 	@XmlAttribute
-	protected Integer timeout;
+	private Integer timeout;
 	
 	@XmlAttribute
-	protected String finishOnKey;
+	private String finishOnKey;
 	
 	@XmlAttribute
-	protected Integer numDigits;
+	private Integer numDigits;
 	
 	@XmlAttribute
-	protected String input;
+	private String input;
 	
 	@XmlAttribute
-	protected String partialResultCallback;
+	private String partialResultCallback;
 	
 	@XmlAttribute
-	protected String partialResultCallbackMethod;
+	private String partialResultCallbackMethod;
 	
 	@XmlAttribute
-	protected String language;
+	private String language;
 	
 	@XmlAttribute
-	protected String hints;
+	private String hints;
 	
 	@XmlElement(name = "say")
-	protected List<Say> says;
+	private List<Say> says;
 	
 	@XmlElement
-	protected Play play;
+	private Play play;
 	
 	@XmlElement
-	protected Pause pause;
+	private Pause pause;
 	
 	public Gather() {
 	}
@@ -117,8 +140,8 @@ public class Gather implements GenericBuilder<Gather>{
 		this.action = action;
 		return this;
 	}
-	public Gather method(String method) {
-		this.method = method;
+	public Gather method(MethodType methodType) {
+		this.method = methodType.name();
 		return this;
 	}
 	public Gather timeout(Integer timeout) {
@@ -133,20 +156,20 @@ public class Gather implements GenericBuilder<Gather>{
 		this.numDigits = numDigits;
 		return this;
 	}
-	public Gather input(String input) {
-		this.input = input;
+	public Gather input(InputType input) {
+		this.input = input.name();
 		return this;
 	}
 	public Gather partialResultCallback(String partialResultCallback) {
 		this.partialResultCallback = partialResultCallback;
 		return this;
 	}
-	public Gather partialResultCallbackMethod(String partialResultCallbackMethod) {
-		this.partialResultCallbackMethod = partialResultCallbackMethod;
+	public Gather partialResultCallbackMethod(MethodType methodType) {
+		this.partialResultCallbackMethod = methodType.name();
 		return this;
 	}
-	public Gather language(String language) {
-		this.language = language;
+	public Gather language(LanguageType language) {
+		this.language = language.name().replaceAll("_", "-");
 		return this;
 	}
 	public Gather hints(String hints) {

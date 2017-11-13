@@ -20,13 +20,9 @@
  */
 package org.restcomm.connect.java.sdk.rcml;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-
 /**
  * @author Kleber Damasco kleber.damasco@hashtech.com.br
  */
-@XmlAccessorType(XmlAccessType.FIELD)
-public class Hangup {
-
+public enum LanguageType {
+	en_US, en_GB, es_ES, it_IT, fr_FR, pl_PL, pt_PT, pt_BR
 }
