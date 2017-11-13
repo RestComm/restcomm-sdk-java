@@ -23,35 +23,48 @@ package org.restcomm.connect.java.sdk.rcml;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlValue;
 
 /**
  * @author Kleber Damasco kleber.damasco@hashtech.com.br
+ * @author Ricardo Limonta limonta@hashtech.com.br
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-public class Redirect implements GenericBuilder<Redirect>{
-	
-	@XmlAttribute
-	protected String method;
-	
-	public Redirect() {
-	}
+public class Redirect implements GenericBuilder<Redirect> {
 
-	public String getMethod() {
-		return method;
-	}
+    @XmlAttribute
+    protected String method;
 
-	@Override
-	public String toString() {
-		return "Redirect [method=" + method + "]";
-	}
-	
-	public Redirect method(MethodType method) {
-		this.method = method.name();
-		return this;
-	}
-	
-	public Redirect build() {
-		return this;
-	}
+    @XmlValue
+    protected String address;
 
+    public Redirect() {
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public String getMethod() {
+        return method;
+    }
+
+    @Override
+    public String toString() {
+        return "Redirect [method=" + method + "]";
+    }
+
+    public Redirect address(String address) {
+        this.address = address;
+        return this;
+    }
+
+    public Redirect method(MethodType method) {
+        this.method = method.name();
+        return this;
+    }
+
+    public Redirect build() {
+        return this;
+    }
 }

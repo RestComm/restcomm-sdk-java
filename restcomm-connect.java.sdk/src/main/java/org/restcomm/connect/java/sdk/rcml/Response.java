@@ -110,6 +110,4 @@ public class Response {
 		commands.add(new Hangup());
 		return this;
 	}
-
-
 }

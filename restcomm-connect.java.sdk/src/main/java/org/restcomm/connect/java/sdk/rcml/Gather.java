@@ -64,16 +64,17 @@ public class Gather implements GenericBuilder<Gather>{
 	@XmlAttribute
 	private String hints;
 	
-	@XmlElement(name = "say")
+	@XmlElement(name = "Say")
 	private List<Say> says;
 	
-	@XmlElement
+	@XmlElement(name = "Play")
 	private Play play;
 	
-	@XmlElement
+	@XmlElement(name = "Pause")
 	private Pause pause;
 	
 	public Gather() {
+            this.says = new ArrayList<Say>();
 	}
 
 	public String getAction() {
@@ -177,12 +178,10 @@ public class Gather implements GenericBuilder<Gather>{
 		return this;
 	}
 	public Gather say(Say say) {
-		if(this.says == null) new ArrayList<Say>(0);
 		this.says.add(say);
 		return this;
 	}
 	public Gather say(String sayText) {
-		if(this.says == null) says = new ArrayList<Say>(0);
 		this.says.add(new Say().text(sayText).build());
 		return this;
 	}
@@ -198,7 +197,4 @@ public class Gather implements GenericBuilder<Gather>{
 	public Gather build() {
 		return this;
 	}
-	
-	
-
 }
