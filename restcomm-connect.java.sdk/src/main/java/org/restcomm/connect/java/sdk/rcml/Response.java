@@ -35,16 +35,16 @@ import javax.xml.bind.annotation.XmlRootElement;
 /**
  * @author Kleber Damasco kleber.damasco@hashtech.com.br
  */
-@XmlRootElement
+@XmlRootElement(name = "Response")
 @XmlAccessorType(XmlAccessType.FIELD)
 @SuppressWarnings("all")
 public class Response {
 	
 	@XmlElements({
-		@XmlElement(name = "say", type = Say.class),	
-		@XmlElement(name = "record", type = Record.class),	
-		@XmlElement(name = "email", type = Email.class),	
-		@XmlElement(name = "gather", type = Gather.class),	
+		@XmlElement(name = "Say", type = Say.class),	
+		@XmlElement(name = "Record", type = Record.class),	
+		@XmlElement(name = "Email", type = Email.class),	
+		@XmlElement(name = "Gather", type = Gather.class),	
 		@XmlElement(name = "Hangup", type = Hangup.class),	
 		@XmlElement(name = "Pause", type = Pause.class),
 		@XmlElement(name = "Play", type = Play.class),
