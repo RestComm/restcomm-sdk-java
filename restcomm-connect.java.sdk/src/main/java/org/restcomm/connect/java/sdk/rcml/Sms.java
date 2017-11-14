@@ -97,8 +97,8 @@ public class Sms implements GenericBuilder<Sms> {
 		return this;
 	}
 
-	public Sms method(String method) {
-		this.method = method;
+	public Sms method(MethodType method) {
+		this.method = method.name();
 		return this;
 	}
 
