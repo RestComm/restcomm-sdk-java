@@ -44,9 +44,6 @@ public class Say implements GenericBuilder<Say> {
 	protected String text;
 
 	public Say() {
-            this.language = "en";
-            this.loop = 1;
-            this.voice = VoiceType.man.name();
 	}
 
 	public String getVoice() {
