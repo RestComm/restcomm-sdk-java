@@ -25,9 +25,9 @@ package org.restcomm.connect.java.sdk.rcml;
  */
 public enum LanguageType {
 	
-	EN_US("en_US"), EN_GB("en_GB"), ES_ES("es_ES"), 
-	IT_IT("it_IT"), FR_FR("fr_FR"), PL_PL("pl_PL"),
-	PT_PT("pt_PT"), PT_BR("pt_BR");
+	EN_US("en-US"), EN_GB("en-GB"), ES_ES("es-ES"), 
+	IT_IT("it-IT"), FR_FR("fr-FR"), PL_PL("pl-PL"),
+	PT_PT("pt-PT"), PT_BR("pt-BR");
 	
 	private final String name;
 	
