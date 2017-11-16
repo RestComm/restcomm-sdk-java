@@ -27,44 +27,58 @@ import javax.xml.bind.annotation.XmlValue;
 
 /**
  * @author Kleber Damasco kleber.damasco@hashtech.com.br
- * @author Ricardo Limonta limonta@hashtech.com.br
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-public class Redirect implements GenericBuilder<Redirect> {
+public class Fax implements GenericBuilder<Fax>{
 
-    @XmlAttribute
-    protected String method;
+	@XmlAttribute
+	protected String to;
 
-    @XmlValue
-    protected String address;
+	@XmlAttribute
+	protected String from;
 
-    public Redirect() {
-    }
+	@XmlAttribute
+	protected String action;
 
-    public String getAddress() {
-        return address;
-    }
+	@XmlAttribute
+	protected String method;
 
-    public String getMethod() {
-        return method;
-    }
-
-    public Redirect address(String address) {
-        this.address = address;
-        return this;
-    }
-
-    public Redirect method(MethodType method) {
-        this.method = method.name();
-        return this;
-    }
-
-    public Redirect build() {
-        return this;
-    }
-    
-	@Override
-	public String toString() {
-		return "Redirect [method=" + method + ", address=" + address + "]";
+	@XmlAttribute
+	protected String statusCallback;
+	
+	@XmlValue
+	protected String text;
+	
+	public Fax() {
 	}
+
+	public Fax to(String to) {
+		this.to = to;
+		return this;
+	}
+	public Fax from(String from) {
+		this.from = from;
+		return this;
+	}
+	public Fax action(String action) {
+		this.action = action;
+		return this;
+	}
+	public Fax text(String text) {
+		this.text = text;
+		return this;
+	}
+	public Fax method(MethodType method) {
+		this.method = method.name();
+		return this;
+	}
+	public Fax statusCallback(String statusCallback) {
+		this.statusCallback = statusCallback;
+		return this;
+	}
+	
+	public Fax build() {
+		return this;
+	}
+
 }

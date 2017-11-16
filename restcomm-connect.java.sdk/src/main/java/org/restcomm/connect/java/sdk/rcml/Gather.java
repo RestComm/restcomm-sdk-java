@@ -158,7 +158,7 @@ public class Gather implements GenericBuilder<Gather>{
 		return this;
 	}
 	public Gather input(InputType input) {
-		this.input = input.name();
+		this.input = input.getName();
 		return this;
 	}
 	public Gather partialResultCallback(String partialResultCallback) {

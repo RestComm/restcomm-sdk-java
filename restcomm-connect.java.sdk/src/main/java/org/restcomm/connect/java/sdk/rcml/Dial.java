@@ -51,13 +51,16 @@ public class Dial implements GenericBuilder<Dial>{
 	protected Boolean record;
 	
 	@XmlElement
+	private Client client;
+
+	@XmlElement
 	private Number number;
 	
 	@XmlElement
-	private Client client;
-	
-	@XmlElement
 	private Conference conference;
+
+	@XmlElement
+	private Sip sip;
 	
 	@XmlValue
 	private String value;
@@ -102,8 +105,18 @@ public class Dial implements GenericBuilder<Dial>{
 		this.conference = conference;
 		return this;
 	}
+	public Dial sip(Sip sip) {
+		this.sip = sip;
+		return this;
+	}
 	public Dial build() {
 		return this;
+	}
+	@Override
+	public String toString() {
+		return "Dial [action=" + action + ", method=" + method + ", timeout=" + timeout + ", timeLimit=" + timeLimit
+				+ ", callerId=" + callerId + ", record=" + record + ", client=" + client + ", number=" + number
+				+ ", conference=" + conference + ", value=" + value + "]";
 	}
 	
 }

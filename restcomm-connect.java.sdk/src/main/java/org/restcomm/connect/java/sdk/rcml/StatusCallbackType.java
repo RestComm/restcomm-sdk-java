@@ -20,6 +20,9 @@
  */
 package org.restcomm.connect.java.sdk.rcml;
 
+/**
+ * @author Kleber Damasco kleber.damasco@hashtech.com.br
+ */
 public enum StatusCallbackType {
 	
 	INITIATED("initiated"), RINGING("ringing"), ANSWERED("answered"), COMPLETED("completed");

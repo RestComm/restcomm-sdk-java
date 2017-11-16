@@ -23,97 +23,81 @@ package org.restcomm.connect.java.sdk.rcml;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlValue;
 
 /**
  * @author Kleber Damasco kleber.damasco@hashtech.com.br
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-public class Email implements GenericBuilder<Email>{
-
-	@XmlAttribute(required = true)
-	protected String to;
-
-	@XmlAttribute
-	protected String cc;
-
-	@XmlAttribute
-	protected String bcc;
-
-	@XmlAttribute(required = true)
-	protected String from;
-
-	@XmlAttribute
-	protected String subject;
+public class Sip implements GenericBuilder<Sip>{
 	
+	@XmlAttribute
+	private String name;
+	
+	@XmlAttribute
+	private String url;
+
+	@XmlAttribute
+	private String method;
+
+	@XmlAttribute
+	private String statusCallbackEvent;
+
+	@XmlAttribute
+	private String statusCallback;
+
+	@XmlAttribute
+	private String statusCallbackMethod;
+
+	@XmlElement
+	private Video video;
+
 	@XmlValue
-	protected String text;
+	private String value;
 	
-	public Email() {
-	}
-
-	public String getTo() {
-		return to;
-	}
-
-	public String getCc() {
-		return cc;
-	}
-
-	public String getBcc() {
-		return bcc;
-	}
-
-	public String getFrom() {
-		return from;
-	}
-
-	public String getSubject() {
-		return subject;
-	}
-
-	public String getText() {
-		return text;
-	}
-	
-	public Email to(String to) {
-		this.to = to;
+	public Sip name(String name) {
+		this.name = name;
 		return this;
 	}
-	
-	public Email cc(String cc) {
-		this.cc = cc;
+	public Sip url(String url) {
+		this.url = url;
+		return this;
+	}
+	public Sip method(MethodType method) {
+		this.method = method.name();
+		return this;
+	}
+	public Sip statusCallbackEvent(StatusCallbackType statusCallbackEvent) {
+		this.statusCallbackEvent = statusCallbackEvent.getName();
+		return this;
+	}
+	public Sip statusCallback(String statusCallback) {
+		this.statusCallback = statusCallback;
+		return this;
+	}
+	public Sip statusCallbackMethod(MethodType method) {
+		this.statusCallbackMethod = method.name();
+		return this;
+	}
+	public Sip statusCallbackMethod(String value) {
+		this.value = value;
+		return this;
+	}
+	public Sip video(Video video) {
+		this.video = video;
 		return this;
 	}
 	
-	public Email bcc(String bcc) {
-		this.bcc = bcc;
-		return this;
-	}
-
-	public Email from(String from) {
-		this.from = from;
-		return this;
-	}
-
-	public Email subject(String subject) {
-		this.subject = subject;
+	public Sip build() {
 		return this;
 	}
 	
-	public Email text(String text) {
-		this.text = text;
-		return this;
-	}
-	
-	public Email build() {
-		return this;
-	}
-
 	@Override
 	public String toString() {
-		return "Email [to=" + to + ", cc=" + cc + ", Bcc=" + bcc + ", from=" + from + ", Subject=" + subject + ", text="
-				+ text + "]";
+		return "Sip [name=" + name + ", url=" + url + ", method=" + method + ", statusCallbackEvent="
+				+ statusCallbackEvent + ", statusCallback=" + statusCallback + ", statusCallbackMethod="
+				+ statusCallbackMethod + ", video=" + video + ", value=" + value + "]";
 	}
-	
+
 }
