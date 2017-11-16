@@ -68,7 +68,7 @@ public class Say implements GenericBuilder<Say> {
 	}
 	
 	public Say voice(VoiceType voice) {
-		this.voice = voice.name();
+		this.voice = voice.getName();
 		return this;
 	}
 	public Say text(String text) {

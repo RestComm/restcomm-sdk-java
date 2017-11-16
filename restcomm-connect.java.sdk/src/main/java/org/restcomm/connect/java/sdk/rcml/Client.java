@@ -69,7 +69,7 @@ public class Client implements GenericBuilder<Client>{
 		return this;
 	}
 	public Client statusCallbackEvent(StatusCallbackType statusCallbackEvent) {
-		this.statusCallbackEvent = statusCallbackEvent.name();
+		this.statusCallbackEvent = statusCallbackEvent.getName();
 		return this;
 	}
 	public Client statusCallback(String statusCallback) {

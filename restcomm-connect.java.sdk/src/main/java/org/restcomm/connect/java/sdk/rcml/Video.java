@@ -58,7 +58,7 @@ public class Video implements GenericBuilder<Video> {
 		return this;
 	}
 	public Video resolution(LayoutType layout) {
-		this.layout = layout.name();
+		this.layout = layout.getName();
 		return this;
 	}
 	public Video overlay(String overlay) {

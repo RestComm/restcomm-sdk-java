@@ -65,7 +65,7 @@ public class Number {
 		return this;
 	}
 	public Number statusCallbackEvent(StatusCallbackType statusCallbackEvent) {
-		this.statusCallbackEvent = statusCallbackEvent.name();
+		this.statusCallbackEvent = statusCallbackEvent.getName();
 		return this;
 	}
 	public Number statusCallback(String statusCallback) {
