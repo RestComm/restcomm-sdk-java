@@ -50,6 +50,8 @@ public class Response {
 		@XmlElement(name = "Play", type = Play.class),
 		@XmlElement(name = "Sms", type = Sms.class),
 		@XmlElement(name = "Redirect", type = Redirect.class),
+		@XmlElement(name = "Reject", type = Reject.class),
+		@XmlElement(name = "Fax", type = Fax.class),
 	})
 	private List<Object> commands;
 	

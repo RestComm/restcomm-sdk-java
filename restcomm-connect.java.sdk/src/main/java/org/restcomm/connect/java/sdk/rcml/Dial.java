@@ -58,6 +58,9 @@ public class Dial implements GenericBuilder<Dial>{
 	
 	@XmlElement
 	private Conference conference;
+
+	@XmlElement
+	private Sip sip;
 	
 	@XmlValue
 	private String value;
@@ -100,6 +103,10 @@ public class Dial implements GenericBuilder<Dial>{
 	}
 	public Dial conference(Conference conference) {
 		this.conference = conference;
+		return this;
+	}
+	public Dial sip(Sip sip) {
+		this.sip = sip;
 		return this;
 	}
 	public Dial build() {
