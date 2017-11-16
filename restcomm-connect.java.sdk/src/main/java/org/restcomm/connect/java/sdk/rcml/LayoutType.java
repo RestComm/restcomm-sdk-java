@@ -23,18 +23,18 @@ package org.restcomm.connect.java.sdk.rcml;
 /**
  * @author Kleber Damasco kleber.damasco@hashtech.com.br
  */
-public enum VoiceType {
+public enum LayoutType {
 	
-	MAN("man"), WOMAN("woman");
+	TILE("tile"), LINEAR("linear");
 	
 	private final String name;
 	
-	private VoiceType(String name) {
+	private LayoutType(String name) {
 		this.name = name;
 	}
 	
 	public String getName() {
 		return name;
 	}
-
+	
 }

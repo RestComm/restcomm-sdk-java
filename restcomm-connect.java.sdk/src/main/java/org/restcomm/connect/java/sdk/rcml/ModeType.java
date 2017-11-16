@@ -23,13 +23,13 @@ package org.restcomm.connect.java.sdk.rcml;
 /**
  * @author Kleber Damasco kleber.damasco@hashtech.com.br
  */
-public enum VoiceType {
+public enum ModeType {
 	
-	MAN("man"), WOMAN("woman");
-	
+	MCU("mcu"), SFU("sfu");
+
 	private final String name;
 	
-	private VoiceType(String name) {
+	private ModeType(String name) {
 		this.name = name;
 	}
 	

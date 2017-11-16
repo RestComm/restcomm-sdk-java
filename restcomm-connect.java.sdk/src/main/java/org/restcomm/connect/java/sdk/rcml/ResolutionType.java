@@ -23,13 +23,13 @@ package org.restcomm.connect.java.sdk.rcml;
 /**
  * @author Kleber Damasco kleber.damasco@hashtech.com.br
  */
-public enum VoiceType {
+public enum ResolutionType {
 	
-	MAN("man"), WOMAN("woman");
+	CIF("CIF"), FORCIF("4CIF"), SIXTEENCIF("16CIF"), QCIF("QCIF"), VGA("VGA"), HD_720("720p");
 	
 	private final String name;
 	
-	private VoiceType(String name) {
+	private ResolutionType(String name) {
 		this.name = name;
 	}
 	

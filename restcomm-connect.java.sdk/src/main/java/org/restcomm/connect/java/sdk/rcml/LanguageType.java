@@ -24,5 +24,17 @@ package org.restcomm.connect.java.sdk.rcml;
  * @author Kleber Damasco kleber.damasco@hashtech.com.br
  */
 public enum LanguageType {
-	en_US, en_GB, es_ES, it_IT, fr_FR, pl_PL, pt_PT, pt_BR
+	
+	EN_US("en_US"), EN_GB("en_GB"), ES_ES("es_ES"), 
+	IT_IT("it_IT"), FR_FR("fr_FR"), PL_PL("pl_PL"),
+	PT_PT("pt_PT"), PT_BR("pt_BR");
+	
+	private final String name;
+	
+	private LanguageType(String name) {
+		this.name = name;
+	}
+	public String getName() {
+		return name;
+	}
 }

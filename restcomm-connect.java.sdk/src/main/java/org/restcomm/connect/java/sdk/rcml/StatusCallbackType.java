@@ -20,16 +20,13 @@
  */
 package org.restcomm.connect.java.sdk.rcml;
 
-/**
- * @author Kleber Damasco kleber.damasco@hashtech.com.br
- */
-public enum VoiceType {
+public enum StatusCallbackType {
 	
-	MAN("man"), WOMAN("woman");
+	INITIATED("initiated"), RINGING("ringing"), ANSWERED("answered"), COMPLETED("completed");
 	
-	private final String name;
+	private String name;
 	
-	private VoiceType(String name) {
+	private StatusCallbackType(String name) {
 		this.name = name;
 	}
 	

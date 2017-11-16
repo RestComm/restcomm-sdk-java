@@ -24,5 +24,16 @@ package org.restcomm.connect.java.sdk.rcml;
  * @author Kleber Damasco kleber.damasco@hashtech.com.br
  */
 public enum InputType {
-	dtmf, speech
+	
+	DTMF("dtmf"), SPEECH("speech");
+
+	private final String name;
+
+	private InputType(String name) {
+		this.name = name;
+	}
+	
+	public String getName() {
+		return name;
+	}
 }

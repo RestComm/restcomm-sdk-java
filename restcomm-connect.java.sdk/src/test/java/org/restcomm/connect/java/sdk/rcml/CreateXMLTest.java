@@ -9,12 +9,12 @@ public class CreateXMLTest {
 	@Test
 	public void test(){
 		try {
-			Response response = new Response().say(new Say().text("oi").voice(VoiceType.man))
+			Response response = new Response().say(new Say().text("oi").voice(VoiceType.MAN))
 			.pause(new Pause().length(10))
 			.say(new Say().language("bp").text("teste"))
 			.email(new Email().text("ola email"))
 			.gather(
-					new Gather().language(LanguageType.pt_BR)
+					new Gather().language(LanguageType.PT_BR)
 					.method(MethodType.GET).say("Ola").say("seja bem vindo")
 					.action("action").finishOnKey("#"))
 			.sms(new Sms().text("SMS"))
