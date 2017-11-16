@@ -170,7 +170,7 @@ public class Gather implements GenericBuilder<Gather>{
 		return this;
 	}
 	public Gather language(LanguageType language) {
-		this.language = language.name().replaceAll("_", "-");
+		this.language = language.getName();
 		return this;
 	}
 	public Gather hints(String hints) {
