@@ -31,7 +31,6 @@ public class PauseTest {
     @Test
     public void test() {
         Response response = new Response().pause(new Pause().length(5)).build();
-        System.out.println(response.toXML());
         Assert.assertEquals(
                 "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?><Response><Pause length=\"5\"/></Response>", 
                 response.toXML());

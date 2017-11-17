@@ -26,13 +26,13 @@ import org.junit.Test;
 /**
  * @author Ricardo Limonta limonta@hashtech.com.br
  */
-public class RecordTest {
+public class SayTest {
 
     @Test
     public void test() {
-        Response response = new Response().record(new Record().maxLength(30)).build();
+        Response response = new Response().say(new Say().voice(VoiceType.WOMAN).language("en").text("Hello World")).build();
         Assert.assertEquals(
-                "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?><Response><Record maxLength=\"30\"/></Response>", 
+                "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?><Response><Say voice=\"woman\" language=\"en\">Hello World</Say></Response>", 
                 response.toXML());
     }
 }

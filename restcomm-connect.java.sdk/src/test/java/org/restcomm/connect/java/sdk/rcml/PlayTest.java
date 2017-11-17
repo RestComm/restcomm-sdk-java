@@ -31,7 +31,6 @@ public class PlayTest {
     @Test
     public void test() {
         Response response = new Response().play(new Play().url("demo.wav")).build();
-        System.out.println(response.toXML());
         Assert.assertEquals(
                 "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?><Response><Play>demo.wav</Play></Response>", 
                 response.toXML());

@@ -26,13 +26,17 @@ import org.junit.Test;
 /**
  * @author Ricardo Limonta limonta@hashtech.com.br
  */
-public class RecordTest {
+public class UssdCollectTest {
 
     @Test
     public void test() {
-        Response response = new Response().record(new Record().maxLength(30)).build();
+        Response response = new Response()
+                .ussdCollect(new UssdCollect().action("http://my.controller.net")
+                .ussdMessage(new UssdMessage().text("1 for first option"))
+                .ussdMessage(new UssdMessage().text("2 for first option"))
+                .ussdMessage(new UssdMessage().text("3 for first option"))).build();
         Assert.assertEquals(
-                "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?><Response><Record maxLength=\"30\"/></Response>", 
+                "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?><Response><UssdCollect action=\"http://my.controller.net\"><UssdMessage>1 for first option</UssdMessage><UssdMessage>2 for first option</UssdMessage><UssdMessage>3 for first option</UssdMessage></UssdCollect></Response>", 
                 response.toXML());
     }
 }
