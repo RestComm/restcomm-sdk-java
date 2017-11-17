@@ -92,6 +92,9 @@ public class Response {
 	public Response say(Say builder) {
 		return addCommand(builder);
 	}
+	public Response dial(Dial builder) {
+		return addCommand(builder);
+	}
 	public Response record(Record builder) {
 		return addCommand(builder);
 	}

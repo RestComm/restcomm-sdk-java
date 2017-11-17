@@ -23,7 +23,6 @@ package org.restcomm.connect.java.sdk.rcml;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlValue;
 
 /**
@@ -56,16 +55,9 @@ public class Conference implements GenericBuilder<Conference>{
 	@XmlAttribute
 	private Integer maxParticipants;
 	
-	@XmlElement
-	private Video video;
-
 	@XmlValue
 	private String value;
 
-	public Conference video(Video video) {
-		this.video = video;
-		return this;
-	}
 	public Conference maxParticipants(Integer maxParticipants) {
 		this.maxParticipants = maxParticipants;
 		return this;
@@ -106,7 +98,6 @@ public class Conference implements GenericBuilder<Conference>{
 	public String toString() {
 		return "Conference [name=" + name + ", muted=" + muted + ", beep=" + beep + ", startConferenceOnEnter="
 				+ startConferenceOnEnter + ", endConferenceOnExit=" + endConferenceOnExit + ", waitUrl=" + waitUrl
-				+ ", waitMethod=" + waitMethod + ", maxParticipants=" + maxParticipants + ", video=" + video
-				+ ", value=" + value + "]";
+				+ ", waitMethod=" + waitMethod + ", maxParticipants=" + maxParticipants + ", value=" + value + "]";
 	}
 }

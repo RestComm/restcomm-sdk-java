@@ -20,11 +20,13 @@
  */
 package org.restcomm.connect.java.sdk.rcml;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlValue;
 
 /**
  * @author Kleber Damasco kleber.damasco@hashtech.com.br
@@ -51,20 +53,22 @@ public class Dial implements GenericBuilder<Dial>{
 	protected Boolean record;
 	
 	@XmlElement
-	private Client client;
-
-	@XmlElement
-	private Number number;
-	
-	@XmlElement
 	private Conference conference;
-
+	
 	@XmlElement
 	private Sip sip;
-	
-	@XmlValue
-	private String value;
 
+	@XmlElement(name = "Client")
+	private List<Client> clients;
+
+	@XmlElement(name = "Number")
+	private List<Number> numbers;
+	
+	public Dial() {
+		clients = new ArrayList<Client>(0);
+		numbers = new ArrayList<Number>(0);
+	}
+	
 	public Dial action(String action) {
 		this.action = action;
 		return this;
@@ -90,15 +94,11 @@ public class Dial implements GenericBuilder<Dial>{
 		return this;
 	}
 	public Dial number(Number number) {
-		this.number = number;
-		return this;
-	}
-	public Dial value(String value) {
-		this.value = value;
+		this.numbers.add(number);
 		return this;
 	}
 	public Dial client(Client client) {
-		this.client = client;
+		this.clients.add(client);
 		return this;
 	}
 	public Dial conference(Conference conference) {
@@ -111,12 +111,6 @@ public class Dial implements GenericBuilder<Dial>{
 	}
 	public Dial build() {
 		return this;
-	}
-	@Override
-	public String toString() {
-		return "Dial [action=" + action + ", method=" + method + ", timeout=" + timeout + ", timeLimit=" + timeLimit
-				+ ", callerId=" + callerId + ", record=" + record + ", client=" + client + ", number=" + number
-				+ ", conference=" + conference + ", value=" + value + "]";
 	}
 	
 }

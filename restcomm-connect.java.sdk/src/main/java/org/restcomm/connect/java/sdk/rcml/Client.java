@@ -23,7 +23,6 @@ package org.restcomm.connect.java.sdk.rcml;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlValue;
 
 /**
@@ -49,9 +48,6 @@ public class Client implements GenericBuilder<Client>{
 
 	@XmlAttribute
 	private String statusCallbackMethod;
-
-	@XmlElement
-	private Video video;
 
 	@XmlValue
 	private String value;
@@ -80,19 +76,16 @@ public class Client implements GenericBuilder<Client>{
 		this.statusCallbackMethod = method.name();
 		return this;
 	}
-	public Client statusCallbackMethod(String value) {
+	public Client value(String value) {
 		this.value = value;
 		return this;
 	}
-	public Client video(Video video) {
-		this.video = video;
-		return this;
-	}
+	
 	@Override
 	public String toString() {
 		return "Client [name=" + name + ", url=" + url + ", method=" + method + ", statusCallbackEvent="
 				+ statusCallbackEvent + ", statusCallback=" + statusCallback + ", statusCallbackMethod="
-				+ statusCallbackMethod + ", video=" + video + ", value=" + value + "]";
+				+ statusCallbackMethod + ", value=" + value + "]";
 	}
 	public Client build() {
 		return this;

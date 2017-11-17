@@ -23,7 +23,6 @@ package org.restcomm.connect.java.sdk.rcml;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlValue;
 
 /**
@@ -49,9 +48,6 @@ public class Sip implements GenericBuilder<Sip>{
 
 	@XmlAttribute
 	private String statusCallbackMethod;
-
-	@XmlElement
-	private Video video;
 
 	@XmlValue
 	private String value;
@@ -84,20 +80,15 @@ public class Sip implements GenericBuilder<Sip>{
 		this.value = value;
 		return this;
 	}
-	public Sip video(Video video) {
-		this.video = video;
-		return this;
-	}
 	
 	public Sip build() {
 		return this;
 	}
-	
 	@Override
 	public String toString() {
 		return "Sip [name=" + name + ", url=" + url + ", method=" + method + ", statusCallbackEvent="
 				+ statusCallbackEvent + ", statusCallback=" + statusCallback + ", statusCallbackMethod="
-				+ statusCallbackMethod + ", video=" + video + ", value=" + value + "]";
+				+ statusCallbackMethod + ", value=" + value + "]";
 	}
-
+	
 }
