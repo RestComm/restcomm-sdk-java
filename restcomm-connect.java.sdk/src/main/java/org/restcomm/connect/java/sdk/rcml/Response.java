@@ -72,17 +72,19 @@ public class Response {
 	}
 	
 	public String toXML(){
+		return toXML(false);
+	}
+	public String toXML(Boolean pretty){
 		try {
 			StringWriter sw = new StringWriter();
 			JAXBContext jaxbContext = JAXBContext.newInstance(Response.class);
 			Marshaller marshaller = jaxbContext.createMarshaller();
-			marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
+			marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, false);
 			marshaller.marshal(this, sw);
 			return sw.toString();
 		} catch (Exception e) {
-			e.printStackTrace();
+			return "ERROR TO GENERATE XML - "+e.getMessage();
 		}
-		return null;
 	}
 
 
