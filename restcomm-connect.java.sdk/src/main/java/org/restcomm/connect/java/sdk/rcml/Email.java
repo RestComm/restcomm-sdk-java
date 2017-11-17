@@ -32,6 +32,9 @@ import javax.xml.bind.annotation.XmlValue;
 public class Email implements GenericBuilder<Email>{
 
 	@XmlAttribute(required = true)
+	protected String from;
+
+	@XmlAttribute(required = true)
 	protected String to;
 
 	@XmlAttribute
@@ -39,9 +42,6 @@ public class Email implements GenericBuilder<Email>{
 
 	@XmlAttribute
 	protected String bcc;
-
-	@XmlAttribute(required = true)
-	protected String from;
 
 	@XmlAttribute
 	protected String subject;
@@ -61,7 +61,7 @@ public class Email implements GenericBuilder<Email>{
 		if(this.cc == null) {
 			this.cc = cc;
 		} else {
-			this.cc.concat(",").concat(cc);
+			this.cc = this.cc.concat(",").concat(cc);
 		}
 		return this;
 	}
@@ -70,7 +70,7 @@ public class Email implements GenericBuilder<Email>{
 		if(this.bcc == null) {
 			this.bcc = bcc;
 		} else {
-			this.bcc.concat(",").concat(bcc);
+			this.bcc = this.bcc.concat(",").concat(bcc);
 		}
 		return this;
 	}
