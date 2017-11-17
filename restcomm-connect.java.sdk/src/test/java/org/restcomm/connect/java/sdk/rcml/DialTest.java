@@ -3,7 +3,7 @@ package org.restcomm.connect.java.sdk.rcml;
 import org.junit.Assert;
 import org.junit.Test;
 
-public class ClientTest {
+public class DialTest {
 
 	@Test
 	public void test() {

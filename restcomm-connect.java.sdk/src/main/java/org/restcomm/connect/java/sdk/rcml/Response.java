@@ -119,6 +119,9 @@ public class Response {
 	public Response redirect(Redirect builder) {
 		return addCommand(builder);
 	}
+	public Response geolocation(Geolocation builder) {
+		return addCommand(builder);
+	}
 	public Response fax(Fax fax) {
 		commands.add(fax);
 		return this;
