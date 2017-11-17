@@ -52,30 +52,6 @@ public class Email implements GenericBuilder<Email>{
 	public Email() {
 	}
 
-	public String getTo() {
-		return to;
-	}
-
-	public String getCc() {
-		return cc;
-	}
-
-	public String getBcc() {
-		return bcc;
-	}
-
-	public String getFrom() {
-		return from;
-	}
-
-	public String getSubject() {
-		return subject;
-	}
-
-	public String getText() {
-		return text;
-	}
-	
 	public Email to(String to) {
 		this.to = to;
 		return this;

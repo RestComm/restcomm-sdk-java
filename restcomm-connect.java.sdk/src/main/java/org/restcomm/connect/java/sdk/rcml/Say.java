@@ -46,27 +46,6 @@ public class Say implements GenericBuilder<Say> {
 	public Say() {
 	}
 
-	public String getVoice() {
-		return voice;
-	}
-
-	public String getLanguage() {
-		return language;
-	}
-
-	public Integer getLoop() {
-		return loop;
-	}
-
-	public String getText() {
-		return text;
-	}
-
-	@Override
-	public String toString() {
-		return "Say [voice=" + voice + ", language=" + language + ", loop=" + loop + ", text=" + text + "]";
-	}
-	
 	public Say voice(VoiceType voice) {
 		this.voice = voice.getName();
 		return this;
@@ -79,7 +58,6 @@ public class Say implements GenericBuilder<Say> {
 		this.loop = loop;
 		return this;
 	}
-
 	public Say language(String language) {
 		this.language = language;
 		return this;
@@ -89,4 +67,8 @@ public class Say implements GenericBuilder<Say> {
 		return this;
 	}
 	
+	@Override
+	public String toString() {
+		return "Say [voice=" + voice + ", language=" + language + ", loop=" + loop + ", text=" + text + "]";
+	}
 }

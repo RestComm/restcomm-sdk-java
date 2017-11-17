@@ -40,10 +40,6 @@ public class Play implements GenericBuilder<Play>{
 	public Play() {
 	}
 	
-	public String getUrl() {
-		return url;
-	}
-
 	public Play url(String length) {
 		this.url = length;
 		return this;

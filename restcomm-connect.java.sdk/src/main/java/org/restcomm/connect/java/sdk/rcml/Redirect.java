@@ -41,14 +41,6 @@ public class Redirect implements GenericBuilder<Redirect> {
     public Redirect() {
     }
 
-    public String getAddress() {
-        return address;
-    }
-
-    public String getMethod() {
-        return method;
-    }
-
     public Redirect address(String address) {
         this.address = address;
         return this;

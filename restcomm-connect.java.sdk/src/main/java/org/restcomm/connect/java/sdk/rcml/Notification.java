@@ -28,81 +28,65 @@ import javax.xml.bind.annotation.XmlAttribute;
  * @author Kleber Damasco kleber.damasco@hashtech.com.br
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-public class Record implements GenericBuilder<Record>{
-	
+public class Notification implements GenericBuilder<Notification> {
+
 	@XmlAttribute
-	private String action;
-	
+	private Integer deviceIdentifier;
+
+	@XmlAttribute
+	private String eventGeofencingLatitude;
+
+	@XmlAttribute
+	private String eventGeofencingLongitude;
+
+	@XmlAttribute
+	private Integer geofenceRange;
+
+	@XmlAttribute
+	private String geofenceEvent;
+
 	@XmlAttribute
 	private String method;
 	
 	@XmlAttribute
-	private Integer timeout;
-	
-	@XmlAttribute
-	private String finishOnKey;
-	
-	@XmlAttribute
-	private Integer maxLength;
-	
-	@XmlAttribute
-	private Boolean transcribe;
-	
-	@XmlAttribute
-	private String transcribeCallback;
-	
-	@XmlAttribute
-	private Boolean playBeep;
-	
-	@XmlAttribute
-	private String media;
+	private String action;
 
-	public Record() {
-	}
-
-	public Record playBeep(Boolean playBeep) {
-		this.playBeep = playBeep;
+	public Notification deviceIdentifier(Integer deviceIdentifier) {
+		this.deviceIdentifier = deviceIdentifier;
 		return this;
 	}
-	public Record transcribe(Boolean transcribe) {
-		this.transcribe = transcribe;
+	public Notification eventGeofencingLatitude(String eventGeofencingLatitude) {
+		this.eventGeofencingLatitude = eventGeofencingLatitude;
 		return this;
 	}
-	public Record maxLength(Integer maxLength) {
-		this.maxLength = maxLength;
+	public Notification eventGeofencingLongitude(String eventGeofencingLongitude) {
+		this.eventGeofencingLongitude = eventGeofencingLongitude;
 		return this;
 	}
-	public Record media(String media) {
-		this.media = media;
+	public Notification eventGeofencingLongitude(Integer geofenceRange) {
+		this.geofenceRange = geofenceRange;
 		return this;
 	}
-	public Record transcribeCallback(String transcribeCallback) {
-		this.transcribeCallback = transcribeCallback;
+	public Notification geofenceEvent(GeofenceEventType geofenceEvent) {
+		this.geofenceEvent = geofenceEvent.getName();
 		return this;
 	}
-	public Record finishOnKey(String finishOnKey) {
-		this.finishOnKey = finishOnKey;
-		return this;
-	}
-	public Record action(String action) {
-		this.action = action;
-		return this;
-	}
-	public Record method(MethodType method) {
+	public Notification geofenceEvent(MethodType method) {
 		this.method = method.name();
 		return this;
 	}
-	public Record timeout(Integer timeout) {
-		this.timeout = timeout;
+	public Notification action(String action) {
+		this.action = action;
 		return this;
 	}
-	public Record build() {
+	public Notification build() {
 		return this;
 	}
 	@Override
 	public String toString() {
-		return "Record [action=" + action + ", method=" + method + ", timeout=" + timeout + ", finishOnKey="
-				+ finishOnKey + ", maxLength=" + maxLength + ", transcribe=" + transcribe + ", transcribeCallback="
-				+ transcribeCallback + ", playBeep=" + playBeep + ", media=" + media + "]";
+		return "Notification [deviceIdentifier=" + deviceIdentifier + ", eventGeofencingLatitude="
+				+ eventGeofencingLatitude + ", eventGeofencingLongitude=" + eventGeofencingLongitude
+				+ ", geofenceRange=" + geofenceRange + ", geofenceEvent=" + geofenceEvent + ", method=" + method
+				+ ", action=" + action + "]";
 	}
 }

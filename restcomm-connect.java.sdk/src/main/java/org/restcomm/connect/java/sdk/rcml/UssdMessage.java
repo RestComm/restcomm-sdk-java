@@ -20,22 +20,34 @@
  */
 package org.restcomm.connect.java.sdk.rcml;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlValue;
+
 /**
  * @author Kleber Damasco kleber.damasco@hashtech.com.br
  */
-public enum LanguageType {
+@XmlAccessorType(XmlAccessType.FIELD)
+public class UssdMessage implements GenericBuilder<UssdMessage> {
 	
-	EN_US("en-US"), EN_GB("en-GB"), ES_ES("es-ES"), 
-	IT_IT("it-IT"), FR_FR("fr-FR"), PL_PL("pl-PL"),
-	PT_PT("pt-PT"), PT_BR("pt-BR");
-	
-	private final String name;
-	
-	private LanguageType(String name) {
-		this.name = name;
+	@XmlValue
+	private String text;
+
+	public UssdMessage() {
 	}
-	public String getName() {
-		return name;
+	
+	public UssdMessage text(String text) {
+		this.text = text;
+		return this;
+	}
+
+	public UssdMessage build() {
+		return this;
+	}
+
+	@Override
+	public String toString() {
+		return "UssdMessage [text=" + text + "]";
 	}
 	
 }

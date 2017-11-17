@@ -52,6 +52,10 @@ public class Response {
 		@XmlElement(name = "Redirect", type = Redirect.class),
 		@XmlElement(name = "Reject", type = Reject.class),
 		@XmlElement(name = "Fax", type = Fax.class),
+		@XmlElement(name = "UssdCollect", type = UssdCollect.class),
+		@XmlElement(name = "UssdMessage", type = UssdMessage.class),
+		@XmlElement(name = "Language", type = String.class),
+		@XmlElement(name = "Geolocation", type = Geolocation.class),
 	})
 	private List<Object> commands;
 	
@@ -85,7 +89,13 @@ public class Response {
 	public Response say(GenericBuilder builder) {
 		return addCommand(builder);
 	}
+	public Response record(GenericBuilder builder) {
+		return addCommand(builder);
+	}
 	public Response pause(GenericBuilder builder) {
+		return addCommand(builder);
+	}
+	public Response reject(GenericBuilder builder) {
 		return addCommand(builder);
 	}
 	public Response email(GenericBuilder builder) {
@@ -102,6 +112,22 @@ public class Response {
 	}
 	public Response redirect(GenericBuilder builder) {
 		return addCommand(builder);
+	}
+	public Response fax(Fax fax) {
+		commands.add(fax);
+		return this;
+	}
+	public Response language(String language) {
+		commands.add(language);
+		return this;
+	}
+	public Response ussdCollect(UssdCollect language) {
+		commands.add(language);
+		return this;
+	}
+	public Response ussdMessage(UssdMessage language) {
+		commands.add(language);
+		return this;
 	}
 
 	private Response addCommand(GenericBuilder builder) {

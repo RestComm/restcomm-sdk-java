@@ -28,26 +28,43 @@ import javax.xml.bind.annotation.XmlAttribute;
  * @author Kleber Damasco kleber.damasco@hashtech.com.br
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-public class Pause implements GenericBuilder<Pause>{
-	
+public class Immediate implements GenericBuilder<Immediate> {
+
 	@XmlAttribute
-	protected Integer length;
-	
-	public Pause() {
-	}
+	private Integer deviceIdentifier;
 
-	public Pause length(Integer length) {
-		this.length = length;
+	@XmlAttribute
+	private String statusCallback;
+
+	@XmlAttribute
+	private String action;
+
+	@XmlAttribute
+	private String method;
+
+
+	public Immediate deviceIdentifier(Integer deviceIdentifier) {
+		this.deviceIdentifier = deviceIdentifier;
 		return this;
 	}
-
-	public Pause build() {
+	public Immediate statusCallback(String statusCallback) {
+		this.statusCallback = statusCallback;
 		return this;
 	}
-
+	public Immediate action(String action) {
+		this.action = action;
+		return this;
+	}
+	public Immediate geofenceEvent(MethodType method) {
+		this.method = method.name();
+		return this;
+	}
+	public Immediate build() {
+		return this;
+	}
 	@Override
 	public String toString() {
-		return "Pause [length=" + length + "]";
+		return "Immediate [deviceIdentifier=" + deviceIdentifier + ", statusCallback=" + statusCallback + ", action="
+				+ action + ", method=" + method + "]";
 	}
-	
 }

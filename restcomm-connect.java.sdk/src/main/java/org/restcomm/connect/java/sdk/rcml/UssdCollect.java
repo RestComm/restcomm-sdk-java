@@ -20,22 +20,41 @@
  */
 package org.restcomm.connect.java.sdk.rcml;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
+
 /**
  * @author Kleber Damasco kleber.damasco@hashtech.com.br
  */
-public enum LanguageType {
+@XmlAccessorType(XmlAccessType.FIELD)
+public class UssdCollect implements GenericBuilder<UssdCollect> {
+
+	@XmlAttribute
+	private String action;
 	
-	EN_US("en-US"), EN_GB("en-GB"), ES_ES("es-ES"), 
-	IT_IT("it-IT"), FR_FR("fr-FR"), PL_PL("pl-PL"),
-	PT_PT("pt-PT"), PT_BR("pt-BR");
-	
-	private final String name;
-	
-	private LanguageType(String name) {
-		this.name = name;
+	@XmlElement(name = "UssdMessage")
+	private List<UssdMessage> ussdMessage;
+
+	public UssdCollect() {
+		ussdMessage = new ArrayList<UssdMessage>(0);
 	}
-	public String getName() {
-		return name;
+
+	public UssdCollect action(String action) {
+		this.action = action;
+		return this;
+	}
+	public UssdCollect ussdMessage(UssdMessage ussdMessage) {
+		this.ussdMessage.add(ussdMessage);
+		return this;
+	}
+	
+	public UssdCollect build() {
+		return this;
 	}
 	
 }

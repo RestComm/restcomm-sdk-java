@@ -81,4 +81,10 @@ public class Fax implements GenericBuilder<Fax>{
 		return this;
 	}
 
+	@Override
+	public String toString() {
+		return "Fax [to=" + to + ", from=" + from + ", action=" + action + ", method=" + method + ", statusCallback="
+				+ statusCallback + ", text=" + text + "]";
+	}
+
 }

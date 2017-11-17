@@ -52,6 +52,9 @@ public class Number {
 	@XmlValue
 	private String value;
 	
+	public Number() {
+	}
+	
 	public Number sendDigits(String sendDigits) {
 		this.sendDigits = sendDigits;
 		return this;

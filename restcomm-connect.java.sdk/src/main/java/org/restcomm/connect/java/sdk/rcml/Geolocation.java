@@ -23,31 +23,68 @@ package org.restcomm.connect.java.sdk.rcml;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
 
 /**
  * @author Kleber Damasco kleber.damasco@hashtech.com.br
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-public class Pause implements GenericBuilder<Pause>{
+public class Geolocation implements GenericBuilder<Geolocation> {
+
+	@XmlAttribute
+	private String deviceIdentifier;
 	
 	@XmlAttribute
-	protected Integer length;
+	private String action;
+
+	@XmlAttribute
+	private String method;
+
+	@XmlAttribute
+	private String statusCallback;
+
+	@XmlElement
+	private Notification notification;
+
+	@XmlElement
+	private Immediate immediate;
 	
-	public Pause() {
+	public Geolocation() {
 	}
 
-	public Pause length(Integer length) {
-		this.length = length;
+	public Geolocation deviceIdentifier(String deviceIdentifier) {
+		this.deviceIdentifier = deviceIdentifier;
 		return this;
 	}
-
-	public Pause build() {
+	public Geolocation action(String action) {
+		this.action = action;
+		return this;
+	}
+	public Geolocation method(MethodType method) {
+		this.method = method.name();
+		return this;
+	}
+	public Geolocation statusCallback(String statusCallback) {
+		this.statusCallback = statusCallback;
+		return this;
+	}
+	public Geolocation notification(Notification notification) {
+		this.notification = notification;
+		return this;
+	}
+	public Geolocation immediate(Immediate immediate) {
+		this.immediate = immediate;
+		return this;
+	}
+	
+	public Geolocation build() {
 		return this;
 	}
 
 	@Override
 	public String toString() {
-		return "Pause [length=" + length + "]";
+		return "Geolocation [deviceIdentifier=" + deviceIdentifier + ", action=" + action + ", method=" + method
+				+ ", statusCallback=" + statusCallback + ", notification=" + notification + "]";
 	}
 	
 }

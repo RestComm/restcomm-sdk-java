@@ -32,48 +32,24 @@ import javax.xml.bind.annotation.XmlValue;
 public class Sms implements GenericBuilder<Sms> {
 
 	@XmlAttribute
-	protected String to;
+	private String to;
 
 	@XmlAttribute
-	protected String from;
+	private String from;
 
 	@XmlAttribute
-	protected String action;
+	private String action;
 
 	@XmlAttribute
-	protected String method;
+	private String method;
 
 	@XmlAttribute
-	protected String statusCallback;
+	private String statusCallback;
 	
 	@XmlValue
-	protected String text;
+	private String text;
 	
 	public Sms() {
-	}
-
-	public String getTo() {
-		return to;
-	}
-
-	public String getFrom() {
-		return from;
-	}
-
-	public String getAction() {
-		return action;
-	}
-
-	public String getMethod() {
-		return method;
-	}
-
-	public String getStatusCallback() {
-		return statusCallback;
-	}
-
-	public String getText() {
-		return text;
 	}
 
 	@Override

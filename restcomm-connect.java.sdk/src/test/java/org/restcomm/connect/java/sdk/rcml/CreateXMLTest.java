@@ -9,17 +9,12 @@ public class CreateXMLTest {
 	@Test
 	public void test(){
 		try {
-			Response response = new Response().say(new Say().text("oi").voice(VoiceType.MAN))
-			.pause(new Pause().length(10))
-			.say(new Say().language("bp").text("teste"))
-			.email(new Email().text("ola email"))
-			.gather(
-					new Gather().language(LanguageType.PT_BR)
-					.method(MethodType.GET).say("Ola").say("seja bem vindo")
-					.action("action").finishOnKey("#"))
-			.sms(new Sms().text("SMS"))
-			.redirect(new Redirect().method(MethodType.POST))
-			.hangup().build();
+			Response response = new Response()
+					.ussdCollect(
+							new UssdCollect()
+							.ussdMessage(new UssdMessage().text("teste2"))
+							.ussdMessage(new UssdMessage().text("teste0")))
+					.build();
 			System.out.println(response.toXML());
 		} catch (Exception ee) {
 			ee.printStackTrace();

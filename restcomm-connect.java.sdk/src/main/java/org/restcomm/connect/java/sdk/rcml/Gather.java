@@ -33,110 +33,50 @@ import javax.xml.bind.annotation.XmlElement;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Gather implements GenericBuilder<Gather>{
-	
+
 	@XmlAttribute
 	private String action;
-	
+
 	@XmlAttribute
 	private String method;
-	
+
 	@XmlAttribute
 	private Integer timeout;
-	
+
 	@XmlAttribute
 	private String finishOnKey;
-	
+
 	@XmlAttribute
 	private Integer numDigits;
-	
+
 	@XmlAttribute
 	private String input;
-	
+
 	@XmlAttribute
 	private String partialResultCallback;
-	
+
 	@XmlAttribute
 	private String partialResultCallbackMethod;
-	
+
 	@XmlAttribute
 	private String language;
-	
+
 	@XmlAttribute
 	private String hints;
-	
+
 	@XmlElement(name = "Say")
 	private List<Say> says;
-	
+
 	@XmlElement(name = "Play")
 	private Play play;
-	
+
 	@XmlElement(name = "Pause")
 	private Pause pause;
-	
+
 	public Gather() {
-            this.says = new ArrayList<Say>();
+		this.says = new ArrayList<Say>();
 	}
 
-	public String getAction() {
-		return action;
-	}
-
-	public String getMethod() {
-		return method;
-	}
-
-	public Integer getTimeout() {
-		return timeout;
-	}
-
-	public String getFinishOnKey() {
-		return finishOnKey;
-	}
-
-	public Integer getNumDigits() {
-		return numDigits;
-	}
-
-	public String getInput() {
-		return input;
-	}
-
-	public String getPartialResultCallback() {
-		return partialResultCallback;
-	}
-
-	public String getPartialResultCallbackMethod() {
-		return partialResultCallbackMethod;
-	}
-
-	public String getLanguage() {
-		return language;
-	}
-
-	public String getHints() {
-		return hints;
-	}
-
-	public List<Say> getSays() {
-		return says;
-	}
-
-	public Play getPlay() {
-		return play;
-	}
-
-	public Pause getPause() {
-		return pause;
-	}
-
-	@Override
-	public String toString() {
-		return "Gather [action=" + action + ", method=" + method + ", timeout=" + timeout + ", finishOnKey="
-				+ finishOnKey + ", numDigits=" + numDigits + ", input=" + input + ", partialResultCallback="
-				+ partialResultCallback + ", partialResultCallbackMethod=" + partialResultCallbackMethod + ", language="
-				+ language + ", hints=" + hints + ", says=" + says + ", play=" + play + ", pause=" + pause + "]";
-	}
-	
 	public Gather action(String action) {
 		this.action = action;
 		return this;
@@ -193,8 +133,16 @@ public class Gather implements GenericBuilder<Gather>{
 		this.pause = pause;
 		return this;
 	}
-	
+
 	public Gather build() {
 		return this;
+	}
+	
+	@Override
+	public String toString() {
+		return "Gather [action=" + action + ", method=" + method + ", timeout=" + timeout + ", finishOnKey="
+				+ finishOnKey + ", numDigits=" + numDigits + ", input=" + input + ", partialResultCallback="
+				+ partialResultCallback + ", partialResultCallbackMethod=" + partialResultCallbackMethod + ", language="
+				+ language + ", hints=" + hints + ", says=" + says + ", play=" + play + ", pause=" + pause + "]";
 	}
 }

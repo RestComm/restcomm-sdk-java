@@ -23,19 +23,20 @@ package org.restcomm.connect.java.sdk.rcml;
 /**
  * @author Kleber Damasco kleber.damasco@hashtech.com.br
  */
-public enum LanguageType {
+public enum GeofenceEventType {
 	
-	EN_US("en-US"), EN_GB("en-GB"), ES_ES("es-ES"), 
-	IT_IT("it-IT"), FR_FR("fr-FR"), PL_PL("pl-PL"),
-	PT_PT("pt-PT"), PT_BR("pt-BR");
-	
+	IN("in"),
+	OUT("out"),
+	IN_OUT("in-out");
+
 	private final String name;
 	
-	private LanguageType(String name) {
+	private GeofenceEventType(String name) {
 		this.name = name;
 	}
+	
 	public String getName() {
 		return name;
 	}
-	
+
 }
