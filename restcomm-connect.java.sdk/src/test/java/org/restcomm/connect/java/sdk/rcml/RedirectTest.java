@@ -31,7 +31,6 @@ public class RedirectTest {
     @Test
     public void test() {
         Response response = new Response().redirect(new Redirect().address("http://foobar.com/instructions")).build();
-        System.out.println(response.toXML());
         Assert.assertEquals(
                 "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?><Response><Redirect>http://foobar.com/instructions</Redirect></Response>", 
                 response.toXML());

@@ -26,13 +26,13 @@ import org.junit.Test;
 /**
  * @author Ricardo Limonta limonta@hashtech.com.br
  */
-public class RecordTest {
+public class GeoLocationTest {
 
     @Test
     public void test() {
-        Response response = new Response().record(new Record().maxLength(30)).build();
+        Response response = new Response().geolocation(new Geolocation().immediate(new Immediate().deviceIdentifier("59899549878").action("http://my.controller.net").method(MethodType.POST))).build();
         Assert.assertEquals(
-                "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?><Response><Record maxLength=\"30\"/></Response>", 
+                "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?><Response><Geolocation><Immediate deviceIdentifier=\"59899549878\" action=\"http://my.controller.net\" method=\"POST\"/></Geolocation></Response>",
                 response.toXML());
     }
 }
