@@ -43,6 +43,7 @@ public class Response {
 	@XmlElements({
 		@XmlElement(name = "Say", type = Say.class),	
 		@XmlElement(name = "Record", type = Record.class),	
+		@XmlElement(name = "Dial", type = Dial.class),	
 		@XmlElement(name = "Email", type = Email.class),	
 		@XmlElement(name = "Gather", type = Gather.class),	
 		@XmlElement(name = "Hangup", type = Hangup.class),	
@@ -79,7 +80,7 @@ public class Response {
 			StringWriter sw = new StringWriter();
 			JAXBContext jaxbContext = JAXBContext.newInstance(Response.class);
 			Marshaller marshaller = jaxbContext.createMarshaller();
-			marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, false);
+			marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, pretty);
 			marshaller.marshal(this, sw);
 			return sw.toString();
 		} catch (Exception e) {
@@ -88,6 +89,9 @@ public class Response {
 	}
 
 
+	public Response dial(GenericBuilder builder) {
+		return addCommand(builder);
+	}
 	public Response say(GenericBuilder builder) {
 		return addCommand(builder);
 	}
