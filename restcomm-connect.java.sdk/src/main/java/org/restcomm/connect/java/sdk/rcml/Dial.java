@@ -55,7 +55,7 @@ public class Dial implements GenericBuilder<Dial>{
 	@XmlElement
 	private Conference conference;
 	
-	@XmlElement
+	@XmlElement(name = "Sip")
 	private Sip sip;
 
 	@XmlElement(name = "Client")

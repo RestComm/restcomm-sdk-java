@@ -43,10 +43,10 @@ public class Geolocation implements GenericBuilder<Geolocation> {
 	@XmlAttribute
 	private String statusCallback;
 
-	@XmlElement
+	@XmlElement(name = "Notification")
 	private Notification notification;
 
-	@XmlElement
+	@XmlElement(name = "Immediate")
 	private Immediate immediate;
 	
 	public Geolocation() {

@@ -58,12 +58,20 @@ public class Email implements GenericBuilder<Email>{
 	}
 	
 	public Email cc(String cc) {
-		this.cc = cc;
+		if(this.cc == null) {
+			this.cc = cc;
+		} else {
+			this.cc.concat(",").concat(cc);
+		}
 		return this;
 	}
 	
 	public Email bcc(String bcc) {
-		this.bcc = bcc;
+		if(this.bcc == null) {
+			this.bcc = bcc;
+		} else {
+			this.bcc.concat(",").concat(bcc);
+		}
 		return this;
 	}
 
