@@ -88,31 +88,31 @@ public class Response {
 	}
 
 
-	public Response say(GenericBuilder builder) {
+	public Response say(Say builder) {
 		return addCommand(builder);
 	}
-	public Response record(GenericBuilder builder) {
+	public Response record(Record builder) {
 		return addCommand(builder);
 	}
-	public Response pause(GenericBuilder builder) {
+	public Response pause(Pause builder) {
 		return addCommand(builder);
 	}
-	public Response reject(GenericBuilder builder) {
+	public Response reject(Reject builder) {
 		return addCommand(builder);
 	}
-	public Response email(GenericBuilder builder) {
+	public Response email(Email builder) {
 		return addCommand(builder);
 	}
-	public Response gather(GenericBuilder builder) {
+	public Response gather(Gather builder) {
 		return addCommand(builder);
 	}
-	public Response play(GenericBuilder builder) {
+	public Response play(Play builder) {
 		return addCommand(builder);
 	}
-	public Response sms(GenericBuilder builder) {
+	public Response sms(Sms builder) {
 		return addCommand(builder);
 	}
-	public Response redirect(GenericBuilder builder) {
+	public Response redirect(Redirect builder) {
 		return addCommand(builder);
 	}
 	public Response fax(Fax fax) {
