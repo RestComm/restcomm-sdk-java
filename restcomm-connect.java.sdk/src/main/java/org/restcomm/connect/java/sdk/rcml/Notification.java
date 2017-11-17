@@ -31,7 +31,7 @@ import javax.xml.bind.annotation.XmlAttribute;
 public class Notification implements GenericBuilder<Notification> {
 
 	@XmlAttribute
-	private Integer deviceIdentifier;
+	private String deviceIdentifier;
 
 	@XmlAttribute
 	private String eventGeofencingLatitude;
@@ -51,7 +51,7 @@ public class Notification implements GenericBuilder<Notification> {
 	@XmlAttribute
 	private String action;
 
-	public Notification deviceIdentifier(Integer deviceIdentifier) {
+	public Notification deviceIdentifier(String deviceIdentifier) {
 		this.deviceIdentifier = deviceIdentifier;
 		return this;
 	}
@@ -63,7 +63,7 @@ public class Notification implements GenericBuilder<Notification> {
 		this.eventGeofencingLongitude = eventGeofencingLongitude;
 		return this;
 	}
-	public Notification eventGeofencingLongitude(Integer geofenceRange) {
+	public Notification geofenceRange(Integer geofenceRange) {
 		this.geofenceRange = geofenceRange;
 		return this;
 	}
@@ -71,7 +71,7 @@ public class Notification implements GenericBuilder<Notification> {
 		this.geofenceEvent = geofenceEvent.getName();
 		return this;
 	}
-	public Notification geofenceEvent(MethodType method) {
+	public Notification method(MethodType method) {
 		this.method = method.name();
 		return this;
 	}

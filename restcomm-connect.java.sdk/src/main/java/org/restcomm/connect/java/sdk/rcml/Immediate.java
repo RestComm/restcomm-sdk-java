@@ -31,7 +31,7 @@ import javax.xml.bind.annotation.XmlAttribute;
 public class Immediate implements GenericBuilder<Immediate> {
 
 	@XmlAttribute
-	private Integer deviceIdentifier;
+	private String deviceIdentifier;
 
 	@XmlAttribute
 	private String statusCallback;
@@ -43,7 +43,7 @@ public class Immediate implements GenericBuilder<Immediate> {
 	private String method;
 
 
-	public Immediate deviceIdentifier(Integer deviceIdentifier) {
+	public Immediate deviceIdentifier(String deviceIdentifier) {
 		this.deviceIdentifier = deviceIdentifier;
 		return this;
 	}
@@ -55,7 +55,7 @@ public class Immediate implements GenericBuilder<Immediate> {
 		this.action = action;
 		return this;
 	}
-	public Immediate geofenceEvent(MethodType method) {
+	public Immediate method(MethodType method) {
 		this.method = method.name();
 		return this;
 	}

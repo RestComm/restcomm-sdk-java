@@ -76,7 +76,7 @@ public class Sip implements GenericBuilder<Sip>{
 		this.statusCallbackMethod = method.name();
 		return this;
 	}
-	public Sip statusCallbackMethod(String value) {
+	public Sip value(String value) {
 		this.value = value;
 		return this;
 	}
