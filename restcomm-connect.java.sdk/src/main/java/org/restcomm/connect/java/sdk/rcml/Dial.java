@@ -35,22 +35,22 @@ import javax.xml.bind.annotation.XmlElement;
 public class Dial implements GenericBuilder<Dial>{
 
 	@XmlAttribute
-	protected String action;
+	private String action;
 	
 	@XmlAttribute
-	protected String method;
+	private String method;
 
 	@XmlAttribute
-	protected Integer timeout;
+	private Integer timeout;
 
 	@XmlAttribute
-	protected Integer timeLimit;
+	private Integer timeLimit;
 
 	@XmlAttribute
-	protected String callerId;
+	private String callerId;
 
 	@XmlAttribute
-	protected Boolean record;
+	private Boolean record;
 	
 	@XmlElement
 	private Conference conference;

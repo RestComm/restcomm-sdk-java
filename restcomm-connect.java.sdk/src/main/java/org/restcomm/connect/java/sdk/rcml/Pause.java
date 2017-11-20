@@ -31,7 +31,7 @@ import javax.xml.bind.annotation.XmlAttribute;
 public class Pause implements GenericBuilder<Pause>{
 	
 	@XmlAttribute
-	protected Integer length;
+	private Integer length;
 	
 	public Pause() {
 	}

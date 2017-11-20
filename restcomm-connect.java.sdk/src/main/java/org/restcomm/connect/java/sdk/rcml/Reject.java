@@ -31,7 +31,7 @@ import javax.xml.bind.annotation.XmlAttribute;
 public class Reject implements GenericBuilder<Reject> {
 
     @XmlAttribute
-    protected String reason;
+    private String reason;
 
     public Reject() {
     }

@@ -32,22 +32,22 @@ import javax.xml.bind.annotation.XmlValue;
 public class Email implements GenericBuilder<Email>{
 
 	@XmlAttribute(required = true)
-	protected String from;
+	private String from;
 
 	@XmlAttribute(required = true)
-	protected String to;
+	private String to;
 
 	@XmlAttribute
-	protected String cc;
+	private String cc;
 
 	@XmlAttribute
-	protected String bcc;
+	private String bcc;
 
 	@XmlAttribute
-	protected String subject;
+	private String subject;
 	
 	@XmlValue
-	protected String text;
+	private String text;
 	
 	public Email() {
 	}

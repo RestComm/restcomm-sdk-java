@@ -32,22 +32,22 @@ import javax.xml.bind.annotation.XmlValue;
 public class Fax implements GenericBuilder<Fax>{
 
 	@XmlAttribute
-	protected String to;
+	private String to;
 
 	@XmlAttribute
-	protected String from;
+	private String from;
 
 	@XmlAttribute
-	protected String action;
+	private String action;
 
 	@XmlAttribute
-	protected String method;
+	private String method;
 
 	@XmlAttribute
-	protected String statusCallback;
+	private String statusCallback;
 	
 	@XmlValue
-	protected String text;
+	private String text;
 	
 	public Fax() {
 	}

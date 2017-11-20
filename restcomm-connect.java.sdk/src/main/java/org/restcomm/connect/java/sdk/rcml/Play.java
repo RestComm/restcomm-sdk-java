@@ -32,10 +32,10 @@ import javax.xml.bind.annotation.XmlValue;
 public class Play implements GenericBuilder<Play>{
 	
 	@XmlAttribute
-	protected Integer loop;
+	private Integer loop;
 
 	@XmlValue
-	protected String url;
+	private String url;
 	
 	public Play() {
 	}
