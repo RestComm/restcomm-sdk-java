@@ -19,8 +19,6 @@ public class EmailTest {
 					.subject("This is the subject")
 					.text("This is the body!!")
 				).build();
-		System.out.println(xml);
-		System.out.println(response.toXML());
 		Assert.assertEquals(xml, response.toXML());
 	}
 	
