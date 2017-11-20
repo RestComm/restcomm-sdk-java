@@ -32,16 +32,16 @@ import javax.xml.bind.annotation.XmlValue;
 public class Say implements GenericBuilder<Say> {
 
 	@XmlAttribute
-	protected String voice;
+	private String voice;
 	
 	@XmlAttribute
-	protected String language;
+	private String language;
 
 	@XmlAttribute
-	protected Integer loop;
+	private Integer loop;
 
 	@XmlValue
-	protected String text;
+	private String text;
 
 	public Say() {
 	}

@@ -33,10 +33,10 @@ import javax.xml.bind.annotation.XmlValue;
 public class Redirect implements GenericBuilder<Redirect> {
 
     @XmlAttribute
-    protected String method;
+    private String method;
 
     @XmlValue
-    protected String address;
+    private String address;
 
     public Redirect() {
     }
