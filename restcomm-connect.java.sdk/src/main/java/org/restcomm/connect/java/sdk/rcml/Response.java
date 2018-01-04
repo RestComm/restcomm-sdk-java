@@ -138,9 +138,14 @@ public class Response {
 		commands.add(language);
 		return this;
 	}
-
-	private Response addCommand(GenericBuilder builder) {
+	public Response addCommand(GenericBuilder builder) {
 		commands.add(builder.build());
+		return this;
+	}
+	public Response addCommands(List<GenericBuilder> builders) {
+		for (GenericBuilder genericBuilder : builders) {
+			commands.add(genericBuilder.build());
+		}
 		return this;
 	}
 	public Response hangup() {
