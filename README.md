@@ -36,7 +36,7 @@ public class AgentDemo extends HttpServlet {
     @Override
     protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         //Define a response content type
-        response.setContentType("application/xm");
+        response.setContentType("application/xml");
         
         //Create a RCML verb and return our welcome message
         Response rcml = new Response().say(new Say()
