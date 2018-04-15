@@ -1,0 +1,41 @@
+{
+  "page": 0,
+  "num_pages": 2,
+  "page_size": 2,
+  "total": 4,
+  "start": "0",
+  "end": "1",
+  "uri": "/2012-04-24/Accounts/AC23f1b11bbb99a46436c365cb7bec246e/Conferences.json",
+  "first_page_uri": "/2012-04-24/Accounts/AC23f1b11bbb99a46436c365cb7bec246e/Conferences.json?Page=0&PageSize=2",
+  "previous_page_uri": "null",
+  "next_page_uri": "/2012-04-24/Accounts/AC23f1b11bbb99a46436c365cb7bec246e/Conferences.json?Page=1&PageSize=2&AfterSid=CF5f25a49df5844937af8fa57de0b0ec3d",
+  "last_page_uri": "/2012-04-24/Accounts/AC23f1b11bbb99a46436c365cb7bec246e/Conferences.json?Page=1&PageSize=2",
+  "conferences": [
+    {
+      "sid": "CF00a13f9e9ed741e99ff460e86ff5c67a",
+      "date_created": "Thu, 21 Jul 2016 13:02:45 +0000",
+      "date_updated": "Thu, 21 Jul 2016 13:02:52 +0000",
+      "account_sid": "AC23f1b11bbb99a46436c365cb7bec246e",
+      "status": "FORCED_COMPLETED",
+      "api_version": "2012-04-24",
+      "friendly_name": "amits-conf",
+      "uri": "/2012-04-24/Accounts/AC23f1b11bbb99a46436c365cb7bec246e/Conferences/CF00a13f9e9ed741e99ff460e86ff5c67a.json",
+      "subresource_uris": {
+        "participants": "/2012-04-24/Accounts/AC23f1b11bbb99a46436c365cb7bec246e/Conferences/CF00a13f9e9ed741e99ff460e86ff5c67a/Participants.json"
+      }
+    },
+    {
+      "sid": "CF076d318c61744e998f310e579faebafb",
+      "date_created": "Tue, 26 Jul 2016 13:56:57 +0000",
+      "date_updated": "Tue, 26 Jul 2016 13:57:35 +0000",
+      "account_sid": "AC23f1b11bbb99a46436c365cb7bec246e",
+      "status": "COMPLETED",
+      "api_version": "2012-04-24",
+      "friendly_name": "amits-conf",
+      "uri": "/2012-04-24/Accounts/AC23f1b11bbb99a46436c365cb7bec246e/Conferences/CF076d318c61744e998f310e579faebafb.json",
+      "subresource_uris": {
+        "participants": "/2012-04-24/Accounts/AC23f1b11bbb99a46436c365cb7bec246e/Conferences/CF076d318c61744e998f310e579faebafb/Participants.json"
+      }
+    }
+    ]
+}

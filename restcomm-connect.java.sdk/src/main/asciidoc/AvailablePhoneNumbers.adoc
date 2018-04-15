@@ -1,0 +1,140 @@
+= Restcomm JAVA Sdk - AvailablePhoneNumbers
+
+[[AvailablePhoneNumbers]]
+== AvailablePhoneNumbers
+
+The *AvailablePhoneNumbers* subresources let you search for incoming local and toll-free phone numbers that are available for you to purchase from a Telestax partner.
+
+== Fetching List of PhoneNumbers
+
+=== Fetching the Default List
+
+The Default AvailablePhoneNumbers List can be fetched by using the following code snippet
+
+....
+  AvailablePhoneNumberList List = AvailablePhoneNumberList.getList("US","Local");
+....
+
+Here, we are trying to fetch the Numbers from USA, which has an ISOCountryCode - "US" and we intend to fetch the Local PhoneNumbers, thus the second Parameter "Local".
+
+=== Fetching a Filtered List
+
+A Filtered AvailablePhoneNumbers List can be fetched by using the getFilteredList() method of the class AvailablePhoneNumberList
+
+....
+  AvailablePhoneNumberList List = AvailablePhoneNumberList.getFilteredList("US","Local").SmsEnabled("true").Filter();
+....
+
+The above mentioned code snippet fetches the similar List which is mentioned above, but it contains only those with the SmsEnabled property set to "true". 
+
+==== List of FilterParameters
+[cols=",",options="header",]
+|===============================================================================================================================================================================================================================================================================
+|Parameter |Methods
+|AreaCode |AreaCode().
+|Contains |Contains().
+|SmsEnabled |SmsEnabled().
+|MmsEnabled |MmsEnabled().
+|VoiceEnabled |VoiceEnabled().
+|ExcludeAllAddressRequired |ExcludeAllAddressRequired().
+|ExcludeLocalAddressRequired |ExcludeLocalAddressRequired().
+|ExcludeForeignAddressRequired |ExcludeForeignAddressRequired().
+|Beta |Beta().
+===============================================================================================================================================================================================================================================================================
+
+== Accessing the Fetched AvailablePhoneNumberList
+
+The size of the Fetched List can be known by
+....
+  int size = List.size();
+....
+
+The PhoneNumber from the fetched AvailablePhoneNumberList Object can be obtained by
+....
+  PhoneNumber JackNumber = List.get(1);
+....
+
+The fields of the PhoneNumber can be accessed by using the following methods
+....
+  String Number;
+  Number = JackNumber.getPhone_number();
+....
+
+
+The Following are the fields available for the PhoneNumbers fetched
+
+=== Local
+
+==== US/Canada Numbers
+[cols=",",options="header",]
+|===============================================================================================================================================================================================================================
+|Fields |method
+|FriendlyName |getFriendly_name().
+|PhoneNumber |getPhone_number().
+|Lata |getLata().
+|RateCenter |getRate_center().
+|Latitude |getLatitude().
+|Longitude |getLongitude().
+|Region |getRegion().
+|PostalCode |getPostal_code().
+|IsoCountry |getIso_country().
+|VoiceCapable|voice_capable().
+|SmsCapable|sms_capable().
+|MmsCapable|mms_capable().
+|FaxCapable|fax_capable().
+===============================================================================================================================================================================================================================
+
+==== Other Numbers
+[cols=",",options="header",]
+|
+===============================================================================================================================================================================================================================
+|Fields |method
+|FriendlyName |getFriendly_name().
+|PhoneNumber |getPhone_number().
+|IsoCountry |getIso_country().
+|VoiceCapable|voice_capable().
+|SmsCapable|sms_capable().
+|MmsCapable|mms_capable().
+|FaxCapable|fax_capable().
+===============================================================================================================================================================================================================================
+
+=== Mobile
+[cols=",",options="header",]
+|
+===============================================================================================================================================================================================================================
+|Fields |method
+|FriendlyName |getFriendly_name().
+|PhoneNumber |getPhone_number().
+|IsoCountry |getIso_country().
+|VoiceCapable|voice_capable().
+|SmsCapable|Sms_capable().
+|MmsCapable|Mms_capable().
+|FaxCapable|Fax_capable().
+|AddressRequirements|Address_requirements().
+===============================================================================================================================================================================================================================
+
+=== TollFree
+[cols=",",options="header",]
+|
+===============================================================================================================================================================================================================================
+|Fields |method
+|FriendlyName |getFriendly_name().
+|PhoneNumber |getPhone_number().
+|IsoCountry |getIso_country().
+|VoiceCapable|voice_capable().
+|SmsCapable|Sms_capable().
+|MmsCapable|Mms_capable().
+|FaxCapable|Fax_capable().
+|AddressRequirements|Address_requirements().
+===============================================================================================================================================================================================================================
+
+
+
+NOTE: The Default Account from which we fetch the AvailablePhoneNumberList is the Main Account.
+      
+If we want to change the Default Account to any specific SubAccount , use the following method before Fetching the AvailablePhoneNumber(s)
+....
+  AvailablePhoneNumberList.SubAccountAccess(SubAccountSid);
+  AvailablePhoneNumberList List = AvailablePhoneNumberList.getList();
+....
+
