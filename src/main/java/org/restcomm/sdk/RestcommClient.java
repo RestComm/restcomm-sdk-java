@@ -36,7 +36,7 @@ public class RestcommClient {
     }
 
     public RestEndpoints<XmppMapping> getXmppMappingsEndpoints() {
-        return getEndpoints("xmpp-mappings", baseUrl + "/api/xmppMappings", XmppMapping.class);
+        return getEndpoints("xmpp-mappings", baseUrl + "/xmpp/xmppMappings", XmppMapping.class);
     }
 
     private <T> RestEndpoints<T> getEndpoints(String endpoint, String defaultUrl, Class<T> type) {
