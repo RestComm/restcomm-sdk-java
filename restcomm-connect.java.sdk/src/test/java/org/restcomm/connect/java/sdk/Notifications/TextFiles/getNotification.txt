@@ -1,0 +1,16 @@
+{
+      "sid": "NO70eddcd2f3424aea94c5d7a638298a6a",
+      "date_created": "Wed, 21 Jun 2017 10:30:27 +0000",
+      "date_updated": "Wed, 21 Jun 2017 10:30:27 +0000",
+      "account_sid": "AC13b4372c92ed5c07d951cf842e2664ff",
+      "api_version": "2012-04-24",
+      "log": 0,
+      "error_code": 11008,
+      "more_info": "/restcomm/errors/11008.html",
+      "message_text": "The SIP Client client:client_name is not registered or does not exist",
+      "message_date": "2017-06-21T10:30:27.000Z",
+      "request_url": "",
+      "request_method": "",
+      "request_variables": "",
+      "uri": "/2012-04-24/Accounts/AC13b4372c92ed5c07d951cf842e2664ff/Notifications/NO70eddcd2f3424aea94c5d7a638298a6a.json"
+}
