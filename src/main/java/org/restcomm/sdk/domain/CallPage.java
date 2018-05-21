@@ -7,7 +7,11 @@ import lombok.ToString;
 import java.util.List;
 
 /**
+ * Represents a paginated Calls result.
+ *
  * @author Henrique Rosa (henrique.rosa@telestax.com) created on 21/05/2018
+ *
+ * @see <a href=https://www.restcomm.com/docs/connect/api/calls-api.html#paging-information>Calls API</a>
  */
 @Builder(toBuilder = true)
 @Getter
