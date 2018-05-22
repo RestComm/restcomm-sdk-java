@@ -4,7 +4,6 @@ import com.fasterxml.jackson.databind.type.TypeFactory;
 import org.restcomm.sdk.HttpClient;
 
 import java.util.List;
-import java.util.Map;
 
 /**
  * @author oleg.agafonov@telestax.com (Oleg Agafonov)
@@ -27,7 +26,7 @@ public class RestEndpoints<T> extends Endpoints {
                 .defaultInstance().constructCollectionType(List.class, type));
     }
 
-    public T getSingle(Object query) {
+    public T get(Object query) {
         return httpClient.get(url, query, TypeFactory.defaultInstance().constructType(type));
     }
 
