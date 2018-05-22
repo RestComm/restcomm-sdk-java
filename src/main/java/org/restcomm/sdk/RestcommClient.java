@@ -1,8 +1,6 @@
 package org.restcomm.sdk;
 
-import org.restcomm.sdk.domain.Client;
-import org.restcomm.sdk.domain.IncomingPhoneNumber;
-import org.restcomm.sdk.domain.XmppMapping;
+import org.restcomm.sdk.domain.*;
 import org.restcomm.sdk.endpoints.RestEndpoints;
 
 import java.util.Map;
@@ -25,6 +23,10 @@ public class RestcommClient {
         this.baseRestcommUrl = config.getBaseUrl() + "/restcomm/2012-04-24/Accounts/" + config.getAccountSid();
         this.baseUrl = config.getBaseUrl();
         this.endpoints = config.getEndpoints();
+    }
+
+    public RestEndpoints<CallPage> getCallsEndpoint() {
+        return getEndpoints("calls", baseRestcommUrl + "/Calls.json", CallPage.class);
     }
 
     public RestEndpoints<Client> getClientsEndpoints() {

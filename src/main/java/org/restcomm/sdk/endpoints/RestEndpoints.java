@@ -26,6 +26,10 @@ public class RestEndpoints<T> extends Endpoints {
                 .defaultInstance().constructCollectionType(List.class, type));
     }
 
+    public T get(Object query) {
+        return httpClient.get(url, query, TypeFactory.defaultInstance().constructType(type));
+    }
+
     public T create(T entity) {
         return httpClient.post(url, entity, type);
     }
