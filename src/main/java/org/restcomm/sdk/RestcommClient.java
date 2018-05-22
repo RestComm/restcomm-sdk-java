@@ -25,7 +25,7 @@ public class RestcommClient {
         this.endpoints = config.getEndpoints();
     }
 
-    public RestEndpoints<CallPage> getCallsEndpoints() {
+    public RestEndpoints<CallPage> getCallsEndpoint() {
         return getEndpoints("calls", baseRestcommUrl + "/Calls.json", CallPage.class);
     }
 
