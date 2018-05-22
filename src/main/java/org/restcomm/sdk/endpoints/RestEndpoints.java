@@ -7,6 +7,7 @@ import java.util.List;
 
 /**
  * @author oleg.agafonov@telestax.com (Oleg Agafonov)
+ * @author henrique.rosa@telestax.com (Henrique Rosa)
  */
 public class RestEndpoints<T> extends Endpoints {
 
@@ -18,24 +19,23 @@ public class RestEndpoints<T> extends Endpoints {
     }
 
     public List<T> getAll() {
-        return getAll(null);
+        return find(null);
     }
 
-    public List<T> getAll(Object query) {
-        return httpClient.get(url, query, TypeFactory
-                .defaultInstance().constructCollectionType(List.class, type));
+    public T get(String id) {
+        return httpClient.get(url + "/" + id, type);
     }
 
-    public T get(Object query) {
+    public List<T> find(Object query) {
+        return httpClient.get(url, query, TypeFactory.defaultInstance().constructCollectionType(List.class, type));
+    }
+
+    public T findOne(Object query) {
         return httpClient.get(url, query, TypeFactory.defaultInstance().constructType(type));
     }
 
     public T create(T entity) {
         return httpClient.post(url, entity, type);
-    }
-
-    public T get(String id) {
-        return httpClient.get(url + "/" + id, type);
     }
 
     public T update(T entity) {
@@ -45,4 +45,5 @@ public class RestEndpoints<T> extends Endpoints {
     public void delete(String id) {
         httpClient.delete(url + "/" + id, type);
     }
+
 }
