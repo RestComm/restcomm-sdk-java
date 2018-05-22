@@ -44,7 +44,7 @@ public class CallsEndpointTest {
                 .willReturn(okJson(response)));
 
         // when
-        final CallPage callPage = callsEndpoint.get(Collections.emptyMap());
+        final CallPage callPage = callsEndpoint.findOne(Collections.emptyMap());
 
         // then
         assertNotNull(callPage);
