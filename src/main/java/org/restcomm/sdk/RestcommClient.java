@@ -29,6 +29,10 @@ public class RestcommClient {
         return getEndpoints("calls", baseRestcommUrl + "/Calls.json", CallPage.class);
     }
 
+    public RestEndpoints<RecordingPage> getRecordingsEndpoint() {
+        return getEndpoints("recordings", baseRestcommUrl + "/Recordings.json", RecordingPage.class);
+    }
+
     public RestEndpoints<Client> getClientsEndpoints() {
         return getEndpoints("clients", baseRestcommUrl + "/Clients.json", Client.class);
     }

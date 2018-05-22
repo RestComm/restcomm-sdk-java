@@ -1,0 +1,37 @@
+{
+  "page": 0,
+  "num_pages": 397,
+  "page_size": 50,
+  "total": 19858,
+  "start": "0",
+  "end": "49",
+  "uri": "/restcomm/2012-04-24/Accounts/AC12345/Recordings",
+  "first_page_uri": "/restcomm/2012-04-24/Accounts/AC12345/Recordings?Page\u003d0\u0026PageSize\u003d50",
+  "previous_page_uri": "null",
+  "next_page_uri": "/restcomm/2012-04-24/Accounts/AC12345/Recordings?Page\u003d1\u0026PageSize\u003d50\u0026AfterSid\u003dRE22222",
+  "last_page_uri": "/restcomm/2012-04-24/Accounts/AC12345/Recordings?Page\u003d397\u0026PageSize\u003d50",
+  "recordings": [
+    {
+      "sid": "RE11111",
+      "date_created": "Fri, 25 Sep 2015 15:59:56 +0000",
+      "date_updated": "Fri, 25 Sep 2015 15:59:56 +0000",
+      "account_sid": "AC12345",
+      "call_sid": "CA11111",
+      "duration": "9.72275",
+      "api_version": "2012-04-24",
+      "uri": "/2012-04-24/Accounts/AC12345/Recordings/RE11111.json",
+      "file_uri": "https://some.domain.com/restcomm/2012-04-24/Accounts/AC12345/Recordings/RE11111.wav"
+    },
+    {
+      "sid": "RE22222",
+      "date_created": "Wed, 4 Nov 2015 19:00:47 +0000",
+      "date_updated": "Wed, 19 Jul 2017 08:24:26 +0000",
+      "account_sid": "AC12345",
+      "call_sid": "CA22222",
+      "duration": "10.10275",
+      "api_version": "2012-04-24",
+      "uri": "/2012-04-24/Accounts/AC12345/Recordings/RE22222.json",
+      "file_uri": "https://some.domain.com/restcomm/2012-04-24/Accounts/AC12345/Recordings/RE22222.wav"
+    }
+  ]
+}
