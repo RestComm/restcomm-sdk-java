@@ -45,6 +45,10 @@ public class RestcommClient {
         return getEndpoints("xmpp-mappings", baseUrl + "/xmpp/xmppMappings", XmppMapping.class);
     }
 
+    public RestEndpoints<ShortMessage> getShortMessagesEndpoints() {
+        return getEndpoints("messages", baseRestcommUrl + "/SMS/Messages.json", ShortMessage.class);
+    }
+
     private <T> RestEndpoints<T> getEndpoints(String endpoint, String defaultUrl, Class<T> type) {
         String url = endpoints.getOrDefault(endpoint, defaultUrl);
         return new RestEndpoints(url, httpClient, type);
