@@ -13,6 +13,7 @@ public class RestcommClient {
     private final HttpClient httpClient;
 
     private final String baseRestcommUrl;
+    private final String baseRestcommUrlWithoutAccount;
 
     private final String baseUrl;
 
@@ -20,6 +21,7 @@ public class RestcommClient {
 
     public RestcommClient(RestcommClientConfiguration config) {
         this.httpClient = new HttpClient(config.getAccountSid(), config.getAccountToken());
+        this.baseRestcommUrlWithoutAccount = config.getBaseUrl() + "/restcomm/2012-04-24/Accounts";
         this.baseRestcommUrl = config.getBaseUrl() + "/restcomm/2012-04-24/Accounts/" + config.getAccountSid();
         this.baseUrl = config.getBaseUrl();
         this.endpoints = config.getEndpoints();
@@ -47,6 +49,11 @@ public class RestcommClient {
 
     public RestEndpoints<ShortMessage> getShortMessagesEndpoints() {
         return getEndpoints("messages", baseRestcommUrl + "/SMS/Messages.json", ShortMessage.class);
+    }
+
+    public RestEndpoints<ShortMessage> getShortMessagesEndpoints(String subAccountSid) {
+        return getEndpoints("messages", baseRestcommUrlWithoutAccount + "/" + subAccountSid + "/SMS/Messages.json",
+                ShortMessage.class);
     }
 
     private <T> RestEndpoints<T> getEndpoints(String endpoint, String defaultUrl, Class<T> type) {
