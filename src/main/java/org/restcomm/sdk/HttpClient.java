@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.JavaType;
 import com.fasterxml.jackson.databind.ObjectMapper;
+
 import org.apache.http.client.fluent.Content;
 import org.apache.http.client.fluent.Executor;
 import org.apache.http.client.fluent.Request;
@@ -27,16 +28,23 @@ public class HttpClient {
     private final Executor executor;
 
     private final BasicHeader authoriztion;
+    private final BasicHeader adminAuthoriztion;
 
     private final ObjectMapper serializer;
 
     private final ObjectMapper deserializer;
 
-    public HttpClient(String accountSid, String accountToken) {
+    public HttpClient(String accountSid, String accountToken, String adminAccountSid, String adminAccountToken) {
         this.executor = Executor.newInstance();
 
         String authorization = accountSid + ":" + accountToken;
         this.authoriztion = new BasicHeader("Authorization", "Basic " + encodeBase64String(authorization.getBytes()));
+        if (adminAccountSid != null && adminAccountToken != null) {
+            String adminAuthorization = adminAccountSid + ":" + adminAccountToken;
+            this.adminAuthoriztion = new BasicHeader("Authorization", "Basic " + encodeBase64String(adminAuthorization.getBytes()));
+        } else {
+            this.adminAuthoriztion = null;
+        }
 
         this.serializer = new ObjectMapper();
         this.serializer.setSerializationInclusion(JsonInclude.Include.NON_NULL);
@@ -50,6 +58,12 @@ public class HttpClient {
         Request request = Request.Post(url);
         addRequestBody(request, entity);
         return executeRequest(request, type);
+    }
+
+    public <T> T postAsAdmin(String url, Object entity, Class<T> type) {
+        Request request = Request.Post(url);
+        addRequestBody(request, entity);
+        return executeRequestAsAdmin(request, type);
     }
 
     public <T> T get(String url, Object entity, JavaType type) {
@@ -125,6 +139,14 @@ public class HttpClient {
     }
 
     private <T> T executeRequest(Request request, Class<T> type) {
+        return executeRequest(request, type, this.authoriztion);
+    }
+
+    private <T> T executeRequestAsAdmin(Request request, Class<T> type) {
+        return executeRequest(request, type, this.adminAuthoriztion);
+    }
+
+    private <T> T executeRequest(Request request, Class<T> type, BasicHeader authoriztion) {
         try {
             request.addHeader(authoriztion);
             Content content = executor

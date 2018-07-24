@@ -21,6 +21,10 @@ public class RestcommClientConfiguration {
 
     private String accountToken;
 
+    private String adminAccountSid;
+
+    private String adminAccountToken;
+
     @Builder.Default
     private String baseUrl = "https://cloud.restcomm.com";
 

@@ -38,6 +38,10 @@ public class RestEndpoints<T> extends Endpoints {
         return httpClient.post(url, entity, type);
     }
 
+    public T createAsAdmin(T entity) {
+        return httpClient.postAsAdmin(url, entity, type);
+    }
+
     public T update(T entity) {
         return httpClient.put(url, entity, type);
     }

@@ -18,13 +18,15 @@ public class HttpClientTest {
     public void checkAuthorizationHeaderTest() {
         String username = "username";
         String password = "password";
+        String adminUsername = "usernameAdmin";
+        String adminPassword = "passwordAdmin";
 
         stubFor(get(anyUrl())
                 .withBasicAuth(username, password)
                 .willReturn(aResponse()
                         .withStatus(200)));
 
-        new HttpClient(username, password)
+        new HttpClient(username, password, adminUsername, adminPassword)
                 .get("http://localhost:" + wireMock.port(), Object.class);
 
     }
