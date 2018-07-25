@@ -39,6 +39,18 @@ public class RestcommClient {
         return getEndpoints("clients", baseRestcommUrl + "/Clients.json", Client.class);
     }
 
+    public RestEndpoints<Account> getAccountsEndpoints() {
+        return getEndpoints("accounts", baseRestcommUrlWithoutAccount + ".json", Account.class);
+    }
+
+    public RestEndpoints<Account> getAccountsEndpoints(String subAccountSid) {
+        return getEndpoints("accounts", baseRestcommUrlWithoutAccount + ".json/" + subAccountSid, Account.class);
+    }
+
+    public RestEndpoints<Application> getApplicationsEndpoints() {
+        return getEndpoints("applications", baseRestcommUrl + "/Applications.json", Application.class);
+    }
+
     public RestEndpoints<IncomingPhoneNumber> getIncomingPhoneNumbersEndpoints() {
         return getEndpoints("incoming-phone-numbers", baseRestcommUrl + "/IncomingPhoneNumbers.json", IncomingPhoneNumber.class);
     }
@@ -54,6 +66,10 @@ public class RestcommClient {
     public RestEndpoints<ShortMessage> getShortMessagesEndpoints(String subAccountSid) {
         return getEndpoints("messages", baseRestcommUrlWithoutAccount + "/" + subAccountSid + "/SMS/Messages.json",
                 ShortMessage.class);
+    }
+
+    public RestEndpoints<ExtensionData> getExtensions() {
+        return getEndpoints("extensions", baseUrl + "/restcomm/2012-04-24/ExtensionsConfiguration.json", ExtensionData.class);
     }
 
     private <T> RestEndpoints<T> getEndpoints(String endpoint, String defaultUrl, Class<T> type) {
