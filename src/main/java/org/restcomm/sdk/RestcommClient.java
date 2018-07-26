@@ -1,6 +1,6 @@
 package org.restcomm.sdk;
 
-import java.util.HashMap;
+import java.util.Collections;
 import java.util.Map;
 
 import org.restcomm.sdk.domain.Account;
@@ -22,24 +22,22 @@ public class RestcommClient {
 
     private final HttpClient httpClient;
 
-    protected final String baseRestcommUrl;
-    protected final String baseRestcommUrlWithoutAccount;
+    private final String baseRestcommUrlWithoutAccount;
 
-    protected final String baseUrl;
+    private final String baseUrl;
     private final String accountSid;
 
-    protected final Map<String, String> endpoints;
+    private final Map<String, String> endpoints;
 
     public RestcommClient(RestcommClientConfiguration config) {
         this.httpClient = new HttpClient(config.getAccountSid(), config.getAccountToken());
 
         this.baseUrl = config.getBaseUrl();
         this.baseRestcommUrlWithoutAccount = baseUrl + "/restcomm/2012-04-24/Accounts";
-        this.baseRestcommUrl = baseUrl + "/restcomm/2012-04-24/Accounts/" + config.getAccountSid();
         if (config.getEndpoints() != null)
             this.endpoints = config.getEndpoints();
         else
-            this.endpoints = new HashMap<String, String>();
+            this.endpoints = Collections.emptyMap();
         this.accountSid = config.getAccountSid();
     }
 
@@ -48,24 +46,40 @@ public class RestcommClient {
     }
 
     public RestEndpoints<CallPage> getCallsEndpoint() {
-        return getEndpoints("calls", baseRestcommUrl + "/Calls.json", CallPage.class);
+        return getCallsEndpoint("calls", this.accountSid);
     }
 
     public RestEndpoints<CallPage> getCallsEndpoint(String accountSid) {
-        return getEndpoints("calls", baseRestcommUrlWithoutAccount + "/" + accountSid + "/Calls.json", CallPage.class);
+        return getCallsEndpoint("calls-" + accountSid, accountSid);
+    }
+
+    private RestEndpoints<CallPage> getCallsEndpoint(String endpoint, String accountSid) {
+        return getEndpoints(endpoint, baseRestcommUrlWithoutAccount + "/" + accountSid + "/Calls.json", CallPage.class);
     }
 
     public RestEndpoints<RecordingPage> getRecordingsEndpoint() {
-        return getEndpoints("recordings", baseRestcommUrl + "/Recordings.json", RecordingPage.class);
+        return getRecordingsEndpoint("recordings", this.accountSid);
     }
 
     public RestEndpoints<RecordingPage> getRecordingsEndpoint(String accountSid) {
-        return getEndpoints("recordings", baseRestcommUrlWithoutAccount + "/" + accountSid + "/Recordings.json",
+        return getRecordingsEndpoint("recordings-" + accountSid, accountSid);
+    }
+
+    private RestEndpoints<RecordingPage> getRecordingsEndpoint(String endpoint, String accountSid) {
+        return getEndpoints(endpoint, baseRestcommUrlWithoutAccount + "/" + accountSid + "/Recordings.json",
                 RecordingPage.class);
     }
 
     public RestEndpoints<Client> getClientsEndpoints() {
-        return getEndpoints("clients", baseRestcommUrl + "/Clients.json", Client.class);
+        return getClientsEndpoints("clients", this.accountSid);
+    }
+
+    public RestEndpoints<Client> getClientsEndpoints(String accountSid) {
+        return getClientsEndpoints("clients-" + accountSid, accountSid);
+    }
+
+    private RestEndpoints<Client> getClientsEndpoints(String endpoint, String accountSid) {
+        return getEndpoints(endpoint, baseRestcommUrlWithoutAccount + "/" + accountSid + "/Clients.json", Client.class);
     }
 
     public RestEndpoints<Account> getAccountsEndpoints() {
@@ -73,25 +87,33 @@ public class RestcommClient {
     }
 
     public RestEndpoints<Account> getAccountsEndpoints(String accountSid) {
-        return getEndpoints("accounts", baseRestcommUrlWithoutAccount + ".json/" + accountSid, Account.class);
+        return getEndpoints("accounts-" + accountSid, baseRestcommUrlWithoutAccount + ".json/" + accountSid, Account.class);
     }
 
     public RestEndpoints<Application> getApplicationsEndpoints() {
-        return getEndpoints("applications", baseRestcommUrl + "/Applications.json", Application.class);
+        return getApplicationsEndpoints("applications", this.accountSid);
     }
 
     public RestEndpoints<Application> getApplicationsEndpoints(String accountSid) {
-        return getEndpoints("applications", baseRestcommUrlWithoutAccount + "/" + accountSid + "/Applications.json",
+        return getApplicationsEndpoints("applications-" + accountSid, accountSid);
+    }
+
+    private RestEndpoints<Application> getApplicationsEndpoints(String endpoint, String accountSid) {
+        return getEndpoints(endpoint, baseRestcommUrlWithoutAccount + "/" + accountSid + "/Applications.json",
                 Application.class);
     }
 
     public RestEndpoints<IncomingPhoneNumber> getIncomingPhoneNumbersEndpoints() {
-        return getEndpoints("incoming-phone-numbers", baseRestcommUrl + "/IncomingPhoneNumbers.json", IncomingPhoneNumber.class);
+        return getIncomingPhoneNumbersEndpoints("incoming-phone-numbers", this.accountSid);
     }
 
     public RestEndpoints<IncomingPhoneNumber> getIncomingPhoneNumbersEndpoints(String accountSid) {
-        return getEndpoints("incoming-phone-numbers", baseRestcommUrlWithoutAccount + "/" + accountSid
-                + "/IncomingPhoneNumbers.json", IncomingPhoneNumber.class);
+        return getIncomingPhoneNumbersEndpoints("incoming-phone-numbers-" + accountSid, accountSid);
+    }
+
+    private RestEndpoints<IncomingPhoneNumber> getIncomingPhoneNumbersEndpoints(String endpoint, String accountSid) {
+        return getEndpoints(endpoint, baseRestcommUrlWithoutAccount + "/" + accountSid + "/IncomingPhoneNumbers.json",
+                IncomingPhoneNumber.class);
     }
 
     public RestEndpoints<XmppMapping> getXmppMappingsEndpoints() {
@@ -99,11 +121,15 @@ public class RestcommClient {
     }
 
     public RestEndpoints<ShortMessage> getShortMessagesEndpoints() {
-        return getEndpoints("messages", baseRestcommUrl + "/SMS/Messages.json", ShortMessage.class);
+        return getShortMessagesEndpoints("messages", this.accountSid);
     }
 
     public RestEndpoints<ShortMessage> getShortMessagesEndpoints(String accountSid) {
-        return getEndpoints("messages", baseRestcommUrlWithoutAccount + "/" + accountSid + "/SMS/Messages.json",
+        return getShortMessagesEndpoints("messages-" + accountSid, accountSid);
+    }
+
+    private RestEndpoints<ShortMessage> getShortMessagesEndpoints(String endpoint, String accountSid) {
+        return getEndpoints(endpoint, baseRestcommUrlWithoutAccount + "/" + accountSid + "/SMS/Messages.json",
                 ShortMessage.class);
     }
 
@@ -111,7 +137,7 @@ public class RestcommClient {
         return getEndpoints("extensions", baseUrl + "/restcomm/2012-04-24/ExtensionsConfiguration.json", ExtensionData.class);
     }
 
-    protected <T> RestEndpoints<T> getEndpoints(String endpoint, String defaultUrl, Class<T> type) {
+    private <T> RestEndpoints<T> getEndpoints(String endpoint, String defaultUrl, Class<T> type) {
         String url = endpoints.getOrDefault(endpoint, defaultUrl);
         return new RestEndpoints(url, httpClient, type);
     }
