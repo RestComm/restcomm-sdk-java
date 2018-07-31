@@ -8,7 +8,7 @@ import lombok.Getter;
 public class Account {
 
     private String sid;
-    private String organization; // !!!
+    private String organization;
     private String friendlyName;
     private String emailAddress;
     private String password;

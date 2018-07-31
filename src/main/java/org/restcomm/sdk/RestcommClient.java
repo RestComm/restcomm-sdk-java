@@ -11,6 +11,7 @@ import org.restcomm.sdk.domain.ExtensionData;
 import org.restcomm.sdk.domain.IncomingPhoneNumber;
 import org.restcomm.sdk.domain.RecordingPage;
 import org.restcomm.sdk.domain.ShortMessage;
+import org.restcomm.sdk.domain.XmppDomain;
 import org.restcomm.sdk.domain.XmppMapping;
 import org.restcomm.sdk.endpoints.RestEndpoints;
 
@@ -118,6 +119,10 @@ public class RestcommClient {
 
     public RestEndpoints<XmppMapping> getXmppMappingsEndpoints() {
         return getEndpoints("xmpp-mappings", baseUrl + "/xmpp/xmppMappings", XmppMapping.class);
+    }
+
+    public RestEndpoints<XmppDomain> getXmppDomainsEndpoints() {
+        return getEndpoints("xmpp-domain", baseUrl + "/xmpp/domains", XmppDomain.class);
     }
 
     public RestEndpoints<ShortMessage> getShortMessagesEndpoints() {

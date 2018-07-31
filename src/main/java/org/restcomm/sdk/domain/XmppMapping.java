@@ -16,4 +16,6 @@ public class XmppMapping implements Restful {
     private String jabberAddress;
     @JsonProperty("externalAddress")
     private String externalAddress;
+    @JsonProperty("domain")
+    private String domain;
 }
