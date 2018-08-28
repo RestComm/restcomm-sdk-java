@@ -1,0 +1,26 @@
+[
+  {
+    "friendlyName": "11111111111",
+    "phoneNumber": "11111111111",
+    "isoCountry": "US",
+    "cost": "0.67",
+    "voiceCapable": true,
+    "smsCapable": true
+  },
+  {
+    "friendlyName": "12222222222",
+    "phoneNumber": "12222222222",
+    "isoCountry": "US",
+    "cost": "0.67",
+    "voiceCapable": true,
+    "smsCapable": false
+  },
+  {
+    "friendlyName": "13333333333",
+    "phoneNumber": "13333333333",
+    "isoCountry": "US",
+    "cost": "0.67",
+    "voiceCapable": true,
+    "smsCapable": true
+  }
+]
