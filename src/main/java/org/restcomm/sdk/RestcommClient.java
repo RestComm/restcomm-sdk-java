@@ -5,6 +5,7 @@ import java.util.Map;
 
 import org.restcomm.sdk.domain.Account;
 import org.restcomm.sdk.domain.Application;
+import org.restcomm.sdk.domain.AvailablePhoneNumber;
 import org.restcomm.sdk.domain.CallPage;
 import org.restcomm.sdk.domain.Client;
 import org.restcomm.sdk.domain.ExtensionData;
@@ -102,6 +103,19 @@ public class RestcommClient {
     private RestEndpoints<Application> getApplicationsEndpoints(String endpoint, String accountSid) {
         return getEndpoints(endpoint, baseRestcommUrlWithoutAccount + "/" + accountSid + "/Applications.json",
                 Application.class);
+    }
+
+    public RestEndpoints<AvailablePhoneNumber> getAvailablePhoneNumbersEndpoints() {
+        return getAvailablePhoneNumbersEndpoints("available-phone-numbers", this.accountSid);
+    }
+
+    public RestEndpoints<AvailablePhoneNumber> getAvailablePhoneNumbersEndpoints(String accountSid) {
+        return getAvailablePhoneNumbersEndpoints("available-phone-numbers-" + accountSid, accountSid);
+    }
+
+    private RestEndpoints<AvailablePhoneNumber> getAvailablePhoneNumbersEndpoints(String endpoint, String accountSid) {
+        // FIXME Hard-coded U.S. country ISO in URL
+        return getEndpoints(endpoint, baseRestcommUrlWithoutAccount + "/" + accountSid + "/AvailablePhoneNumbers/US/Local.json", AvailablePhoneNumber.class);
     }
 
     public RestEndpoints<IncomingPhoneNumber> getIncomingPhoneNumbersEndpoints() {
