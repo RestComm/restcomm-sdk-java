@@ -1,5 +1,6 @@
 package org.restcomm.sdk.domain;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
@@ -12,11 +13,16 @@ import lombok.Setter;
 @Setter
 public class AvailablePhoneNumber {
 
+    @JsonProperty("friendlyName")
     private String friendlyName;
+    @JsonProperty("phoneNumber")
     private String phoneNumber;
+    @JsonProperty("isoCountry")
     private String isoCountry;
     private String cost;
+    @JsonProperty("voiceCapable")
     private Boolean voiceCapable;
+    @JsonProperty("smsCapable")
     private Boolean smsCapable;
 
 }
