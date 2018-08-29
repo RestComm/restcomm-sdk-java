@@ -1,5 +1,10 @@
 package org.restcomm.sdk.endpoints;
 
+import com.fasterxml.jackson.databind.DeserializationFeature;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import static com.fasterxml.jackson.databind.PropertyNamingStrategy.SNAKE_CASE;
+import com.fasterxml.jackson.databind.type.CollectionType;
+import com.fasterxml.jackson.databind.type.TypeFactory;
 import com.github.tomakehurst.wiremock.junit.WireMockRule;
 import org.junit.Assert;
 import org.junit.Rule;
@@ -51,21 +56,21 @@ public class AvailablePhoneNumbersEndpointTest {
         // then
         assertNotNull(availablePhoneNumbers);
         assertEquals(3, availablePhoneNumbers.size());
-        assertEquals("+11111111111", availablePhoneNumbers.get(0).getFriendlyName());
+        assertEquals("11111111111", availablePhoneNumbers.get(0).getFriendlyName());
         assertEquals("11111111111", availablePhoneNumbers.get(0).getPhoneNumber());
         assertEquals("US", availablePhoneNumbers.get(0).getIsoCountry());
         assertEquals("0.67", availablePhoneNumbers.get(0).getCost());
         assertTrue(availablePhoneNumbers.get(0).getVoiceCapable());
         assertTrue(availablePhoneNumbers.get(0).getSmsCapable());
 
-        assertEquals("+12222222222", availablePhoneNumbers.get(1).getFriendlyName());
+        assertEquals("12222222222", availablePhoneNumbers.get(1).getFriendlyName());
         assertEquals("12222222222", availablePhoneNumbers.get(1).getPhoneNumber());
         assertEquals("US", availablePhoneNumbers.get(1).getIsoCountry());
         assertEquals("0.67", availablePhoneNumbers.get(1).getCost());
         assertTrue(availablePhoneNumbers.get(1).getVoiceCapable());
         assertFalse(availablePhoneNumbers.get(1).getSmsCapable());
 
-        assertEquals("+13333333333", availablePhoneNumbers.get(2).getFriendlyName());
+        assertEquals("13333333333", availablePhoneNumbers.get(2).getFriendlyName());
         assertEquals("13333333333", availablePhoneNumbers.get(2).getPhoneNumber());
         assertEquals("US", availablePhoneNumbers.get(2).getIsoCountry());
         assertEquals("0.67", availablePhoneNumbers.get(2).getCost());

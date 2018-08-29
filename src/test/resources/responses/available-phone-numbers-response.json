@@ -1,26 +1,26 @@
 [
   {
-    "friendlyName": "11111111111",
-    "phoneNumber": "11111111111",
-    "isoCountry": "US",
+    "friendly_name": "11111111111",
+    "phone_number": "11111111111",
+    "iso_country": "US",
     "cost": "0.67",
-    "voiceCapable": true,
-    "smsCapable": true
+    "voice_capable": true,
+    "sms_capable": true
   },
   {
-    "friendlyName": "12222222222",
-    "phoneNumber": "12222222222",
-    "isoCountry": "US",
+    "friendly_name": "12222222222",
+    "phone_number": "12222222222",
+    "iso_country": "US",
     "cost": "0.67",
-    "voiceCapable": true,
-    "smsCapable": false
+    "voice_capable": true,
+    "sms_capable": false
   },
   {
-    "friendlyName": "13333333333",
-    "phoneNumber": "13333333333",
-    "isoCountry": "US",
+    "friendly_name": "13333333333",
+    "phone_number": "13333333333",
+    "iso_country": "US",
     "cost": "0.67",
-    "voiceCapable": true,
-    "smsCapable": true
+    "voice_capable": true,
+    "sms_capable": true
   }
 ]
