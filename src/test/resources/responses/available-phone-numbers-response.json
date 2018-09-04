@@ -1,0 +1,82 @@
+[
+  {
+    "friendlyName": "+12017628085",
+    "phoneNumber": "12017628085",
+    "isoCountry": "US",
+    "cost": "0.67",
+    "voiceCapable": true,
+    "smsCapable": true
+  },
+  {
+    "friendlyName": "+12017713036",
+    "phoneNumber": "12017713036",
+    "isoCountry": "US",
+    "cost": "0.67",
+    "voiceCapable": true,
+    "smsCapable": true
+  },
+  {
+    "friendlyName": "+12017713096",
+    "phoneNumber": "12017713096",
+    "isoCountry": "US",
+    "cost": "0.67",
+    "voiceCapable": true,
+    "smsCapable": true
+  },
+  {
+    "friendlyName": "+12017713098",
+    "phoneNumber": "12017713098",
+    "isoCountry": "US",
+    "cost": "0.67",
+    "voiceCapable": true,
+    "smsCapable": true
+  },
+  {
+    "friendlyName": "+12017713105",
+    "phoneNumber": "12017713105",
+    "isoCountry": "US",
+    "cost": "0.67",
+    "voiceCapable": true,
+    "smsCapable": true
+  },
+  {
+    "friendlyName": "+12017713106",
+    "phoneNumber": "12017713106",
+    "isoCountry": "US",
+    "cost": "0.67",
+    "voiceCapable": true,
+    "smsCapable": true
+  },
+  {
+    "friendlyName": "+12017713110",
+    "phoneNumber": "12017713110",
+    "isoCountry": "US",
+    "cost": "0.67",
+    "voiceCapable": true,
+    "smsCapable": true
+  },
+  {
+    "friendlyName": "+12017718014",
+    "phoneNumber": "12017718014",
+    "isoCountry": "US",
+    "cost": "0.67",
+    "voiceCapable": true,
+    "smsCapable": true
+  },
+  {
+    "friendlyName": "+12017718015",
+    "phoneNumber": "12017718015",
+    "isoCountry": "US",
+    "cost": "0.67",
+    "voiceCapable": true,
+    "smsCapable": true
+  },
+  {
+    "friendlyName": "+12017718019",
+    "phoneNumber": "12017718019",
+    "isoCountry": "US",
+    "cost": "0.67",
+    "voiceCapable": true,
+    "smsCapable": true
+  }
+]

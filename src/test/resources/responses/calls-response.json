@@ -1,0 +1,39 @@
+{
+  "page": 0,
+  "num_pages": 0,
+  "page_size": 50,
+  "total": 1,
+  "start": "0",
+  "end": "1",
+  "uri": "/2012-04-24/Accounts/ACa12345/Calls",
+  "first_page_uri": "/2012-04-24/Accounts/ACa12345/Calls?Page\u003d0\u0026PageSize\u003d50",
+  "previous_page_uri": "null",
+  "next_page_uri": "null",
+  "last_page_uri": "/2012-04-24/Accounts/ACa12345/Calls?Page\u003d0\u0026PageSize\u003d50",
+  "calls": [
+    {
+      "sid": "ID12345-CA12345",
+      "InstanceId": "ID12345",
+      "date_created": "Fri, 18 May 2018 14:57:59 +0000",
+      "date_updated": "Fri, 18 May 2018 14:58:59 +0000",
+      "account_sid": "ACa12345",
+      "to": "1708a040dd94e22b04b721b21d",
+      "from": "fd5a300f60744d6eb013e06f64da2132",
+      "phone_number_sid": "ACa12345",
+      "status": "failed",
+      "start_time": "2018-05-18T14:57:59.000Z",
+      "end_time": "2018-05-18T14:58:59.000Z",
+      "duration": 0,
+      "price": 0.0,
+      "price_unit": "USD",
+      "direction": "inbound",
+      "api_version": "2012-04-24",
+      "caller_name": "Unknown",
+      "uri": "/2012-04-24/Accounts/ACa12345/Calls/ID12345-CA12345.json",
+      "subresource_uris": {
+        "notifications": "/2012-04-24/Accounts/ACa12345/Calls/ID12345-CA12345/Notifications.json",
+        "recordings": "/2012-04-24/Accounts/ACa12345/Calls/ID12345-CA12345/Recordings.json"
+      }
+    }
+  ]
+}
