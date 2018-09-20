@@ -38,6 +38,10 @@ public class RestEndpoints<T> extends Endpoints {
         return httpClient.post(url, entity, type);
     }
 
+    public T updatePost(String id, T entity) {
+        return httpClient.post(url + "/" + id, entity, type);
+    }
+
     public T update(T entity) {
         return httpClient.put(url, entity, type);
     }
