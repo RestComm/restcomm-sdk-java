@@ -22,5 +22,6 @@ public class ShortMessage {
     private String uri;
     private String error_code;
     private String error_message;
+    private String statusCallback;
 
 }
