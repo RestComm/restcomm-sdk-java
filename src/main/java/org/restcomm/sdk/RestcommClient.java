@@ -14,6 +14,7 @@ import org.restcomm.sdk.domain.RecordingPage;
 import org.restcomm.sdk.domain.ShortMessage;
 import org.restcomm.sdk.domain.XmppDomain;
 import org.restcomm.sdk.domain.XmppMapping;
+import org.restcomm.sdk.domain.XmppWhitelistRule;
 import org.restcomm.sdk.endpoints.RestEndpoints;
 
 /**
@@ -137,6 +138,10 @@ public class RestcommClient {
 
     public RestEndpoints<XmppDomain> getXmppDomainsEndpoints() {
         return getEndpoints("xmpp-domain", baseUrl + "/xmpp/domains", XmppDomain.class);
+    }
+
+    public RestEndpoints<XmppWhitelistRule> getXmppWhitelistRulesEndpoints() {
+        return getEndpoints("xmpp-whitelistRules", baseUrl + "/xmpp/whitelistRules", XmppWhitelistRule.class);
     }
 
     public RestEndpoints<ShortMessage> getShortMessagesEndpoints() {
