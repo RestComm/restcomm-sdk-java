@@ -8,7 +8,8 @@ import lombok.Getter;
 @Builder(toBuilder = true)
 @Getter
 public class XmppWhitelistRule implements Restful {
-
+    private String id;
+    
     @JsonProperty("ipAddress")
     private String ipAddress;
 
