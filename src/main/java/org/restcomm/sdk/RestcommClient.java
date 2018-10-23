@@ -8,8 +8,11 @@ import org.restcomm.sdk.domain.Application;
 import org.restcomm.sdk.domain.AvailablePhoneNumber;
 import org.restcomm.sdk.domain.CallPage;
 import org.restcomm.sdk.domain.Client;
+import org.restcomm.sdk.domain.Conference;
+import org.restcomm.sdk.domain.ConferencePage;
 import org.restcomm.sdk.domain.ExtensionData;
 import org.restcomm.sdk.domain.IncomingPhoneNumber;
+import org.restcomm.sdk.domain.Participant;
 import org.restcomm.sdk.domain.RecordingPage;
 import org.restcomm.sdk.domain.ShortMessage;
 import org.restcomm.sdk.domain.XmppDomain;
@@ -156,6 +159,45 @@ public class RestcommClient {
         return getEndpoints(endpoint, baseRestcommUrlWithoutAccount + "/" + accountSid + "/SMS/Messages.json",
                 ShortMessage.class);
     }
+
+    public RestEndpoints<Conference> getConferenceEndpoints() {
+        return getConferenceEndpoints("conference", this.accountSid);
+    }
+
+    public RestEndpoints<Conference> getConferenceEndpoints(String accountSid) {
+        return getConferenceEndpoints("conference-" + accountSid, accountSid);
+    }
+
+    private RestEndpoints<Conference> getConferenceEndpoints(String endpoint, String accountSid) {
+        return getEndpoints(endpoint, baseRestcommUrlWithoutAccount + "/" + accountSid + "/Conferences.json",
+                Conference.class);
+    }
+
+    public RestEndpoints<ConferencePage> getConferencesEndpoints() {
+        return getConferencesEndpoints("conferences", this.accountSid);
+    }
+
+    public RestEndpoints<ConferencePage> getConferencesEndpoints(String accountSid) {
+        return getConferencesEndpoints("conferences-" + accountSid, accountSid);
+    }
+
+    private RestEndpoints<ConferencePage> getConferencesEndpoints(String endpoint, String accountSid) {
+        return getEndpoints(endpoint, baseRestcommUrlWithoutAccount + "/" + accountSid + "/Conferences.json",
+                ConferencePage.class);
+    }
+
+//    public RestEndpoints<Participant> getParticipantsEndpoints(String conferenceSid) {
+//        return getParticipantsEndpoints("participants-" + conferenceSid, this.accountSid, conferenceSid);
+//    }
+//
+//    public RestEndpoints<Participant> getParticipantsEndpoints(String accountSid, String conferenceSid) {
+//        return getParticipantsEndpoints("participants-" + conferenceSid + "-" + accountSid, accountSid, conferenceSid);
+//    }
+//
+//    private RestEndpoints<Participant> getParticipantsEndpoints(String endpoint, String accountSid, String conferenceSid) {
+//        return getEndpoints(endpoint, baseRestcommUrlWithoutAccount + "/" + accountSid + "/Conferences/" + conferenceSid
+//                + "/Participants.json", Participant.class);
+//    }
 
     public RestEndpoints<ExtensionData> getExtensions() {
         return getEndpoints("extensions", baseUrl + "/restcomm/2012-04-24/ExtensionsConfiguration.json", ExtensionData.class);
