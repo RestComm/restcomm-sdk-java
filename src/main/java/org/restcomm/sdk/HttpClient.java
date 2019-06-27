@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.JavaType;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.apache.http.Consts;
 import org.apache.http.client.fluent.Content;
 import org.apache.http.client.fluent.Executor;
 import org.apache.http.client.fluent.Request;
@@ -117,7 +118,7 @@ public class HttpClient {
                             String value = entry.getValue().toString();
                             return new BasicNameValuePair(name, value);
                         })
-                        .collect(Collectors.toList()));
+                        .collect(Collectors.toList()), Consts.UTF_8);
             }
         } catch (Exception e) {
             throw new RestcommClientException(e);
