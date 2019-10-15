@@ -1,7 +1,9 @@
 package org.restcomm.sdk.domain;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 /**
@@ -13,6 +15,8 @@ import lombok.ToString;
 @Builder(toBuilder = true)
 @Getter
 @ToString
+@NoArgsConstructor
+@AllArgsConstructor
 public class Recording {
 
     private String sid;
