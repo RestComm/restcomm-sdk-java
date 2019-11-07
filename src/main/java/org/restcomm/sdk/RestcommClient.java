@@ -14,6 +14,8 @@ import org.restcomm.sdk.domain.ShortMessage;
 import org.restcomm.sdk.domain.XmppDomain;
 import org.restcomm.sdk.domain.XmppMapping;
 import org.restcomm.sdk.domain.XmppWhitelistRule;
+import org.restcomm.sdk.domain.solutions.MXEnterpriseResponse;
+import org.restcomm.sdk.domain.solutions.MXEnterprisesResponse;
 import org.restcomm.sdk.endpoints.RestEndpoints;
 import org.restcomm.sdk.domain.solutions.MXDomainResponse;
 import org.restcomm.sdk.domain.solutions.MXDomainsResponse;
@@ -157,7 +159,7 @@ public class RestcommClient {
     }
 
     public RestEndpoints<MXMappingsResponse> getMXMappingsSearchEndpoints() {
-        return getEndpoints("mx-mappings", baseUrl + "/messageexchange/mappings/search", MXMappingsResponse.class);
+        return getEndpoints("mx-mappings-search", baseUrl + "/messageexchange/mappings/search", MXMappingsResponse.class);
     }
 
     public RestEndpoints<MXDomainResponse> getMxDomainsEndpoints() {
@@ -173,7 +175,15 @@ public class RestcommClient {
     }
 
     public RestEndpoints<MXWhitelistsResponse> getMXWhitelistRulesSearchEndpoints() {
-        return getEndpoints("mx-whitelistRules", baseUrl + "/messageexchange/whitelist/search", MXWhitelistsResponse.class);
+        return getEndpoints("mx-whitelistRules-search", baseUrl + "/messageexchange/whitelist/search", MXWhitelistsResponse.class);
+    }
+
+    public RestEndpoints<MXEnterpriseResponse> getMXEnterpriseEndpoints() {
+        return getEndpoints("mx-enterprise", baseUrl + "/messageexchange/enterprise", MXEnterpriseResponse.class);
+    }
+
+    public RestEndpoints<MXEnterprisesResponse> getMXEnterprisesSearchEndpoints() {
+        return getEndpoints("mx-enterprise-search", baseUrl + "/messageexchange/enterprise/search", MXEnterprisesResponse.class);
     }
 
     public RestEndpoints<ShortMessage> getShortMessagesEndpoints() {
