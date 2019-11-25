@@ -1,7 +1,9 @@
 package org.restcomm.sdk.domain;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 import java.util.List;
@@ -15,6 +17,8 @@ import java.util.List;
 @Builder(toBuilder = true)
 @Getter
 @ToString
+@NoArgsConstructor
+@AllArgsConstructor
 public class RecordingPage extends AbstractPageHeader {
 
     private List<Recording> recordings;

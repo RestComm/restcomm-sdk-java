@@ -2,6 +2,7 @@ package org.restcomm.sdk.endpoints;
 
 import com.fasterxml.jackson.databind.type.TypeFactory;
 import org.restcomm.sdk.HttpClient;
+import org.restcomm.sdk.domain.solutions.SolutionsResponse;
 
 import java.util.List;
 
@@ -35,15 +36,31 @@ public class RestEndpoints<T> extends Endpoints {
     }
 
     public T create(T entity) {
-        return httpClient.post(url, entity, type);
+        if (entity instanceof SolutionsResponse) {
+            SolutionsResponse solutionsResponse = (SolutionsResponse) entity;
+            return httpClient.post(url, solutionsResponse.getEntity(), type);
+        } else {
+            return httpClient.post(url, entity, type);
+        }
     }
 
     public T updatePost(String id, T entity) {
-        return httpClient.post(url + "/" + id, entity, type);
+        if (entity instanceof SolutionsResponse) {
+            SolutionsResponse solutionsResponse = (SolutionsResponse) entity;
+            return httpClient.post(url + "/" + id, solutionsResponse.getEntity(), type);
+        } else {
+            return httpClient.post(url + "/" + id, entity, type);
+        }
+
     }
 
     public T update(T entity) {
-        return httpClient.put(url, entity, type);
+        if (entity instanceof SolutionsResponse) {
+            SolutionsResponse solutionsResponse = (SolutionsResponse) entity;
+            return httpClient.put(url, solutionsResponse.getEntity(), type);
+        } else {
+            return httpClient.put(url, entity, type);
+        }
     }
 
     public void delete(String id) {

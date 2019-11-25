@@ -1,8 +1,5 @@
 package org.restcomm.sdk;
 
-import java.util.Collections;
-import java.util.Map;
-
 import org.restcomm.sdk.domain.Account;
 import org.restcomm.sdk.domain.Application;
 import org.restcomm.sdk.domain.AvailablePhoneNumber;
@@ -12,13 +9,23 @@ import org.restcomm.sdk.domain.Conference;
 import org.restcomm.sdk.domain.ConferencePage;
 import org.restcomm.sdk.domain.ExtensionData;
 import org.restcomm.sdk.domain.IncomingPhoneNumber;
-import org.restcomm.sdk.domain.Participant;
 import org.restcomm.sdk.domain.RecordingPage;
 import org.restcomm.sdk.domain.ShortMessage;
 import org.restcomm.sdk.domain.XmppDomain;
 import org.restcomm.sdk.domain.XmppMapping;
 import org.restcomm.sdk.domain.XmppWhitelistRule;
+import org.restcomm.sdk.domain.solutions.MXEnterpriseResponse;
+import org.restcomm.sdk.domain.solutions.MXEnterprisesResponse;
 import org.restcomm.sdk.endpoints.RestEndpoints;
+import org.restcomm.sdk.domain.solutions.MXDomainResponse;
+import org.restcomm.sdk.domain.solutions.MXDomainsResponse;
+import org.restcomm.sdk.domain.solutions.MXMappingResponse;
+import org.restcomm.sdk.domain.solutions.MXMappingsResponse;
+import org.restcomm.sdk.domain.solutions.MXWhitelistResponse;
+import org.restcomm.sdk.domain.solutions.MXWhitelistsResponse;
+
+import java.util.Collections;
+import java.util.Map;
 
 /**
  * @author oleg.agafonov@telestax.com (Oleg Agafonov)
@@ -145,6 +152,38 @@ public class RestcommClient {
 
     public RestEndpoints<XmppWhitelistRule> getXmppWhitelistRulesEndpoints() {
         return getEndpoints("xmpp-whitelistRules", baseUrl + "/xmpp/whitelistRules", XmppWhitelistRule.class);
+    }
+
+    public RestEndpoints<MXMappingResponse> getMXMappingsEndpoints() {
+        return getEndpoints("mx-mappings", baseUrl + "/messageexchange/mappings", MXMappingResponse.class);
+    }
+
+    public RestEndpoints<MXMappingsResponse> getMXMappingsSearchEndpoints() {
+        return getEndpoints("mx-mappings-search", baseUrl + "/messageexchange/mappings/search", MXMappingsResponse.class);
+    }
+
+    public RestEndpoints<MXDomainResponse> getMxDomainsEndpoints() {
+        return getEndpoints("mx-domain", baseUrl + "/messageexchange/domains", MXDomainResponse.class);
+    }
+
+    public RestEndpoints<MXDomainsResponse> getXmppDomainsSearchEndpoints() {
+        return getEndpoints("mx-domain-search", baseUrl + "/messageexchange/domains/search", MXDomainsResponse.class);
+    }
+
+    public RestEndpoints<MXWhitelistResponse> getMXWhitelistRulesEndpoints() {
+        return getEndpoints("mx-whitelistRules", baseUrl + "/messageexchange/whitelist", MXWhitelistResponse.class);
+    }
+
+    public RestEndpoints<MXWhitelistsResponse> getMXWhitelistRulesSearchEndpoints() {
+        return getEndpoints("mx-whitelistRules-search", baseUrl + "/messageexchange/whitelist/search", MXWhitelistsResponse.class);
+    }
+
+    public RestEndpoints<MXEnterpriseResponse> getMXEnterpriseEndpoints() {
+        return getEndpoints("mx-enterprise", baseUrl + "/messageexchange/enterprise", MXEnterpriseResponse.class);
+    }
+
+    public RestEndpoints<MXEnterprisesResponse> getMXEnterprisesSearchEndpoints() {
+        return getEndpoints("mx-enterprise-search", baseUrl + "/messageexchange/enterprise/search", MXEnterprisesResponse.class);
     }
 
     public RestEndpoints<ShortMessage> getShortMessagesEndpoints() {
