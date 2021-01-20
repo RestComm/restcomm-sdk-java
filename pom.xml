@@ -12,7 +12,7 @@
         <java.version>1.8</java.version>
         <lombok.project>1.18.10</lombok.project>
         <fluent-hc.version>4.5.5</fluent-hc.version>
-        <jackson.version>2.9.5</jackson.version>
+        <jackson.version>2.12.1</jackson.version>
         <junit.version>4.12</junit.version>
         <wiremock.version>2.16.0</wiremock.version>
     </properties>
