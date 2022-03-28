@@ -27,6 +27,10 @@ public class RestEndpoints<T> extends Endpoints {
         return httpClient.get(url + "/" + id, type);
     }
 
+    public HttpClient.ExtendedResponse<T> getWithHeaders(String id) {
+        return httpClient.getWithHeaders(url + "/" + id, type);
+    }
+
     public List<T> find(Object query) {
         return httpClient.get(url, query, TypeFactory.defaultInstance().constructCollectionType(List.class, type));
     }
