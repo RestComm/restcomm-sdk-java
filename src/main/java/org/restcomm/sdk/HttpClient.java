@@ -5,15 +5,23 @@ import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.JavaType;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.http.Consts;
+import org.apache.http.Header;
+import org.apache.http.HttpResponse;
 import org.apache.http.client.fluent.Content;
 import org.apache.http.client.fluent.Executor;
 import org.apache.http.client.fluent.Request;
+import org.apache.http.client.fluent.Response;
 import org.apache.http.entity.ContentType;
 import org.apache.http.message.BasicHeader;
 import org.apache.http.message.BasicNameValuePair;
 import org.restcomm.sdk.domain.Restful;
 
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.StringReader;
+import java.io.StringWriter;
+import java.nio.charset.StandardCharsets;
 import java.util.Map;
 import java.util.stream.Collectors;
 
@@ -64,6 +72,10 @@ public class HttpClient {
 
     public <T> T get(String url, Class<T> type) {
         return executeRequest(Request.Get(url), type);
+    }
+
+    public <T> ExtendedResponse<T> getWithHeaders(String url, Class<T> type) {
+        return executeRequestWithHeaders(Request.Get(url), type);
     }
 
     public <T> T put(String url, Object entity, Class<T> type) {
@@ -146,4 +158,52 @@ public class HttpClient {
             throw new RestcommClientException(e);
         }
     }
+
+    private <T> ExtendedResponse<T> executeRequestWithHeaders(Request request, Class<T> type) {
+        try {
+            request.addHeader(authoriztion);
+            Response response = executor.execute(request);
+            HttpResponse httpResponse = response.returnResponse();
+
+            InputStream inputStream = httpResponse.getEntity().getContent();
+            ByteArrayOutputStream result = new ByteArrayOutputStream();
+            byte[] buffer = new byte[1024];
+            for (int length; (length = inputStream.read(buffer)) != -1;) {
+                result.write(buffer, 0, length);
+            }
+            String responseContent = result.toString(StandardCharsets.UTF_8.name());
+            if (responseContent.isEmpty()) {
+                return null;
+            }
+            if (type.equals(String.class)) {
+                return new ExtendedResponse<T>((T) response, new Header[0]);
+            }
+            T jsonRes = deserializer.readValue(responseContent, type);
+
+            ExtendedResponse<T> res = new ExtendedResponse<T>(jsonRes, httpResponse.getAllHeaders());
+            return res;
+        } catch (Exception e) {
+            throw new RestcommClientException(e);
+        }
+    }
+
+    public static class ExtendedResponse<T> {
+        private T jsonResponse;
+        private Header[] headers;
+
+        public ExtendedResponse(T jsonResponse, Header[] headers) {
+            this.jsonResponse = jsonResponse;
+            this.headers = headers;
+        }
+
+        public T getJsonResponse() {
+            return jsonResponse;
+        }
+
+        public Header[] getHeaders() {
+            return headers;
+        }
+
+    }
+
 }
